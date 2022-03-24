@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css"> --}}
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -148,17 +148,18 @@
                                             <label for="sponsor" class="form-label">Sponsor</label>
                                             <input type="text" name="sponsor" class="form-control" id="sponsor"
                                                 value="">
-                                            <div id="validateSponsor"></div>
+                                            <div id="validateSponsor" class="mb-1"></div>
+
                                         </div>
                                         <div class="col-12">
-                                            <div class="form-check">
+                                            <div class="form-check mb-1">
                                                 <input class="form-check-input" name="terms" type="checkbox" value="1"
                                                     id="acceptTerms" required>
                                                 <label class="form-check-label" for="acceptTerms">I agree and accept the
                                                     <a href="#">terms and conditions</a></label>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        <div class="col-12 mb-1">
                                             <button class="btn btn-warning w-100" type="submit">Create Account</button>
                                         </div>
                                         <div class="col-12">
@@ -183,9 +184,9 @@
 
 
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
-    </a>
+    </a> --}}
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
@@ -205,7 +206,7 @@
     <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
     <!-- END: Page JS-->
     <script src="../../../assets/js/main.js"></script>
-    <script>
+    {{-- <script>
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({
@@ -214,7 +215,7 @@
                 });
             }
         })
-    </script>
+    </script> --}}
     <script>
         const Toast = Swal.mixin({
             toast: true,

@@ -51,7 +51,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css"> --}}
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -162,9 +162,9 @@
 
 
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>
-    </a>
+    </a> --}}
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
@@ -184,7 +184,7 @@
     <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
     <!-- END: Page JS-->
     <script src="../../../assets/js/main.js"></script>
-    <script>
+    {{-- <script>
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({
@@ -193,7 +193,7 @@
                 });
             }
         })
-    </script>
+    </script> --}}
 
 
     {{-- <script src="https://tokyosecurities.com/assets/vendor/apexcharts/apexcharts.min.js"></script>

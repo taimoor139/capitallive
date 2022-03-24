@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css"> --}}
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -101,7 +101,7 @@
 
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email</label>
-                                            <div class="input-group has-validation">
+                                            <div class="input-group has-validation mb-1">
                                                 <input type="text" id="email" name="email" class="form-control"
                                                     placeholder="Email/Username" @error('email') is-invalid @enderror"
                                                     value="{{ old('email') }}" required autocomplete="email"
@@ -112,10 +112,13 @@
                                     </span>
                                 @enderror
                                             </div>
+
+
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label">Password</label>
-                                            <div class="input-group has-validation">
+
+                                            <div class="input-group has-validation mb-1">
                                                 <input type="password" id="password" name="password"
                                                     class="form-control" placeholder="Password"
                                                     @error('password') is-invalid @enderror" required
@@ -125,11 +128,17 @@
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
+
                                             </div>
+
                                         </div>
-                                        <div class="col-12">
+
+                                        <div class="col-12 mb-1">
                                             <button class="btn btn-warning w-100" type="submit">Login</button>
+
+
                                         </div>
+
                                         <div class="col-12 text-center">
                                             <p class="small mb-0"><a
                                                     href="{{ route('register') }}">Create
@@ -154,9 +163,7 @@
 
 
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-        <i class="bi bi-arrow-up-short"></i>
-    </a>
+
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
@@ -176,7 +183,7 @@
     <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
     <!-- END: Page JS-->
     <script src="../../../assets/js/main.js"></script>
-    <script>
+    {{-- <script>
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({
@@ -185,7 +192,7 @@
                 });
             }
         })
-    </script>
+    </script> --}}
 </body>
 
 </html>
