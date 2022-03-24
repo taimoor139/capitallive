@@ -1,0 +1,32 @@
+.error{
+    color: red;
+    font-weight: 400;
+}
+.border-top-warning{
+   border-top: 3px solid #FD6A4F;
+}
+.border-bottom-warning{
+    border-bottom: 3px solid #FD6A4F;
+}
+.border-right-warning{
+    border-right: 3px solid #FD6A4F;
+}
+.border-left-warning{
+    border-left: 3px solid #FD6A4F;
+}
+.btn-warning{
+   color: #000;
+   background-color: #FD6A4F;
+   border-color: #FD6A4F;
+}
+.bg-warning{
+   --bs-bg-opacity: 1;
+   background-color: #FD6A4F !important;
+}
+.text-warning{
+   color: #FD6A4F !important;
+}
+.btn-outline-warning{
+   color: #FD6A4F;
+   border-color: #FD6A4F  ;
+}

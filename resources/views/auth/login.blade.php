@@ -9,24 +9,35 @@
     <meta content="" name="keywords">
     <meta name="csrf_token" content="1t1uvXmZME64svxALTCK6qzuiLjXhQOeN2gjTw0g" />
 
-    <link href="https://tokyosecurities.com/assets/img/favicon.png" rel="icon">
-    <link href="https://tokyosecurities.com/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/apexcharts.css">
+    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css"> --}}
+    <!-- END: Vendor CSS-->
 
-    <link href="https://tokyosecurities.com/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css"> --}}
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
 
-    <link href="https://tokyosecurities.com/assets/css/style.css?v=1" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/css/partner.css?v=1" rel="stylesheet">
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/partner.css">
     <script>
         function OTPTimer(date, id) {
             var d2 = new Date(date);
@@ -73,8 +84,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex justify-content-center py-4">
-                                <a href="https://tokyosecurities.com" class="logo d-flex align-items-center w-auto">
-                                    <img src="https://tokyosecurities.com/assets/logo/logo-black.png" alt=""
+                                <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto">
+                                    <img src="{{ asset('assets/logo.png') }}" alt=""
                                         style="max-height: 60px">
                                 </a>
                             </div>
@@ -121,14 +132,14 @@
                                         </div>
                                         <div class="col-12 text-center">
                                             <p class="small mb-0"><a
-                                                    href="https://tokyosecurities.com/register">Create
+                                                    href="{{ route('register') }}">Create
                                                     an account</a> | <a
-                                                    href="https://tokyosecurities.com/forgot-password">Forget
+                                                    href="{{ route('password.request') }}">Forget
                                                     Password?</a></p>
                                         </div>
                                         <div class="col-12 text-center">
                                             <hr>
-                                            <a href="https://tokyosecurities.com"><button type="button"
+                                            <a href="{{ url('/') }}"><button type="button"
                                                     class="btn btn-outline-primary">Back to Homepage</button></a>
                                         </div>
                                     </form>
@@ -147,30 +158,31 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    <script src="https://tokyosecurities.com/assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/chart.js/chart.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/echarts/echarts.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/quill/quill.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/php-email-form/validate.js'"></script>
+    <!-- BEGIN: Vendor JS-->
+    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
 
-    <script src="https://tokyosecurities.com/assets/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../../app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <!-- END: Page JS-->
+    <script src="../../../assets/js/main.js"></script>
     <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
             }
         })
     </script>

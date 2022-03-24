@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
     <meta name="csrf_token" content="aengrfDr54WOKRM0t4RrXsgPKUSpYO3VW4RzvlFp" />
 
-    {{-- <link href="https://tokyosecurities.com/assets/img/favicon.png" rel="icon">
+    <link href="https://tokyosecurities.com/assets/img/favicon.png" rel="icon">
     <link href="https://tokyosecurities.com/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -26,40 +26,7 @@
     <link href="https://tokyosecurities.com/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
     <link href="https://tokyosecurities.com/assets/css/style.css?v=1" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/css/partner.css?v=1" rel="stylesheet"> --}}
-
-    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
-
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/apexcharts.css">
-    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css"> --}}
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
-    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css"> --}}
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/partner.css">
-    <!-- END: Custom CSS-->
-
-
+    <link href="https://tokyosecurities.com/assets/css/partner.css?v=1" rel="stylesheet">
     <script>
         function OTPTimer(date, id) {
             var d2 = new Date(date);
@@ -106,8 +73,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex justify-content-center py-4">
-                                <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto">
-                                    <img src="{{ asset('assets/logo.png') }}" alt=""
+                                <a href="https://tokyosecurities.com" class="logo d-flex align-items-center w-auto">
+                                    <img src="https://tokyosecurities.com/assets/logo/logo-black.png" alt=""
                                         style="max-height: 60px">
                                 </a>
                             </div>
@@ -118,21 +85,15 @@
                                         <p class="text-center small">Please enter email associated with your account. We
                                             will send an password reset link.</p>
                                     </div>
-                                    <form  method="POST" action="{{ route('password.email') }}">
-                                        @csrf
+                                    <form id="forgotForm" method="post" action="#">
+                                        <input type="hidden" name="_token"
+                                            value="aengrfDr54WOKRM0t4RrXsgPKUSpYO3VW4RzvlFp">
                                         <div class="col-12">
                                             <label for="forgot_email" class="form-label">Enter your Email</label>
                                             <div class="input-group has-validation">
-                                                <input type="email" id="email" class="form-control"
-                                                    @error('email') is-invalid @enderror" name="email"
-                                                    value="{{ old('email') }}" required autocomplete="email"
-                                                    autofocus>
+                                                <input type="email" id="forgot_email" name="email" required
+                                                    class="form-control" value="" placeholder="Valid Email" autofocus>
                                                 <br>
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-12 mt-3">
@@ -141,13 +102,14 @@
                                             </button>
                                         </div>
                                         <div class="col-12 text-center mt-3">
-                                            <p class="small mb-0"><a href="{{ route('register') }}">Create
-                                                    an account</a> | <a href="{{ route('login') }}">Login
+                                            <p class="small mb-0"><a
+                                                    href="https://tokyosecurities.com/register">Create
+                                                    an account</a> | <a href="https://tokyosecurities.com/login">Login
                                                     Back</a></p>
                                         </div>
                                         <div class="col-12 text-center">
                                             <hr>
-                                            <a href="{{ url('/') }}"><button type="button"
+                                            <a href="https://tokyosecurities.com"><button type="button"
                                                     class="btn btn-outline-primary">Back to Homepage</button></a>
                                         </div>
                                     </form>
@@ -166,37 +128,7 @@
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
-    <!-- BEGIN: Vendor JS-->
-    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
-    <!-- BEGIN Vendor JS-->
-
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
-    <!-- END: Page Vendor JS-->
-
-    <!-- BEGIN: Theme JS-->
-    <script src="../../../app-assets/js/core/app-menu.js"></script>
-    <script src="../../../app-assets/js/core/app.js"></script>
-    <!-- END: Theme JS-->
-
-    <!-- BEGIN: Page JS-->
-    <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
-    <!-- END: Page JS-->
-    <script src="../../../assets/js/main.js"></script>
-    <script>
-        $(window).on('load', function() {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
-    </script>
-
-
-    {{-- <script src="https://tokyosecurities.com/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="https://tokyosecurities.com/assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="https://tokyosecurities.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://tokyosecurities.com/assets/vendor/chart.js/chart.min.js"></script>
     <script src="https://tokyosecurities.com/assets/vendor/echarts/echarts.min.js"></script>
@@ -222,7 +154,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         })
-    </script> --}}
+    </script>
 </body>
 
 </html>
