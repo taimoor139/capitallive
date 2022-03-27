@@ -11,7 +11,8 @@
 
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+        rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
@@ -84,9 +85,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
                             <div class="d-flex justify-content-center py-4">
-                                <a href="https://tokyosecurities.com" class="logo d-flex align-items-center w-auto">
-                                    <img src="https://tokyosecurities.com/assets/logo/logo-black.png" alt=""
-                                        style="max-height: 60px">
+                                <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto">
+                                    <img src="{{ asset('assets') }}/logo.png" alt="" style="max-height: 60px">
                                 </a>
                             </div>
                             <div class="card mb-3">
@@ -140,9 +140,10 @@
                                             @enderror
                                         </div>
                                         <div class="col-12">
-                                            <label for="password-confirm" class="form-label">Confirm Your Password</label>
-                                            <input type="password" class="form-control"
-                                                id="password-confirm" name="password_confirmation" required autocomplete="new-password">
+                                            <label for="password-confirm" class="form-label">Confirm Your
+                                                Password</label>
+                                            <input type="password" class="form-control" id="password-confirm"
+                                                name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                         <div class="col-12">
                                             <label for="sponsor" class="form-label">Sponsor</label>
@@ -160,7 +161,8 @@
                                             </div>
                                         </div>
                                         <div class="col-12 mb-1">
-                                            <button class="btn btn-warning w-100" type="submit">Create Account</button>
+                                            <button class="btn btn-warning w-100" id="sendNewSms" type="submit" disabled="disabled">Create
+                                                Account</button>
                                         </div>
                                         <div class="col-12">
                                             <p class="small mb-0">Already have an account? <a
@@ -182,7 +184,19 @@
         </div>
     </main>
 
+    <script>
+        var checker = document.getElementById('acceptTerms');
+        var sendbtn = document.getElementById('sendNewSms');
+        // when unchecked or checked, run the function
+        checker.onchange = function() {
+            if (this.checked) {
+                sendbtn.disabled = false;
+            } else {
+                sendbtn.disabled = true;
+            }
 
+        }
+    </script>
 
     {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
         <i class="bi bi-arrow-up-short"></i>

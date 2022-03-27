@@ -21,6 +21,9 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'username',
+        'sponsor',
+        'terms',
     ];
 
     /**
@@ -42,10 +45,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
-    public function role(){
+
+    public function role()
+    {
         return $this->belongsTo('App\Models\Role');
     }
-
-    
 }
