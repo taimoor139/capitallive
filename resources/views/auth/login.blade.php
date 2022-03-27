@@ -98,7 +98,7 @@
                                             </g>
                                         </g>
                                     </svg> --}}
-                                    <h2 class="brand-text text-primary ml-1">Capital First</h2>
+                                    <h2 class="brand-text text-center text-primary ml-1"><a href="/">Capital First</a></h2>
                                 </a>
 
                                 <h4 class="card-title mb-1">Welcome to Capital First! 👋</h4>

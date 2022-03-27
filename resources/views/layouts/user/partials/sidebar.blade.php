@@ -41,8 +41,7 @@
                             </g>
                         </svg></span> --}}
                         <a class="nav-link" href="{{ route('user.dashboard') }}"
-                        data-toggle="tooltip" data-placement="top" title="Email"> <img
-                            src="{{ asset('assets/logo-2.png') }}" height="35px" width="100px;" alt="" style="margin:0 0 15px 10px"> </a>
+                        data-toggle="tooltip" data-placement="top" title="Email"> Capital First </a>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
                         class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
