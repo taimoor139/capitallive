@@ -88,11 +88,11 @@
                     </div>
                     <div class="uk-navbar-right uk-width-expand uk-flex uk-flex-right">
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <li><a href="../Pages/home.html" style="color: #555555;">Home</a></li>
-                            <li><a href="../Pages/about.html" style="color: #555555;">About Us</a></li>
+                            <li><a href="/" style="color: #555555;">Home</a></li>
+                            <li><a href="/about-us" style="color: #555555;">About Us</a></li>
                             <li><a class="nav-link scrollto" href="#contact" style="color: #555555;">Contact Us</a>
                             </li>
-                            <li><a href="../Pages/legaldocs.html" style="color: #555555;">Legal Docs<i
+                            <li><a href="/legal-docs" style="color: #555555;">Legal Docs<i
                                         class="fas fa-gavel fa-sm"></i></a>
                             </li>
                         </ul>
@@ -103,7 +103,7 @@
                             @if (Route::has('login'))
                                 <div>
                                     @auth
-                                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                                        <a href="{{ url('/') }}" class="text-sm text-gray-700 underline">Home</a>
                                     @else
                                         <a href="{{ route('login') }}" class="uk-button uk-button-text">Login</a>
 

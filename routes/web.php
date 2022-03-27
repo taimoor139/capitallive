@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\UserController;
 Use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,3 +33,6 @@ Route::group(['prefix'=>'user','middleware' =>['user','auth'],'namespace'=>'User
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
 });
 
+//=======================Frontend=======================
+Route::get('about-us',[FrontendController::class,'about']);
+Route::get('legal-docs',[FrontendController::class,'docs']);

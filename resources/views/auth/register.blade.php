@@ -108,7 +108,7 @@
                                     id="registerForm" novalidate>
                                     @csrf
                                     <div class="form-group">
-                                        <label for="register-username" class="form-label">Username</label>
+                                        <label for="register-username" class="form-label">Enter Your Full Name</label>
 
                                         <input type="text" class="form-control" id="name"
                                             @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
@@ -132,6 +132,23 @@
                                             </span>
                                         @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="username" class="form-label">Username</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">@</span>
+                                          </div>
+                                        <input type="text" class="form-control" id="username"
+                                            @error('username') is-invalid @enderror" name="username"
+                                            value="{{ old('username') }}" required autocomplete="username">
+                                        @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                     <div class="form-group">
                                         <label for="register-password" class="form-label">Password</label>
@@ -166,6 +183,19 @@
                                                         data-feather="eye"></i></span>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sponsor" class="form-label">Sponsor</label>
+
+                                        <input type="text" class="form-control" id="sponsor"
+                                            @error('sponsor') is-invalid @enderror" name="sponsor"
+                                            value="{{ old('sponsor') }}" required autocomplete="sponsor">
+                                        @error('sponsor')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
