@@ -1,132 +1,683 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html dir="ltr" lang="zxx">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="#e9e8f0" name="theme-color" />
+    <title>Home - Capital First</title>
+    <!-- <link as="script" href="https://tokyosecurities.com/assets/theme/js/vendors/uikit.min.js" rel="preload">
+    <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/fa-brands-400.woff2" rel="preload"
+        type="font/woff2">
+    <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/fa-solid-900.woff2" rel="preload"
+        type="font/woff2">
+    <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/lato-v16-latin-700.woff2"
+        rel="preload" type="font/woff2">
+    <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/lato-v16-latin-regular.woff2"
+        rel="preload" type="font/woff2">
+    <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/montserrat-v14-latin-600.woff2"
+        rel="preload" type="font/woff2"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed">
+    <script src="https://kit.fontawesome.com/23d9ae4e3d.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-1.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-2.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-3.css">
+    <style>
+        .uk-sticky.uk-active a.uk-logo {
+            width: 128px;
+            height: 41px;
+            font-size: 20px;
+            /* background: url('../Images/logo.png'); */
+            background-size: 99.7%;
+        }
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        .live {
+            height: 430px;
+            width: 580px;
+        }
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito';
+        @media (max-width: 1366px) {
+            .live {
+                width: 300px;
+                margin-bottom: 20px;
             }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
+        }
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
+    </style>
+</head>
+
+<body>
+    <div class="in-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <header>
+        <!-- Topbar -->
+        <div class="uk-section uk-padding-small in-profit-ticker" style="padding: 0px !important;">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget">
+                    <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                        src="https://s.tradingview.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22proName%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22title%22%3A%22S%26P%20500%22%7D%2C%7B%22proName%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22title%22%3A%22US%20100%22%7D%2C%7B%22proName%22%3A%22FX_IDC%3AEURUSD%22%2C%22title%22%3A%22EUR%2FUSD%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3ABTCUSD%22%2C%22title%22%3A%22Bitcoin%22%7D%2C%7B%22proName%22%3A%22BITSTAMP%3AETHUSD%22%2C%22title%22%3A%22Ethereum%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22adaptive%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%7D"
+                        style="height: 50px; width: 100%;"></iframe>
                 </div>
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+            </div>
+        </div>
+        <!-- Navbar -->
+        <div class="uk-section uk-padding-remove-vertical">
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
+            <nav class="uk-navbar-container uk-navbar-transparent"
+                data-uk-sticky="show-on-up: true; top: 80; animation: uk-animation-fade;">
+                <div class="uk-container" data-uk-navbar>
+                    <div class="uk-navbar-left uk-width-auto">
+                        <div class="uk-navbar-item">
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
+                            <a class="uk-logo" href="#">
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
+                                Capital First
                             </a>
 
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
                         </div>
                     </div>
+                    <div class="uk-navbar-right uk-width-expand uk-flex uk-flex-right">
+                        <ul class="uk-navbar-nav uk-visible@m">
+                            <li><a href="../Pages/home.html" style="color: #555555;">Home</a></li>
+                            <li><a href="../Pages/about.html" style="color: #555555;">About Us</a></li>
+                            <li><a class="nav-link scrollto" href="#contact" style="color: #555555;">Contact Us</a>
+                            </li>
+                            <li><a href="../Pages/legaldocs.html" style="color: #555555;">Legal Docs<i
+                                        class="fas fa-gavel fa-sm"></i></a>
+                            </li>
+                        </ul>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                        <div class="uk-navbar-item uk-visible@m in-optional-nav">
+
+
+                            @if (Route::has('login'))
+                                <div>
+                                    @auth
+                                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                                    @else
+                                        <a href="{{ route('login') }}" class="uk-button uk-button-text">Login</a>
+
+                                        @if (Route::has('register'))
+                                            <a href="{{ route('register') }}"
+                                            class="uk-button uk-button-text">Sign
+                                            up</a>
+                                        @endif
+                                @endif
+                            </div>
+                            @endif
+
+
+                            {{-- <div>
+                                <a class="uk-button uk-button-text" href="">Login</a>
+                                <a class="uk-button uk-button-text" href="">Sign
+                                    up</a>
+                            </div> --}}
+                        </div>
+                    </div>
+            </div>
+            </nav>
+
+            </div>
+
+        </header>
+        <main>
+            <!-- Home Banner -->
+            <div class="uk-section uk-padding-remove-vertical">
+                <div class="in-slideshow uk-visible-toggle" data-uk-slideshow>
+                    <ul class="uk-slideshow-items">
+                        <li>
+                            <div class="uk-container">
+                                <div class="uk-grid" data-uk-grid>
+                                    <div class="uk-width-1-2@m">
+                                        <div class="uk-overlay">
+                                            <h1>Get more <span class="in-highlight">freedom</span> in the markets.</h1>
+                                            <p class="uk-text-lead uk-visible@m">Trade Cryptocurrencies, Stock Indices,
+                                                Commodities and Forex from a single account</p>
+                                            <div class="in-slideshow-button">
+                                                <a class="uk-button uk-button-primary uk-border-rounded" href="{{ route('register') }}">Open
+                                                    account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-position-center">
+                                        <img alt="slideshow-image" class="uk-animation-slide-top-small"
+                                            data-src="{{ asset('assets') }}/frontend/images/1.png" data-uk-img
+                                            height="540" src="" width="862">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="uk-container">
+                                <div class="uk-grid" data-uk-grid>
+                                    <div class="uk-width-1-2@m">
+                                        <div class="uk-overlay">
+                                            <h1>Let top <span class="in-highlight">traders</span> do the job for you!</h1>
+                                            <p class="uk-text-lead uk-visible@m">Covesting allows you to automatically copy
+                                                top
+                                                performing traders and achieve the returns</p>
+                                            <div class="in-slideshow-button">
+                                                <a class="uk-button uk-button-primary uk-border-rounded" href="#">Open
+                                                    account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-position-center">
+                                        <img alt="slideshow-image" class="uk-animation-slide-top-small"
+                                            data-src="{{ asset('assets') }}/frontend/images/2.png" data-uk-img
+                                            height="540" src="" width="862">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" data-uk-slidenav-previous
+                        data-uk-slideshow-item="previous" href="#"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" data-uk-slidenav-next
+                        data-uk-slideshow-item="next" href="#"></a>
+                    <div class="uk-container in-slideshow-feature uk-visible@m">
+                        <div class="uk-grid uk-flex uk-flex-center">
+                            <div class="uk-width-3-4@m">
+                                <div class="uk-child-width-1-4" data-uk-grid>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <div class="uk-margin-small-right">
+                                            <i class="fas fa-drafting-compass in-icon-wrap small circle uk-box-shadow-small"
+                                                style="background-color: #4629ff;"></i>
+                                        </div>
+                                        <div>
+                                            <p class="uk-text-bold uk-margin-remove">Enhanced Tools</p>
+                                        </div>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <div class="uk-margin-small-right">
+                                            <i class="fas fa-book in-icon-wrap small circle uk-box-shadow-small"
+                                                style="background-color: #4629ff;"></i>
+                                        </div>
+                                        <div>
+                                            <p class="uk-text-bold uk-margin-remove">Trading Guides</p>
+                                        </div>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <div class="uk-margin-small-right">
+                                            <i class="fas fa-bolt in-icon-wrap small circle uk-box-shadow-small"
+                                                style="background-color: #4629ff;"></i>
+                                        </div>
+                                        <div>
+                                            <p class="uk-text-bold uk-margin-remove">Fast execution</p>
+                                        </div>
+                                    </div>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <div class="uk-margin-small-right">
+                                            <i class="fas fa-percentage in-icon-wrap small circle uk-box-shadow-small"
+                                                style="background-color: #4629ff;"></i>
+                                        </div>
+                                        <div>
+                                            <p class="uk-text-bold uk-margin-remove">0% Commission</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+
+            <div class="uk-section uk-section-muted in-padding-large-vertical@s in-profit-9">
+                <div class="uk-container">
+                    <div class="uk-grid-divider uk-grid" data-uk-grid="">
+                        <div class="uk-width-expand@m in-margin-top-20@s uk-first-column">
+                            <h2>Trading products</h2>
+                            <p>Choose from 6 asset classes and get access to 500+ trading instruments</p>
+                        </div>
+                        <div class="uk-width-2-3@m">
+                            <div class="uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m uk-text-center uk-grid"
+                                data-uk-grid="">
+                                <div class="uk-first-column">
+                                    <i class="fas fa-euro-sign in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Forex</p>
+                                </div>
+                                <div>
+                                    <i class="fab fa-btc in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Crypto</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-chart-area in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Indexes</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-file-contract in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Stocks</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-tint in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Energy</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-cube in-icon-wrap circle uk-box-shadow-small"
+                                        style="color: #4629ff;"></i>
+                                    <p class="uk-text-bold uk-margin-small-top">Commodities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Inc -->
+            <div class="uk-section uk-padding-large in-padding-large-vertical@s in-profit-10">
+                <div class="uk-container uk-background-contain uk-background-bottom-right">
+                    <div class="uk-grid uk-grid-stack" data-uk-grid="">
+                        <div class="uk-width-1-1 in-offset-bottom-20 uk-first-column">
+                            <h2 class="uk-margin-small-bottom">Why choose Capital First?</h2>
+                            <p class="uk-text-lead uk-margin-remove-top">We offer one-click trading experience with 3,000+
+                                world-renowned markets.</p>
+                        </div>
+                    </div>
+                    <div class="uk-grid-large uk-grid" data-uk-grid="">
+                        <div class="uk-width-1-2@s uk-width-1-3@m uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-1.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Wide range of instruments</h4>
+                            <p>We offer access to a wide range of asset classes,
+                                including FX, metals, stocks and indices.
+                            </p>
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-3@m">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-2.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Unparalleled market conditions</h4>
+                            <p>Whether you’re a trading beginner, a forex market expert or a long-term investor interested
+                                in
+                                stocks – you’ll find the trading account you’re looking for.</p>
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-3@m">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-3.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Protection of funds</h4>
+                            <p>Capital First provides its services to over 20k clients in 10+ countries around the world.
+                                We
+                                always
+                                strictly abide by the regulations and the protection of our clients’ investment is our
+                                primary
+                                concern.</p>
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-3@m uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-4.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Committed to forex education</h4>
+                            <p>Build your trading skills with Capital First
+                                Become a better trader
+                                with our free educational resources.</p>
+                        </div>
+                        <div class="uk-width-1-2@s uk-width-1-3@m uk-grid-margin">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-5.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Regular contests &amp; promotions</h4>
+                            <p>Everyone loves getting a little extra. That’s why we offer our loyal clients frequent
+                                promotions
+                                and a continuous cashback program.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What can you trade with Profit Inc? -->
+            <div class="uk-section uk-padding-large uk-background-contain uk-background-bottom-center in-padding-large-vertical@s in-offset-top-40 in-profit-14"
+                data-src="" data-uk-img="" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
+                <div class="uk-container uk-margin-bottom">
+                    <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-grid uk-grid-stack"
+                        data-uk-grid="">
+                        <div class="uk-width-1-1 uk-first-column">
+                            <h2>What can you trade with Capital First?</h2>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-6.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Forex</h4>
+                            <p>The market is a global decentralized or over-the-counter market for the trading of
+                                currencies.</p>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-7.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Shares</h4>
+                            <p>A stock is a financial instrument that represents ownership in a company or corporation.</p>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-8.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Indices</h4>
+                            <p>Is the instruments that give you the right to buy or sell specific security on a specific
+                                date at
+                                a specific price.</p>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-9.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">Commodities</h4>
+                            <p>A commodity is a basic good used in commerce that is interchangeable with other goods of the
+                                same
+                                type.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Fx & Spot Metal Quotes -->
+            <!-- <div class="uk-section uk-padding-large in-padding-large-vertical@s in-profit-12">
+                <div class="uk-container">
+                    <div class="uk-grid-large uk-flex uk-flex-center uk-grid" data-uk-grid="">
+                        <div class="uk-width-1-2@m uk-text-center uk-first-column">
+                            <div class="tradingview-widget-container">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                                    src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"
+                                    style="box-sizing: border-box; height: 410px; width: 500px;"></iframe>
+                            </div>
+
+                        </div>
+                        <div class="uk-width-1-2@m">
+                            <h2>Live Fx &amp; Spot Metal Quotes</h2>
+                            <ul class="uk-list uk-list-bullet in-list-check uk-margin-bottom">
+                                <li>Ultra-competitive pricing</li>
+                                <li>Trading flexibility</li>
+                                <li>Best Copy-Trading platform</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="container">
+                <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
+                    <div class="col-md-6">
+                        <iframe scrolling="no" allowtransparency="true" frameborder="0" class="live"
+                            src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"></iframe>
+                    </div>
+                    <div class="col-md-6" style="padding-left: 55px">
+                        <h2>Live Fx &amp; Spot Metal Quotes</h2>
+                        <ul class=" uk-list uk-list-bullet in-list-check uk-margin-bottom">
+                            <li>Ultra-competitive pricing</li>
+                            <li>Trading flexibility</li>
+                            <li>Best Copy-Trading platform</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trade with world-leading copy trading platform -->
+            <div class="uk-section uk-section-secondary uk-padding-large uk-background-contain uk-background-bottom-center in-padding-large-vertical@s in-profit-3"
+                style="background-color: #01123C;" data-src="{{ asset('assets') }}/frontend/images/4.png" data-uk-img>
+                <div class="uk-container uk-margin-small-bottom">
+                    <div class="uk-grid-large" data-uk-grid>
+                        <div class="uk-width-1-2@m">
+                            <h2>Trade with world-leading copy trading platform</h2>
+                            <p class="uk-text-lead">We are committed to meeting your CFD and FX trading needs</p>
+                        </div>
+                        <div class="uk-width-1-1">
+                            <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-margin-small-top" data-uk-grid>
+                                <div>
+                                    <h1 class="uk-heading-bullet">
+                                        <span class="count" data-counter-end="5">0</span>M+
+                                    </h1>
+                                    <p>Equity Capital</p>
+                                </div>
+                                <div>
+                                    <h1 class="uk-heading-bullet">
+                                        <span class="count" data-counter-end="30">0</span>k+
+                                    </h1>
+                                    <p>Client Accounts</p>
+                                </div>
+                                <div>
+                                    <h1 class="uk-heading-bullet">
+                                        <span class="count" data-counter-end="1">0</span>.5M+
+                                    </h1>
+                                    <p>Trading Volume</p>
+                                </div>
+                                <div>
+                                    <h1 class="uk-heading-bullet">
+                                        <span class="count" data-counter-end="24">0</span>/5
+                                    </h1>
+                                    <p>Customer Support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start trading
+            with
+            Profit Inc. -->
+            <div class="uk-section uk-section-muted uk-padding-large in-padding-large-vertical@s in-profit-15">
+                <div class="uk-container">
+                    <div class="uk-grid uk-flex uk-flex-center uk-grid-stack" data-uk-grid="">
+                        <div class="uk-width-1-1 uk-width-5-6@m uk-first-column">
+                            <p class="uk-text-lead uk-margin-remove-bottom uk-text-center in-offset-top-10">Start trading
+                                with
+                                Profit Inc.</p>
+                            <h2 class="uk-margin-small-top uk-text-center">Fast account opening in 3 simple steps</h2>
+                            <div class="uk-grid-large uk-child-width-1-3@m uk-text-center uk-margin-medium-top uk-grid"
+                                data-uk-grid="">
+                                <div class="uk-first-column">
+                                    <span class="in-icon-wrap circle large">1</span>
+
+                                    <h4 class=" uk-margin-top">Register</h4>
+                                    <p>Choose an account type and submit your application</p>
+                                </div>
+                                <div>
+                                    <span class="in-icon-wrap circle large">2</span>
+
+                                    <h4 class="uk-margin-top">Fund</h4>
+                                    <p>Fund your account using a wide range of funding methods.</p>
+                                </div>
+                                <div>
+                                    <span class="in-icon-wrap circle large">3</span>
+
+                                    <h4 class="uk-margin-top">Trade</h4>
+                                    <p>Get lucrative benefits from experienced traders.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="uk-container" id="contact">
+                <div class="uk-grid uk-flex uk-flex-center in-contact-6">
+                    <hr class="uk-margin-medium">
+                    <h1 class="uk-margin-small-top uk-text-center">Let's <span class="in-highlight">get in touch</span>
+                    </h1>
+                    <form class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid="" id="contact-form">
+                        <div class="uk-width-1-2@s uk-inline uk-first-column">
+                            <span class="uk-form-icon fas fa-user fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="name" name="name" placeholder="Full name"
+                                type="text">
+                        </div>
+                        <div class="uk-width-1-2@s uk-inline">
+                            <span class="uk-form-icon fas fa-envelope fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="email" name="email" placeholder="Email address"
+                                type="email">
+                        </div>
+                        <div class="uk-width-1-1 uk-inline uk-grid-margin">
+                            <span class="uk-form-icon fas fa-pen fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="subject" name="subject" placeholder="Subject"
+                                type="text">
+                        </div>
+                        <div class="uk-width-1-1 uk-grid-margin">
+                            <textarea class="uk-textarea uk-border-rounded" id="message" name="message" placeholder="Message" rows="6"></textarea>
+                        </div>
+                        <div class="uk-width-1-1 uk-grid-margin">
+                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail"
+                                name="submit" type="submit">Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+
+            <div style="background-color: #233A7D;"
+                class="uk-section uk-section-primary uk-padding-large uk-padding-remove-horizontal uk-margin-medium-top">
+                <div class="uk-container">
+                    <div class="uk-child-width-1-2@s uk-child-width-1-5@m uk-flex" data-uk-grid>
+                        <div>
+                            <h4 class="uk-heading-bullet">Overview</h4>
+                            <ul class="uk-list uk-link-text">
+                                <li><a href="#">Stock indices</a></li>
+                                <li><a href="#">Commodities</a></li>
+                                <li><a href="#">Forex</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="uk-heading-bullet">Company</h4>
+                            <ul class="uk-list uk-link-text">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Careers</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="uk-heading-bullet">Legal</h4>
+                            <ul class="uk-list uk-link-text">
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy &amp; Policy</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-visible@m">
+                            <h4 class="uk-heading-bullet">Support</h4>
+                            <ul class="uk-list uk-link-text">
+                                <li><a href="#">Documentation</a></li>
+                            </ul>
+                        </div>
+                        <div class="uk-flex-first uk-flex-last@m">
+                            <ul class="uk-list uk-link-text">
+                                <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
+                                        width="130"> -->
+                                <span>Capital First</span>
+                                </li>
+                                <li><a href="#"><i class="fas fa-envelope uk-margin-small-right"></i><span
+                                            class="__cf_email__"
+                                            data-cfemail="681b1d1818071a1c283c070311073b0d0b1d1a011c010d1b460b0705"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-flex uk-flex-center uk-margin-large-top" data-uk-grid>
+                        <div class="uk-width-5-6@m uk-margin-bottom">
+                            <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Our
+                                        Trading Platform</span></h5>
+                                <p class="uk-text-small">Our trading platform is MT4, Our strategy manager trading is on
+                                    MT4
+                                    platform. We use the platform of MTFXG for all our trades on MT4.
+                                    "MTFXG is incorporated in the Republic of Kazakhstan with Business Identification Number
+                                    26342 BC2021 and has been registered as Financial Services Provider on the 25/12/2020
+                                    with
+                                    the Ministry of Economy. The company is entitled to provide the following services to
+                                    customers within and outside the Republic of Kazakhstan according to the accreditation
+                                    issued by the Agency for Regulation and Development of the Financial Market of the
+                                    Republic
+                                    of Kazakhstan, dated 24/02/2021 and file number 36-0-12/5/ЮЛ-C-265: Payment Processing /
+                                    e-wallets, Forex Services and Crypto Currency Services."
+                                    <br><small>In case of any dispute, MTFXG only deal with Capital First strategy
+                                        manager.</small>
+                                </p>
+                            </div>
+                            <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span
+                                        style="background-color: #233A7D">Disclosure</span></h5>
+                                <p class="uk-text-small"> The Maximum protection of funds level is 70%, because a small
+                                    amount
+                                    of risk is necessary to generate any potential profits and our draw down limit is 30%.
+                                    You
+                                    should not invest more than you can afford to lose and should ensure that you fully
+                                    understand the risks involved. Trading leveraged products may not be suitable for all
+                                    investors. Trading non-leveraged products such as stocks also involves risk as the value
+                                    of
+                                    a stock can fall as well as rise, which could mean getting back less than you originally
+                                    put
+                                    in. Past performance is no guarantee of future results. Before trading, please take into
+                                    consideration your level of experience, investment objectives and seek independent
+                                    financial
+                                    advice if necessary. It is the responsibility of the Client to ascertain whether he/she
+                                    is
+                                    permitted to use the services of the Capital First brand based on the legal
+                                    requirements in
+                                    his/her country of residence. Please read Capital First’s full Risk
+                                    Disclosure.</p>
+                            </div>
+                            <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span
+                                        style="background-color: #233A7D">Regional
+                                        Restrictions</span></h5>
+                                <p class="uk-text-small">Capital First brand does not provide services to residents
+                                    of the USA, Japan,
+                                    Canada, Suriname, the Democratic Republic of Korea, Iraq, Iran, Brazil, Syria. Find out
+                                    more
+                                    in the Regulations section of our FAQs.
+                                </p>
+                            </div>
+                            <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span
+                                        style="background-color: #233A7D">Intellectual Property Rights</span></h5>
+                                <p class="uk-text-small">Any unauthorized duplication, publication or quotation
+                                    from Capital First
+                                    website, in part or whole, without the prior written consent of Capital First
+                                    constitutes a
+                                    violation of Intellectual Property Rights and will be subject to litigation. This
+                                    includes
+                                    downloading or accessing the brand name, logos, banner images, agreement, etc.), hence
+                                    may
+                                    not be used, copied or otherwise presented without consent in any way.</p>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-2@m in-copyright-text">
+                            <p>© Capital First 2022. All rights reserved.</p>
+                        </div>
+                        <div class="uk-width-1-2@m uk-text-right@m in-footer-socials">
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="uk-visible@m">
+                <a class="in-totop fas fa-chevron-up" style="background-color: #4629ff;" data-uk-scroll href="#"></a>
+            </div>
+
+        </footer>
+
+        <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+        <script src="{{ asset('assets') }}/frontend/js/Script-main.js"></script>
+        <script src="{{ asset('assets') }}/frontend/js/Script.js"></script>
+        <script defer src="{{ asset('assets') }}/frontend/js/Script-defer.js"></script>
+        <script src="{{ asset('assets') }}/frontend/js/Script-theme.js"></script>
     </body>
-</html>
+
+    </html>

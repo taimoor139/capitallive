@@ -1,47 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="loading dark-layout" lang="en" data-layout="dark-layout" data-textdirection="ltr">
+<!-- BEGIN: Head-->
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Forgot Password TokyoSecurities</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <meta name="csrf_token" content="aengrfDr54WOKRM0t4RrXsgPKUSpYO3VW4RzvlFp" />
-
-    {{-- <link href="https://tokyosecurities.com/assets/img/favicon.png" rel="icon">
-    <link href="https://tokyosecurities.com/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <link href="https://tokyosecurities.com/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
-    <link href="https://tokyosecurities.com/assets/css/style.css?v=1" rel="stylesheet">
-    <link href="https://tokyosecurities.com/assets/css/partner.css?v=1" rel="stylesheet"> --}}
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="description"
+        content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords"
+        content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Forgot Password Page - Vuexy - Bootstrap HTML admin template</title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+        rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/apexcharts.css">
-    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css"> --}}
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
-    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css"> --}}
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/components.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/dark-layout.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/themes/bordered-layout.css">
@@ -49,130 +32,119 @@
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dashboard-ecommerce.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/charts/chart-apex.css">
-    {{-- <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/extensions/ext-component-toastr.css"> --}}
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/page-auth.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/partner.css">
     <!-- END: Custom CSS-->
 
-
-    <script>
-        function OTPTimer(date, id) {
-            var d2 = new Date(date);
-            var x = setInterval(function() {
-                var now = new Date();
-                var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(),
-                    now.getUTCMinutes(), now.getUTCSeconds());
-                var distance = d2 - nowUTC;
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                if (date) {
-                    $("#" + id).html(minutes + ":" + seconds);
-                    if (distance < 0) {
-                        clearInterval(x);
-                        $("#" + id).attr('onclick', "sendOTP(this)");
-                        $("#" + id).html('Send Code');
-                    }
-                }
-            }, 1000);
-        }
-    </script>
-    <style>
-        .alert {
-            min-width: 400px;
-            position: fixed;
-            right: 10px;
-            top: 77px;
-            z-index: 1000;
-        }
-
-    </style>
 </head>
+<!-- END: Head-->
 
-<body class="h-100">
+<!-- BEGIN: Body-->
 
-
-
-
-    <main>
-        <div class="container">
-            <section
-                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-                            <div class="d-flex justify-content-center py-4">
-                                <a href="{{ url('/') }}" class="logo d-flex align-items-center w-auto">
-                                    <img src="{{ asset('assets/logo.png') }}" alt=""
-                                        style="max-height: 60px">
+<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click"
+    data-menu="vertical-menu-modern" data-col="blank-page">
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <div class="auth-wrapper auth-v1 px-2">
+                    <div class="auth-inner py-2">
+                        <!-- Forgot Password v1 -->
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <a href="javascript:void(0);" class="brand-logo">
+                                    <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
+                                        <defs>
+                                            <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%"
+                                                y2="89.4879456%">
+                                                <stop stop-color="#000000" offset="0%"></stop>
+                                                <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                            </lineargradient>
+                                            <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%"
+                                                x2="37.373316%" y2="100%">
+                                                <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
+                                                <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                            </lineargradient>
+                                        </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Artboard" transform="translate(-400.000000, -178.000000)">
+                                                <g id="Group" transform="translate(400.000000, 178.000000)">
+                                                    <path class="text-primary" id="Path"
+                                                        d="M-5.68434189e-14,2.84217094e-14 L39.1816085,2.84217094e-14 L69.3453773,32.2519224 L101.428699,2.84217094e-14 L138.784583,2.84217094e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L6.71554594,44.4188507 C2.46876683,39.9813776 0.345377275,35.1089553 0.345377275,29.8015838 C0.345377275,24.4942122 0.230251516,14.560351 -5.68434189e-14,2.84217094e-14 Z"
+                                                        style="fill: currentColor"></path>
+                                                    <path id="Path1"
+                                                        d="M69.3453773,32.2519224 L101.428699,1.42108547e-14 L138.784583,1.42108547e-14 L138.784199,29.8015838 C137.958931,37.3510206 135.784352,42.5567762 132.260463,45.4188507 C128.736573,48.2809251 112.33867,64.5239941 83.0667527,94.1480575 L56.2750821,94.1480575 L32.8435758,70.5039241 L69.3453773,32.2519224 Z"
+                                                        fill="url(#linearGradient-1)" opacity="0.2"></path>
+                                                    <polygon id="Path-2" fill="#000000" opacity="0.049999997"
+                                                        points="69.3922914 32.4202615 32.8435758 70.5039241 54.0490008 16.1851325">
+                                                    </polygon>
+                                                    <polygon id="Path-21" fill="#000000" opacity="0.099999994"
+                                                        points="69.3922914 32.4202615 32.8435758 70.5039241 58.3683556 20.7402338">
+                                                    </polygon>
+                                                    <polygon id="Path-3" fill="url(#linearGradient-2)"
+                                                        opacity="0.099999994"
+                                                        points="101.428699 0 83.0667527 94.1480575 130.378721 47.0740288">
+                                                    </polygon>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <h2 class="brand-text text-primary ml-1">Vuexy</h2>
                                 </a>
-                            </div>
-                            <div class="card mb-3">
-                                <div class="card-body border-top-warning border-bottom-warning">
-                                    <div class="pt-4 pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">Recover your account</h5>
-                                        <p class="text-center small">Please enter email associated with your account. We
-                                            will send an password reset link.</p>
+
+                                <h4 class="card-title mb-1">Forgot Password? 🔒</h4>
+                                <p class="card-text mb-2">Enter your email and we'll send you instructions to reset your
+                                    password</p>
+
+                                <form class="auth-forgot-password-form mt-2" action="{{ route('password.email') }}"
+                                    method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="forgot-password-email" class="form-label">Email</label>
+
+                                        <input type="email" id="email" class="form-control"
+                                            @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                                    <form  method="POST" action="{{ route('password.email') }}">
-                                        @csrf
-                                        <div class="col-12">
-                                            <label for="forgot_email" class="form-label">Enter your Email</label>
-                                            <div class="input-group has-validation">
-                                                <input type="email" id="email" class="form-control"
-                                                    @error('email') is-invalid @enderror" name="email"
-                                                    value="{{ old('email') }}" required autocomplete="email"
-                                                    autofocus>
-                                                <br>
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-12 mt-3">
-                                            <button class="btn btn-warning w-100 login-signup-btn" type="submit">Recover
-                                                Account
-                                            </button>
-                                        </div>
-                                        <div class="col-12 text-center mt-3">
-                                            <p class="small mb-0"><a href="{{ route('register') }}">Create
-                                                    an account</a> | <a href="{{ route('login') }}">Login
-                                                    Back</a></p>
-                                        </div>
-                                        <div class="col-12 text-center">
-                                            <hr>
-                                            <a href="{{ url('/') }}"><button type="button"
-                                                    class="btn btn-outline-primary">Back to Homepage</button></a>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <button class="btn btn-primary btn-block" tabindex="2">Send reset link</button>
+                                </form>
+
+                                <p class="text-center mt-2">
+                                    <a href="{{ route('login') }}"> <i data-feather="chevron-left"></i> Back to login
+                                    </a>
+                                </p>
                             </div>
                         </div>
+                        <!-- /Forgot Password v1 -->
                     </div>
                 </div>
-            </section>
+
+            </div>
         </div>
-    </main>
+    </div>
+    <!-- END: Content-->
 
-
-
-    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-        <i class="bi bi-arrow-up-short"></i>
-    </a> --}}
 
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -181,10 +153,10 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
+    <script src="../../../app-assets/js/scripts/pages/page-auth-forgot-password.js"></script>
     <!-- END: Page JS-->
-    <script src="../../../assets/js/main.js"></script>
-    {{-- <script>
+
+    <script>
         $(window).on('load', function() {
             if (feather) {
                 feather.replace({
@@ -193,36 +165,8 @@
                 });
             }
         })
-    </script> --}}
-
-
-    {{-- <script src="https://tokyosecurities.com/assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/chart.js/chart.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/echarts/echarts.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/quill/quill.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="https://tokyosecurities.com/assets/vendor/php-email-form/validate.js'"></script>
-
-    <script src="https://tokyosecurities.com/assets/js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-    </script> --}}
+    </script>
 </body>
+<!-- END: Body-->
 
 </html>
