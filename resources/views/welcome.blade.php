@@ -42,6 +42,13 @@
 
         @media (max-width: 1366px) {
             .live {
+                width: 460px;
+                margin-bottom: 20px;
+            }
+
+        }
+        @media (max-width: 720px) {
+            .live {
                 width: 300px;
                 margin-bottom: 20px;
             }
