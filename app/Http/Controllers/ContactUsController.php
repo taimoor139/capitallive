@@ -33,7 +33,7 @@ class ContactUsController extends Controller
             'subject'=>$request->subject,
           ],function($message)use($request)
           {
-            $message->to('mimrzs2013@gmail.com', 'Admin')->subject($request->get('subject'));
+            $message->to('info@capitalfirst.live', 'Admin')->subject($request->get('subject'));
           });
         //   $notification=array(
         //     'message'=>'Message send done!',
