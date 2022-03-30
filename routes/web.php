@@ -34,6 +34,7 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
 Route::group(['prefix'=>'user','middleware' =>['user','auth'],'namespace'=>'User'], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
     Route::get('deposit',[DepositController::class,'index'])->name('deposit-dashboard');
+    Route::post('deposit/store',[DepositController::class,'depositStore'])->name('deposit-store');
 });
 
 //=======================Frontend=======================

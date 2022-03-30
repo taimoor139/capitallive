@@ -13,9 +13,10 @@
         <div class="card border-top-warning border-bottom-warning">
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-currency-exchange text-primary"></i> My Deposits
-                    <a type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                    {{-- <a href="#" type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                         data-bs-target="#addDeposit" style="float: right">New Deposit
-                </a>
+                </a> --}}
+                <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#addDeposit">New Deposit</i></a>
                     @include('user.deposit.addDeposit')
                 </h5>
                 <table class="table table-hover">

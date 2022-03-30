@@ -1,145 +1,65 @@
-<div class="modal fade" id="addDeposit" tabindex="-1" role="dialog" aria-labelledby="addDeposit" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="CourseDetailsAddModal">Add Course</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="" method="POST" enctype="multipart/form-data">
-            @csrf
-              <input type="hidden" name="course_id" value="{{$course->id}}">
-
-              <div class="form-group">
-                <label class="col-form-label">Short Description</label>
-                <div>
-                  <textarea class="form-control" name="short_description" id="short_description"> </textarea>
+<div class="modal fade" id="addDeposit" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content  border-top-warning border-bottom-warning">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-currency-exchange text-primary"></i> Make New Deposit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" action="{{ route('deposit-store') }}">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="currency">Account Type</label>
+                                <select class="form-control" name="accountType" id="account_type">
+                                    <option hidden value="">Please Select</option>
+                                    <option value="1"> 3x Factor
+                                    </option>
+                                    <option value="2"> 2x Level
+                                    </option>
+                                    <option value="4"> 3X Level
+                                    </option>
+                                </select>
+                                <span class="text-danger error error_account_type d-none d-none"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="currency">Select Currency</label>
+                                <select class="form-control" name="currency" id="currency">
+                                    <option hidden value="">Please Select</option>
+                                    <option value="1">
+                                        BTC - BTC
+                                    </option>
+                                    <option value="3">
+                                        BNB - BNB
+                                    </option>
+                                    <option value="4">
+                                        XRP - XRP
+                                    </option>
+                                    <option value="6">
+                                        USDT - USDT.TRC20
+                                    </option>
+                                </select>
+                                <span class="text-danger error error_currency d-none d-none"></span>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="amount">Enter Amount <small class="text-muted">USD</small></label>
+                                <input type="number" class="form-control" name="amount" id="amount"
+                                    placeholder="Enter USD">
+                                <p class="text-danger error error_amount error_coin d-none d-none"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="col-form-label">Course Description</label>
-                <div>
-                  <textarea class="form-control" name="course_description" id="course_description"> </textarea>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-warning processBtn" data-value="Proceed">Proceed</button>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="col-form-label">Learning Outcomes</label>
-                <div>
-                  <textarea class="form-control" name="learning_outcomes" id="learning_outcomes"> </textarea>
-                </div>
-              </div>
-              <div class="form-group">
-                  <label for="exampleFormControlFile1">Course Banner Thumbnails</label>
-                    <input type="file" name="file" class="form-control-file" id="banner_image" onchange="previewImage(this)">
-              </div>
-
-              <div class="form-group">
-                <label for="custom select">Certification</label>
-                <select class="form-control" name="certification">
-                  <option label="Choose"></option>
-
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-
-
-
-
-
-
-                </select>
-              </div>
-
-
-              <div class="form-group">
-                <label for="no_of_lessons">Instructor Id</label>
-                <input type="number" class="form-control" name="instructor_id" aria-describedby="instructor_id" placeholder="Instructor Id">
-
-              </div>
-              <div class="form-group">
-                <label for="custom select">Skill</label>
-                <select class="form-control" name="skill">
-                  <option label="Choose"></option>
-
-                    <option value="Beginner">Beginner</option>
-                    <option value="Mid Level">Mid Level</option>
-                    <option value="Advance">Advance</option>
-
-
-
-
-
-
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="custom select">Language</label>
-                <select class="form-control" name="language">
-                  <option label="Choose"></option>
-
-                    <option value="Bangla">Bangla</option>
-                    <option value="English">English</option>
-
-
-
-
-
-
-
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="custom select">Quiz</label>
-                <select class="form-control" name="quiz">
-                  <option label="Choose"></option>
-
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-
-
-
-
-
-
-                </select>
-              </div>
-
-
-
-
-
-
-
-
-
-
+            </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-          </form>
-      </div>
     </div>
-  </div>
-  <script>
-  $(document).ready(function() {
-    $('#short_description').summernote();
-  });
-  </script>
-  <script>
-  $(document).ready(function() {
-    $('#course_description').summernote();
-  });
-  </script>
-  <script>
-  $(document).ready(function() {
-    $('#learning_outcomes').summernote();
-  });
-  </script>
-  <script>
-  $(document).ready(function() {
-    $('#ceetification').summernote();
-  });
-  </script>
+</div>
