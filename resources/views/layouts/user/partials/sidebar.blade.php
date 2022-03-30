@@ -65,7 +65,7 @@
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="List">Deposits</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-preview.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('withdrawal-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="Preview">Withdrawals</span></a>
                     </li>
