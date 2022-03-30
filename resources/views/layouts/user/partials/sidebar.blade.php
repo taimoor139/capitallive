@@ -76,11 +76,11 @@
                         data-feather="file-text"></i><span class="menu-title text-truncate"
                         data-i18n="Invoice">Accounts</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('account-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Bonus
                                 Accounts</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-preview.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('earning-accounts') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="Preview">Earning Accounts</span></a>
                     </li>

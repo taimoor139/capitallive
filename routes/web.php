@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ContactUsController;
@@ -42,6 +43,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
     //withdrawals
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawal-dashboard');
     Route::post('withdrawals/store', [WithdrawalController::class, 'withdrawalStore'])->name('withdrawal-store');
+
+    //accounts
+    Route::get('accounts', [AccountsController::class, 'index'])->name('account-dashboard');
+    Route::get('earning/accounts', [AccountsController::class, 'earningAccounts'])->name('earning-accounts');
 });
 
 //=======================Frontend=======================
