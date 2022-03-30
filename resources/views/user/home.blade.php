@@ -1,6 +1,7 @@
 @extends('layouts.user.master')
 
 @section('content')
+
     <div class="app-content content ">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>

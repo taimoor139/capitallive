@@ -81,8 +81,12 @@ body.dark-layout {
   color: #676d7d; }
 
 .dark-layout .header-navbar-shadow {
-  background: linear-gradient(180deg, rgba(22, 29, 49, 0.9) 44%, rgba(22, 29, 49, 0.43) 73%, rgba(22, 29, 49, 0)); }
+  /* background: linear-gradient(180deg, rgba(22, 29, 49, 0.9) 44%, rgba(22, 29, 49, 0.43) 73%, rgba(22, 29, 49, 0)); } */
+}
+.dark-layout {
+    background: linear-gradient(180deg, rgba(22, 29, 49, 0.9) 44%, rgba(22, 29, 49, 0.43) 73%, rgba(22, 29, 49, 0));
 
+  }
 .dark-layout .horizontal-layout .header-navbar {
   background-color: #283046; }
 
