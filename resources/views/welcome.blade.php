@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="#e9e8f0" name="theme-color" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" /> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/frontend/toastr/toastr.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Home - Capital First</title>
     <!-- <link as="script" href="https://tokyosecurities.com/assets/theme/js/vendors/uikit.min.js" rel="preload">
     <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/fa-brands-400.woff2" rel="preload"
@@ -26,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-1.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-2.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/style-3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <style>
         .uk-sticky.uk-active a.uk-logo {
             width: 128px;
@@ -47,6 +52,7 @@
             }
 
         }
+
         @media (max-width: 720px) {
             .live {
                 width: 300px;
@@ -59,6 +65,13 @@
 </head>
 
 <body>
+    @if(Session::has('contact-message'))
+    <div class="alert alert-success" role="alert">
+        <span class="alert-body">
+            {{Session::get('contact-message')}}
+        </span>
+    </div>
+    @endif
     <div class="in-loader">
         <div></div>
         <div></div>
@@ -115,9 +128,8 @@
                                         <a href="{{ route('login') }}" class="uk-button uk-button-text">Login</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}"
-                                            class="uk-button uk-button-text">Sign
-                                            up</a>
+                                            <a href="{{ route('register') }}" class="uk-button uk-button-text">Sign
+                                                up</a>
                                         @endif
                                 @endif
                             </div>
@@ -151,7 +163,8 @@
                                             <p class="uk-text-lead uk-visible@m">Trade Cryptocurrencies, Stock Indices,
                                                 Commodities and Forex from a single account</p>
                                             <div class="in-slideshow-button">
-                                                <a class="uk-button uk-button-primary uk-border-rounded" href="{{ route('register') }}">Open
+                                                <a class="uk-button uk-button-primary uk-border-rounded"
+                                                    href="{{ route('register') }}">Open
                                                     account</a>
                                             </div>
                                         </div>
@@ -388,28 +401,28 @@
 
             <!-- Live Fx & Spot Metal Quotes -->
             <!-- <div class="uk-section uk-padding-large in-padding-large-vertical@s in-profit-12">
-                <div class="uk-container">
-                    <div class="uk-grid-large uk-flex uk-flex-center uk-grid" data-uk-grid="">
-                        <div class="uk-width-1-2@m uk-text-center uk-first-column">
-                            <div class="tradingview-widget-container">
-                                <div class="tradingview-widget-container__widget"></div>
-                                <iframe scrolling="no" allowtransparency="true" frameborder="0"
-                                    src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"
-                                    style="box-sizing: border-box; height: 410px; width: 500px;"></iframe>
-                            </div>
+                    <div class="uk-container">
+                        <div class="uk-grid-large uk-flex uk-flex-center uk-grid" data-uk-grid="">
+                            <div class="uk-width-1-2@m uk-text-center uk-first-column">
+                                <div class="tradingview-widget-container">
+                                    <div class="tradingview-widget-container__widget"></div>
+                                    <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                                        src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"
+                                        style="box-sizing: border-box; height: 410px; width: 500px;"></iframe>
+                                </div>
 
-                        </div>
-                        <div class="uk-width-1-2@m">
-                            <h2>Live Fx &amp; Spot Metal Quotes</h2>
-                            <ul class="uk-list uk-list-bullet in-list-check uk-margin-bottom">
-                                <li>Ultra-competitive pricing</li>
-                                <li>Trading flexibility</li>
-                                <li>Best Copy-Trading platform</li>
-                            </ul>
+                            </div>
+                            <div class="uk-width-1-2@m">
+                                <h2>Live Fx &amp; Spot Metal Quotes</h2>
+                                <ul class="uk-list uk-list-bullet in-list-check uk-margin-bottom">
+                                    <li>Ultra-competitive pricing</li>
+                                    <li>Trading flexibility</li>
+                                    <li>Best Copy-Trading platform</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div> -->
+                </div> -->
 
             <div class="container">
                 <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
@@ -469,8 +482,8 @@
                 </div>
             </div>
             <!-- Start trading
-            with
-            Profit Inc. -->
+                with
+                Profit Inc. -->
             <div class="uk-section uk-section-muted uk-padding-large in-padding-large-vertical@s in-profit-15">
                 <div class="uk-container">
                     <div class="uk-grid uk-flex uk-flex-center uk-grid-stack" data-uk-grid="">
@@ -511,7 +524,11 @@
                     <hr class="uk-margin-medium">
                     <h1 class="uk-margin-small-top uk-text-center">Let's <span class="in-highlight">get in touch</span>
                     </h1>
-                    <form class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid="" id="contact-form">
+                    <form class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid="" action="{{ route('contact-store') }}" method="POST">
+                        @csrf
+
+                    {{-- <div class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid=""> --}}
+
                         <div class="uk-width-1-2@s uk-inline uk-first-column">
                             <span class="uk-form-icon fas fa-user fa-sm"></span>
                             <input class="uk-input uk-border-rounded" id="name" name="name" placeholder="Full name"
@@ -531,11 +548,11 @@
                             <textarea class="uk-textarea uk-border-rounded" id="message" name="message" placeholder="Message" rows="6"></textarea>
                         </div>
                         <div class="uk-width-1-1 uk-grid-margin">
-                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail"
-                                name="submit" type="submit">Send Message
-                            </button>
+                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit">Send Message</button>
                         </div>
+                    {{-- </div> --}}
                     </form>
+
                 </div>
             </div>
             </div>
@@ -581,7 +598,7 @@
                         <div class="uk-flex-first uk-flex-last@m">
                             <ul class="uk-list uk-link-text">
                                 <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
-                                        width="130"> -->
+                                            width="130"> -->
                                 <span>Capital First</span>
                                 </li>
                                 <li><a href="#"><i class="fas fa-envelope uk-margin-small-right"></i><span
@@ -673,15 +690,34 @@
                 </div>
             </div>
 
-
             <div class="uk-visible@m">
                 <a class="in-totop fas fa-chevron-up" style="background-color: #4629ff;" data-uk-scroll href="#"></a>
             </div>
 
         </footer>
 
-        <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+        <script type="text/javascript" src="{{ asset('assets') }}/frontend/toastr/toastr.min.js"></script>
+        <script>
+            @if(Session::has('message'))
+              var type ="{{Session::get('alert-type','info')}}"
+              switch(type){
+                  case 'info':
+                      toastr.info(" {{Session::get('message')}} ");
+                      break;
+                  case 'success':
+                      toastr.success(" {{Session::get('message')}} ");
+                      break;
+                  case 'warning':
+                      toastr.warning(" {{Session::get('message')}} ");
+                      break;
+                  case 'error':
+                      toastr.error(" {{Session::get('message')}} ");
+                      break;
+              }
+          @endif
+          </script>
         <script src="{{ asset('assets') }}/frontend/js/Script-main.js"></script>
+
         <script src="{{ asset('assets') }}/frontend/js/Script.js"></script>
         <script defer src="{{ asset('assets') }}/frontend/js/Script-defer.js"></script>
         <script src="{{ asset('assets') }}/frontend/js/Script-theme.js"></script>
