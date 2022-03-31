@@ -130,22 +130,22 @@
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">My
                                 Profile</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('security') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="List">Security</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('nextOfKin') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Next Of
                                 Kin</span></a>
                     </li>
                 </ul>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="link"></i><span
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('refferals') }}"><i data-feather="link"></i><span
                         class="menu-title text-truncate" data-i18n="Invoice">Referrals</span></a>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="link"></i><span
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('trade-activation') }}"><i data-feather="link"></i><span
                         class="menu-title text-truncate" data-i18n="Invoice">Trade
                         Activation</span></a>
             </li>
@@ -154,7 +154,7 @@
                         data-feather="help-circle"></i><span class="menu-title text-truncate"
                         data-i18n="Invoice">Support</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('new-ticket') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Create
                                 New Ticket</span></a>
                     </li>
@@ -165,7 +165,7 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('download') }}"><i
                         data-feather="download"></i><span class="menu-title text-truncate"
                         data-i18n="Invoice">Downloads</span></a>
             </li>
@@ -174,7 +174,7 @@
                         class="menu-title text-truncate" data-i18n="Invoice">Education</span></a>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="mail"></i><span
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('suggestions') }}"><i data-feather="mail"></i><span
                         class="menu-title text-truncate" data-i18n="Invoice">Suggestions</span></a>
             </li>
 

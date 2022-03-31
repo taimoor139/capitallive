@@ -79,11 +79,11 @@
                 <h5 class="card-title">Profile Details</h5>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label  p-2">Full Name</div>
-                <div class="col-8 col-lg-9 col-md-8  p-2">Adeel Ahmed</div>
+                <div class="col-8 col-lg-9 col-md-8  p-2">{{ Auth::user()->name }}</div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Username</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2">Adeel1</div>
+                <div class="col-8 col-lg-9 col-md-8 p-2">{{ Auth::user()->username }}</div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Email</div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Registered</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2">January 16, 2022</div>
+                <div class="col-8 col-lg-9 col-md-8 p-2">{{ Auth::user()->created_at->format('d-m-Y') }}</div>
                 </div>
                 <div class="row">
                 <div class="col-12 pt-4">

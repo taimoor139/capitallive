@@ -10,4 +10,14 @@ class ProfileController extends Controller
     {
         return view('user.profile.myProfile');
     }
+
+    public function security()
+    {
+        return view('user.profile.security');
+    }
+
+    public function nextOfKin()
+    {
+        return view('user.profile.nextOfKin');
+    }
 }

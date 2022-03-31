@@ -7,9 +7,14 @@ use App\Http\Controllers\AwardController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RefferalController;
+use App\Http\Controllers\SuggestionController;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TradeactivationController;
 use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +69,23 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
     //profle
     Route::get('my/profile', [ProfileController::class, 'index'])->name('profile-dashboard');
+    Route::get('my-profile/change-password', [ProfileController::class, 'security'])->name('security');
+    Route::get('my-profile/nok', [ProfileController::class, 'nextOfKin'])->name('nextOfKin');
+
+    //refferals
+    Route::get('refferal', [RefferalController::class, 'index'])->name('refferals');
+
+    //trade activation
+    Route::get('trade/activation', [TradeactivationController::class, 'index'])->name('trade-activation');
+
+    //support
+    Route::get('support/new-ticket',[SupportController::class,'index'])->name('new-ticket');
+
+    //download
+    Route::get('downloads',[DownloadController::class,'index'])->name('download');
+
+    //suggestions
+    Route::get('suggestion',[SuggestionController::class,'index'])->name('suggestions');
 
 });
 
