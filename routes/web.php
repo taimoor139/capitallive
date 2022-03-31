@@ -9,6 +9,7 @@ use App\Http\Controllers\DepositController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NetworkController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
     //documents
     Route::get('kyc/documents', [DocumentController::class, 'index'])->name('document-dashboard');
+
+    //profle
+    Route::get('my/profile', [ProfileController::class, 'index'])->name('profile-dashboard');
 
 });
 
