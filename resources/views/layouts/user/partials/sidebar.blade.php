@@ -170,7 +170,7 @@
                         data-i18n="Invoice">Downloads</span></a>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="book"></i><span
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('education') }}"><i data-feather="book"></i><span
                         class="menu-title text-truncate" data-i18n="Invoice">Education</span></a>
             </li>
 

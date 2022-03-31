@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\ProfileController;
@@ -83,6 +84,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
     //download
     Route::get('downloads',[DownloadController::class,'index'])->name('download');
+
+    //education
+    Route::get('education',[EducationController::class,'index'])->name('education');
 
     //suggestions
     Route::get('suggestion',[SuggestionController::class,'index'])->name('suggestions');
