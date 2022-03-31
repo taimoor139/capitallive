@@ -101,7 +101,7 @@
                         data-feather="bar-chart"></i><span class="menu-title text-truncate"
                         data-i18n="Invoice">Awards</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('award-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Rank
                                 Awards</span></a>
                     </li>
