@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AwardController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\FrontendController;
@@ -51,6 +52,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
     //network
     Route::get('network', [NetworkController::class, 'index'])->name('network-dashboard');
+
+    //awards
+    Route::get('network', [AwardController ::class, 'index'])->name('network-dashboard');
+
 });
 
 //=======================Frontend=======================

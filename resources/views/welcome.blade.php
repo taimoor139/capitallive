@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="#e9e8f0" name="theme-color" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" /> --}}
-    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/frontend/toastr/toastr.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/frontend/toastr/toastr.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Home - Capital First</title>
@@ -65,12 +65,12 @@
 </head>
 
 <body>
-    @if(Session::has('contact-message'))
-    <div class="alert alert-success" role="alert">
-        <span class="alert-body">
-            {{Session::get('contact-message')}}
-        </span>
-    </div>
+    @if (Session::has('contact-message'))
+        <div class="alert alert-success" role="alert">
+            <span class="alert-body">
+                {{ Session::get('contact-message') }}
+            </span>
+        </div>
     @endif
     <div class="in-loader">
         <div></div>
@@ -401,28 +401,28 @@
 
             <!-- Live Fx & Spot Metal Quotes -->
             <!-- <div class="uk-section uk-padding-large in-padding-large-vertical@s in-profit-12">
-                    <div class="uk-container">
-                        <div class="uk-grid-large uk-flex uk-flex-center uk-grid" data-uk-grid="">
-                            <div class="uk-width-1-2@m uk-text-center uk-first-column">
-                                <div class="tradingview-widget-container">
-                                    <div class="tradingview-widget-container__widget"></div>
-                                    <iframe scrolling="no" allowtransparency="true" frameborder="0"
-                                        src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"
-                                        style="box-sizing: border-box; height: 410px; width: 500px;"></iframe>
-                                </div>
+                            <div class="uk-container">
+                                <div class="uk-grid-large uk-flex uk-flex-center uk-grid" data-uk-grid="">
+                                    <div class="uk-width-1-2@m uk-text-center uk-first-column">
+                                        <div class="tradingview-widget-container">
+                                            <div class="tradingview-widget-container__widget"></div>
+                                            <iframe scrolling="no" allowtransparency="true" frameborder="0"
+                                                src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"
+                                                style="box-sizing: border-box; height: 410px; width: 500px;"></iframe>
+                                        </div>
 
+                                    </div>
+                                    <div class="uk-width-1-2@m">
+                                        <h2>Live Fx &amp; Spot Metal Quotes</h2>
+                                        <ul class="uk-list uk-list-bullet in-list-check uk-margin-bottom">
+                                            <li>Ultra-competitive pricing</li>
+                                            <li>Trading flexibility</li>
+                                            <li>Best Copy-Trading platform</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="uk-width-1-2@m">
-                                <h2>Live Fx &amp; Spot Metal Quotes</h2>
-                                <ul class="uk-list uk-list-bullet in-list-check uk-margin-bottom">
-                                    <li>Ultra-competitive pricing</li>
-                                    <li>Trading flexibility</li>
-                                    <li>Best Copy-Trading platform</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                        </div> -->
 
             <div class="container">
                 <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
@@ -482,8 +482,8 @@
                 </div>
             </div>
             <!-- Start trading
-                with
-                Profit Inc. -->
+                        with
+                        Profit Inc. -->
             <div class="uk-section uk-section-muted uk-padding-large in-padding-large-vertical@s in-profit-15">
                 <div class="uk-container">
                     <div class="uk-grid uk-flex uk-flex-center uk-grid-stack" data-uk-grid="">
@@ -524,10 +524,11 @@
                     <hr class="uk-margin-medium">
                     <h1 class="uk-margin-small-top uk-text-center">Let's <span class="in-highlight">get in touch</span>
                     </h1>
-                    <form class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid="" action="{{ route('contact-store') }}" method="POST">
+                    <form class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid=""
+                        action="{{ route('contact-store') }}" method="POST">
                         @csrf
 
-                    {{-- <div class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid=""> --}}
+                        {{-- <div class="uk-form uk-grid-small uk-margin-medium-top uk-grid" data-uk-grid=""> --}}
 
                         <div class="uk-width-1-2@s uk-inline uk-first-column">
                             <span class="uk-form-icon fas fa-user fa-sm"></span>
@@ -548,9 +549,10 @@
                             <textarea class="uk-textarea uk-border-rounded" id="message" name="message" placeholder="Message" rows="6"></textarea>
                         </div>
                         <div class="uk-width-1-1 uk-grid-margin">
-                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit">Send Message</button>
+                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit">Send
+                                Message</button>
                         </div>
-                    {{-- </div> --}}
+                        {{-- </div> --}}
                     </form>
 
                 </div>
@@ -598,7 +600,7 @@
                         <div class="uk-flex-first uk-flex-last@m">
                             <ul class="uk-list uk-link-text">
                                 <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
-                                            width="130"> -->
+                                                    width="130"> -->
                                 <span>Capital First</span>
                                 </li>
                                 <li><a href="#"><i class="fas fa-envelope uk-margin-small-right"></i><span
@@ -613,7 +615,12 @@
                             <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Our
                                         Trading Platform</span></h5>
-                                <p class="uk-text-small">Our trading platform is MT4, Our strategy manager trading is on
+                                <p class="uk-text-small">
+                                    Our trading platform is MT4, Payment Processing / e-wallets, Forex Services and Crypto
+                                    Currency Services.
+                                </p>
+                                {{-- <p class="uk-text-small">
+                                    Our trading platform is MT4, Our strategy manager trading is on
                                     MT4
                                     platform. We use the platform of MTFXG for all our trades on MT4.
                                     "MTFXG is incorporated in the Republic of Kazakhstan with Business Identification Number
@@ -627,9 +634,9 @@
                                     e-wallets, Forex Services and Crypto Currency Services."
                                     <br><small>In case of any dispute, MTFXG only deal with Capital First strategy
                                         manager.</small>
-                                </p>
+                                </p> --}}
                             </div>
-                            <div class="in-footer-warning in-margin-top-20@s">
+                            {{-- <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span
                                         style="background-color: #233A7D">Disclosure</span></h5>
                                 <p class="uk-text-small"> The Maximum protection of funds level is 70%, because a small
@@ -675,7 +682,7 @@
                                     downloading or accessing the brand name, logos, banner images, agreement, etc.), hence
                                     may
                                     not be used, copied or otherwise presented without consent in any way.</p>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="uk-width-1-2@m in-copyright-text">
                             <p>© Capital First 2022. All rights reserved.</p>
@@ -698,24 +705,24 @@
 
         <script type="text/javascript" src="{{ asset('assets') }}/frontend/toastr/toastr.min.js"></script>
         <script>
-            @if(Session::has('message'))
-              var type ="{{Session::get('alert-type','info')}}"
-              switch(type){
-                  case 'info':
-                      toastr.info(" {{Session::get('message')}} ");
-                      break;
-                  case 'success':
-                      toastr.success(" {{Session::get('message')}} ");
-                      break;
-                  case 'warning':
-                      toastr.warning(" {{Session::get('message')}} ");
-                      break;
-                  case 'error':
-                      toastr.error(" {{Session::get('message')}} ");
-                      break;
-              }
-          @endif
-          </script>
+            @if (Session::has('message'))
+                var type ="{{ Session::get('alert-type', 'info') }}"
+                switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+                }
+            @endif
+        </script>
         <script src="{{ asset('assets') }}/frontend/js/Script-main.js"></script>
 
         <script src="{{ asset('assets') }}/frontend/js/Script.js"></script>
