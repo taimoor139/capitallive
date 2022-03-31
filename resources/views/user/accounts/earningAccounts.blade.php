@@ -138,13 +138,13 @@
                 <span class="page-link" aria-hidden="true">&lsaquo;</span>
                 </li>
                 <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                <li class="page-item"><a class="page-link" href="https://tokyosecurities.com/earning-account?page=2">2</a></li>
-                <li class="page-item"><a class="page-link" href="https://tokyosecurities.com/earning-account?page=3">3</a></li>
-                <li class="page-item"><a class="page-link" href="https://tokyosecurities.com/earning-account?page=4">4</a></li>
-                <li class="page-item"><a class="page-link" href="https://tokyosecurities.com/earning-account?page=5">5</a></li>
-                <li class="page-item"><a class="page-link" href="https://tokyosecurities.com/earning-account?page=6">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>
                 <li class="page-item">
-                <a class="page-link" href="https://tokyosecurities.com/earning-account?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                <a class="page-link" href="#" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
                 </li>
                 </ul>
                 </nav>

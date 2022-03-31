@@ -54,7 +54,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
     Route::get('network', [NetworkController::class, 'index'])->name('network-dashboard');
 
     //awards
-    Route::get('network', [AwardController ::class, 'index'])->name('network-dashboard');
+    Route::get('rank/awards', [AwardController ::class, 'index'])->name('award-dashboard');
 
 });
 
