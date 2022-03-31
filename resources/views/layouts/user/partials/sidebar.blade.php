@@ -116,7 +116,7 @@
                         class="menu-title text-truncate" data-i18n="Invoice">My
                         Documents</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('document-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">KYC
                                 Documents</span></a>
                     </li>

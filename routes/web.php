@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DepositController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\WithdrawalController;
@@ -56,6 +57,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
     //awards
     Route::get('rank/awards', [AwardController ::class, 'index'])->name('award-dashboard');
     Route::get('executive/awards', [AwardController ::class, 'executiveAwards'])->name('executive-dashboard');
+
+    //documents
+    Route::get('kyc/documents', [DocumentController::class, 'index'])->name('document-dashboard');
 
 });
 
