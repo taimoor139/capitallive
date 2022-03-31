@@ -55,6 +55,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
     //awards
     Route::get('rank/awards', [AwardController ::class, 'index'])->name('award-dashboard');
+    Route::get('executive/awards', [AwardController ::class, 'executiveAwards'])->name('executive-dashboard');
 
 });
 

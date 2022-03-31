@@ -105,7 +105,7 @@
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Rank
                                 Awards</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-preview.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('executive-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="Preview">Executive Awards</span></a>
                     </li>
