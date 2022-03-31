@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
     //accounts
     Route::get('accounts', [AccountsController::class, 'index'])->name('account-dashboard');
     Route::get('earning/accounts', [AccountsController::class, 'earningAccounts'])->name('earning-accounts');
+
+    //network
+    Route::get('network', [NetworkController::class, 'index'])->name('network-dashboard');
 });
 
 //=======================Frontend=======================

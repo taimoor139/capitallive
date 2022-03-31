@@ -90,7 +90,7 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="share-2"></i><span
                         class="menu-title text-truncate" data-i18n="Invoice">Network</span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('network-dashboard') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate"
                                 data-i18n="List">Genealogy</span></a>
                     </li>
