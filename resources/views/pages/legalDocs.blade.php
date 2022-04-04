@@ -17,7 +17,7 @@
             rel="preload" type="font/woff2">
         <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/montserrat-v14-latin-600.woff2"
             rel="preload" type="font/woff2"> -->
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/Background.png" rel="shortcut icon" type="image/x-icon">
     <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed">
     <script src="https://kit.fontawesome.com/23d9ae4e3d.js" crossorigin="anonymous"></script>
     <!-- CSS -->
@@ -65,7 +65,7 @@
                     <div class="uk-navbar-left uk-width-auto">
                         <div class="uk-navbar-item">
                             <a class="uk-logo" href="{{ url('/') }}">
-                                Capital First
+                                <img src="/frontend1.png" alt="Capital First">
                             </a>
                         </div>
                     </div>

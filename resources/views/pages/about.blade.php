@@ -18,7 +18,7 @@
         rel="preload" type="font/woff2">
     <link as="font" crossorigin href="https://tokyosecurities.com/assets/theme/fonts/montserrat-v14-latin-600.woff2"
         rel="preload" type="font/woff2"> -->
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="Background.png" rel="shortcut icon" type="image/x-icon">
     <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed">
     <script src="https://kit.fontawesome.com/23d9ae4e3d.js" crossorigin="anonymous"></script>
     <!-- CSS -->
@@ -71,9 +71,7 @@
                         <div class="uk-navbar-item">
 
                             <a class="uk-logo" href="{{ url('/') }}">
-                                <!-- <img alt="logo" class="in-offset-top-10" height="36" src="../Images/logo.png"
-                                    width="130"> -->
-                                Capital First
+                                <img src="/frontend1.png" alt="Capital First">
                             </a>
 
                         </div>
@@ -271,7 +269,7 @@
                                         manager.</small>
                                 </p> --}}
                             </div>
-                            <div class="in-footer-warning in-margin-top-20@s">
+                            {{-- <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span
                                         style="background-color: #233A7D">Disclosure</span></h5>
                                 <p class="uk-text-small"> The Maximum protection of funds level is 70%, because a small
@@ -316,7 +314,7 @@
                                     downloading or accessing the brand name, logos, banner images, agreement, etc.), hence
                                     may
                                     not be used, copied or otherwise presented without consent in any way.</p>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="uk-width-1-2@m in-copyright-text">
                             <p>© Capital First 2022. All rights reserved.</p>

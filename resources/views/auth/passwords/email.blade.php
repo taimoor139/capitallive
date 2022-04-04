@@ -13,7 +13,7 @@
     <meta name="author" content="PIXINVENT">
     <title>Forgot Password Page - Vuexy - Bootstrap HTML admin template</title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/Background.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
         rel="stylesheet">
 
@@ -60,7 +60,8 @@
                         <!-- Forgot Password v1 -->
                         <div class="card mb-0">
                             <div class="card-body">
-                                <a href="javascript:void(0);" class="brand-logo">
+                                <a href="/" class="d-flex justify-content-center"><img src="/login.png" alt="Capital first"></a>
+                                {{-- <a href="javascript:void(0);" class="brand-logo">
                                     <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
@@ -99,7 +100,7 @@
                                         </g>
                                     </svg>
                                     <h2 class="brand-text text-primary ml-1">Vuexy</h2>
-                                </a>
+                                </a> --}}
 
                                 <h4 class="card-title mb-1">Forgot Password? 🔒</h4>
                                 <p class="card-text mb-2">Enter your email and we'll send you instructions to reset your

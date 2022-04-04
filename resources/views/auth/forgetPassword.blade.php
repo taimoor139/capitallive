@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
     <meta name="csrf_token" content="aengrfDr54WOKRM0t4RrXsgPKUSpYO3VW4RzvlFp" />
 
-    <link href="https://tokyosecurities.com/assets/img/favicon.png" rel="icon">
+    <link href="/Background.png" rel="icon">
     <link href="https://tokyosecurities.com/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="https://fonts.gstatic.com" rel="preconnect">
