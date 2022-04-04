@@ -91,24 +91,24 @@
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Phone</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2">+923224689000 <b class='text-danger'>unverified<i class='bi bi-x'></i></b></div>
+                <div class="col-8 col-lg-9 col-md-8 p-2">{{ Auth::user()->number }} <b class='text-danger'>unverified<i class='bi bi-x'></i></b></div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Country</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2"><img style="width: 20px; height: 20px" src="/assets/flags/pk.svg" alt="flag"> Pakistan
+                <div class="col-8 col-lg-9 col-md-8 p-2"><img style="width: 20px; height: 20px" src="/assets/flags/pk.svg" alt="flag"> {{ Auth::user()->country }}
                 </div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Tax Country</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2"><img style="width: 20px; height: 20px" src="/assets/flags/pk.svg" alt="flag"> Pakistan</div>
+                <div class="col-8 col-lg-9 col-md-8 p-2"><img style="width: 20px; height: 20px" src="/assets/flags/pk.svg" alt="flag"> {{ Auth::user()->country }}</div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Address</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2">House#35-H,muhalla canal berg multan road,lahore</div>
+                <div class="col-8 col-lg-9 col-md-8 p-2">{{ Auth::user()->address }}</div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Date Of Birth</div>
-                <div class="col-8 col-lg-9 col-md-8 p-2">November 24, 1991</div>
+                <div class="col-8 col-lg-9 col-md-8 p-2">{{ Auth::user()->birth }}</div>
                 </div>
                 <div class="row">
                 <div class="col-4 col-lg-3 col-md-4 label p-2">Registered</div>

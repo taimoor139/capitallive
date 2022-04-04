@@ -60,7 +60,7 @@
                         <!-- Login v1 -->
                         <div class="card mb-0">
                             <div class="card-body">
-                                <a href="javascript:void(0);" class="brand-logo">
+                                {{-- <a href="javascript:void(0);" class="brand-logo"> --}}
                                     {{-- <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
                                         <defs>
@@ -98,8 +98,9 @@
                                             </g>
                                         </g>
                                     </svg> --}}
-                                    <h2 class="brand-text text-center text-primary ml-1"><a href="/">Capital First</a></h2>
-                                </a>
+                                    {{-- <h2 class="brand-text text-center text-primary ml-1"><a href="/">Capital First</a></h2> --}}
+                                {{-- </a> --}}
+                                <a href="/" class="d-flex justify-content-center"><img src="/login.png" alt="Capital first"></a>
 
                                 <h4 class="card-title mb-1">Welcome to Capital First! 👋</h4>
                                 <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>

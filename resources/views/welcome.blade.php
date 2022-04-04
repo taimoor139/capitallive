@@ -23,7 +23,7 @@
         rel="preload" type="font/woff2"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="Background.png" rel="shortcut icon" type="image/x-icon">
     <link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed">
     <script src="https://kit.fontawesome.com/23d9ae4e3d.js" crossorigin="anonymous"></script>
     <!-- CSS -->
@@ -101,7 +101,7 @@
 
                             <a class="uk-logo" href="#">
 
-                                Capital First
+                                <img src="/frontend1.png" alt="Capital First">
                             </a>
 
                         </div>
