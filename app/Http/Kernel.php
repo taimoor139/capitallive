@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\LoginSecurityMiddleware;
+use App\Http\Middleware\SystemAccess;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'user' => \App\Http\Middleware\UserMiddleware::class,
         'profile' => \App\Http\Middleware\ProfileCheck::class,
         '2fa' => LoginSecurityMiddleware::class,
+        'system_access' => SystemAccess::class
     ];
 }

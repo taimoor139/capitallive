@@ -79,12 +79,12 @@ Route::group(['prefix'=>'2fa'], function(){
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth', 'verified', 'profile', '2fa'], 'namespace' => 'User'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth', 'verified', 'profile', '2fa', 'system_access'], 'namespace' => 'User'], function () {
     Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
 
     //deposit
-    Route::get('deposit', [DepositController::class, 'index'])->name('deposit-dashboard');
-    Route::post('deposit/store', [DepositController::class, 'depositStore'])->name('deposit-store');
+    Route::get('deposit', [DepositController::class, 'index'])->name('deposit-dashboard')->withoutMiddleware('system_access');
+    Route::post('deposit/store', [DepositController::class, 'depositStore'])->name('deposit-store')->withoutMiddleware('system_access');
 
     //withdrawals
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawal-dashboard');
