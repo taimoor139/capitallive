@@ -15,11 +15,14 @@ class CreateWithdrawalsTable extends Migration
     {
         Schema::create('withdrawals', function (Blueprint $table) {
             $table->id();
+            $table->string('balance_account');
             $table->string('account_type');
             $table->string('currency');
+            $table->tinyInteger('status');
             $table->string('amount');
             $table->string('withdraw_address');
             $table->string('password');
+            $table->string('withdraw_status')->nullable();
             $table->timestamps();
         });
     }

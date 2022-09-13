@@ -2,6 +2,12 @@
 
 namespace App\Console;
 
+use App\Console\Commands\BonusStatusCheck;
+use App\Console\Commands\EarningPercentageCheck;
+use App\Console\Commands\PaymentStatusCheck;
+use App\Console\Commands\RankCheck;
+use App\Console\Commands\ReturnOnInvestment;
+use App\Console\Commands\Withdrawal;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +19,12 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        PaymentStatusCheck::class,
+        ReturnOnInvestment::class,
+        EarningPercentageCheck::class,
+        BonusStatusCheck::class,
+        RankCheck::class,
+        Withdrawal::class,
     ];
 
     /**
@@ -24,7 +35,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('payment_status:check')->everyTenMinutes();
     }
 
     /**

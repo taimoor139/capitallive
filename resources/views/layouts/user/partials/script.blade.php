@@ -160,3 +160,20 @@
     initializeClock('clockdiv', convertToEST(deadline));
 
 </script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "dom": '<"pull-left"f><"pull-right"l>tip',
+            order: [[1, 'desc']],
+            scrollX: true
+        });
+    });
+</script>

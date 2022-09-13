@@ -24,7 +24,7 @@
                             <div class="col-xl-3 col-sm-6 mb-20">
                                 <div class="card border-left-warning">
                                     <div class="card-body">
-                                        <h5 class="card-title p-0 pt-4">$ 0.00</h5>
+                                        <h5 class="card-title p-0 pt-4">$ {{ ($bonusBalance > 0 ? number_format($bonusBalance) : 0) }}</h5>
                                         <p class="card-text">Bonus Balance</p>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@
                             <div class="col-xl-3 col-sm-6 mb-20">
                                 <div class="card border-left-warning">
                                     <div class="card-body">
-                                        <h5 class="card-title p-0 pt-4">$ 427.40</h5>
+                                        <h5 class="card-title p-0 pt-4">$ {{ number_format($earningBalance) }}</h5>
                                         <p class="card-text">Earning Balance</p>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                 <div class="card border-left-warning">
                                     <div class="card-body">
                                         <h5 class="card-title p-0 pt-4">
-                                            $ 427.40</h5>
+                                            $ {{ ($totalBalance > 0 ? number_format($totalBalance) : 0) }}</h5>
                                         <p class="card-text">Available Balance</p>
                                     </div>
                                 </div>
@@ -53,44 +53,63 @@
                                     {{-- <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#new_withdrawal" style="float: right">New Withdrawal
                                     </button> --}}
+                                    @if(date('D', strtotime(now())) == "Mon")
                                     <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#addWithdrawal">New Withdrawal</i></a>
+                                    @endif
                     @include('user.withdrawals.addWithdrawals')
                                 </h5>
-                                <table class="table table-hover">
+                                <table id="table" class="table table-hover">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Account</th>
-                                            <th>From Currency</th>
-                                            <th>To Currency</th>
+                                            <th>Currency</th>
+                                            <th>Withdraw Address</th>
                                             <th>Status</th>
                                             <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($withdrawals as $withdrawal)
                                         <tr>
                                             <td>
-                                                <span>EARNING</span>
+                                                {{ $loop->iteration }}
                                             </td>
+                                            <td>{{ $withdrawal->account_type }}</td>
                                             <td>
-                                                <img src="https://ui-avatars.com/api/?name=UD&color=ffffff&background=ffc107"
-                                                    class="img-fluid rounded-circle" width="30px" alt="">
-                                                <span>874</span>
-                                                <small class="text-md font-weight-bolder"> USD <span class="text-danger"> - 2.5%
-                                                        fee</span></small>
+                                                @if($withdrawal->currency == 'BTC')
+                                                    <img src="{{ asset('img/btc.svg') }}"
+                                                         class="img-fluid rounded-circle" width="30px" alt="">
+                                                    <span>{{ $withdrawal->currency }}</span>
+                                                @endif
+                                                {{--                                                @if($withdrawal->currency == 'BNB')--}}
+                                                {{--                                                    <img src="{{ asset('img/bnb.svg') }}"--}}
+                                                {{--                                                         class="img-fluid rounded-circle" width="30px" alt="">--}}
+                                                {{--                                                @endif--}}
+                                                @if($withdrawal->currency == 'USDT.TRC20')
+                                                    <img src="{{ asset('img/usdt.svg') }}"
+                                                         class="img-fluid rounded-circle" width="30px" alt="">
+                                                    <span>USDT</span>
+                                                @endif
+                                                {{--                                                @if($withdrawal->currency == 'XRP')--}}
+                                                {{--                                                    <img src="{{ asset('img/xrp.svg') }}"--}}
+                                                {{--                                                         class="img-fluid rounded-circle" width="30px" alt="">--}}
+                                                {{--                                                @endif--}}
+
+
+                                                <small class="text-md font-weight-bolder">{{ $withdrawal->amount }} <span
+                                                            class="text-muted">USD</span></small>
                                             </td>
+                                            <td>{{ $withdrawal->withdraw_address }}</td>
+
                                             <td>
-                                                <img src="https://tokyosecurities.com/img/usdt.svg" class="img-fluid rounded-circle"
-                                                    width="30px" alt="">
-                                                <span>USDT</span>
-                                                <small class="text-md font-weight-bolder">852.15</small><br>
-                                                <small class="text-md font-weight-bolder">TM1FXr3L18WnpyjDDJr5adBuTj6w6U3JK6</small>
+                                                {{ $withdrawal->paymentStatus->name ?? '' }}
                                             </td>
-                                            <td>
-                                                <p>Completed</p>
-                                                <small></small>
-                                            </td>
-                                            <td title="2022-03-01 10:23:46">March 01, 2022</td>
+
+                                            <td>{{ date_format($withdrawal->created_at, 'M d, Y - h:i') }}</td>
+
                                         </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -106,5 +125,41 @@
         </div>
 </div>
 
+<script>
+    @if(Session::has('success'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+    toastr.success("{{ session('success') }}");
+    @endif
 
+        @if(Session::has('error'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+    toastr.error("{{ session('error') }}");
+    @endif
+
+        @if(Session::has('info'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+    toastr.info("{{ session('info') }}");
+    @endif
+
+        @if(Session::has('warning'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+    toastr.warning("{{ session('warning') }}");
+    @endif
+</script>
 @endsection

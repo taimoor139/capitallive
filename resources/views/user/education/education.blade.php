@@ -8,13 +8,14 @@
             </div>
             <div class="content-body">
                 <div class="card border-top-warning border-bottom-warning">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-journal-plus"></i> Forex Education</h5>
-                        <div class="alert-danger p-3">
-                            <strong>No Education Available!</strong> No Educational articles available currently for your
-                            region.
+                    @foreach($articles as $article)
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-journal-plus"></i>{{ $article->title }}</h5>
+                            <div class="p-1">
+                                {{ $article->body }}
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

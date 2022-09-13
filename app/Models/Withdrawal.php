@@ -9,4 +9,8 @@ class Withdrawal extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function paymentStatus(){
+        return $this->hasOne(PaymentStatus::class, 'status_id', 'status');
+    }
 }

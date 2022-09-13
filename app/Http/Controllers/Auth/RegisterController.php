@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Balance;
+use App\Models\EarnAward;
+use App\Models\Earning;
+use App\Models\Point;
+use App\Models\Referral;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -30,14 +38,17 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-        protected function redirectTo(){
-            if (Auth()->user()->role_id ==1 ) {
-                return route('admin.dashboard');
 
-            }elseif (Auth()->user()->role_id ==2 ) {
+    protected function redirectTo()
+    {
+        if (Auth()->user()->role_id == 1) {
+            return route('admin.dashboard');
+
+        } elseif (Auth()->user()->role_id == 2) {
             return route('user.dashboard');
-            }
         }
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -51,7 +62,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -59,7 +70,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed'],
 
         ]);
     }
@@ -67,20 +78,58 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param array $data
      */
     protected function create(array $data)
     {
+        $statement = DB::select("SHOW TABLE STATUS LIKE 'users'");
+        $nextId = $statement[0]->Auto_increment;
+        if (array_key_exists('sponsor', $data)) {
+            $referralCheck = Referral::query()->where(['referrer_name' => $data['sponsor'], 'user_id' => null])->first();
+
+
+            if ($referralCheck) {
+                $referralCheck->user_id = $nextId;
+                $referralCheck->save();
+            } else {
+                $referral = new Referral();
+                $referral->referrer_name = $data['sponsor'];
+                $referral->user_id = $nextId;
+                $referral->position = 0;
+                $referral->save();
+            }
+        }
+
+        $earnAward = new EarnAward();
+        $earnAward->award_id = 1;
+        $earnAward->user_id = $nextId;
+        $earnAward->save();
+
+        $balance = new Balance();
+        $balance->user_id = $nextId;
+        $balance->save();
+
+        $earning = new Earning();
+        $earning->user_id = $nextId;
+        $earning->save();
+
+        $points = new Point();
+        $points->user_id = $nextId;
+        $points->save();
+
 
         return User::create([
             'name' => $data['name'],
-            'role_id' => 2,
+            'role_id' => $data['register_type'],
             'email' => $data['email'],
-            'terms'=>1,
-            'username'=>$data['username'],
-            'sponsor'=>$data['sponsor'],
+            'terms' => $data['terms'],
+            'username' => $data['username'],
+            'sponsor' => $data['sponsor'] ?? '',
+            'rank' => 1,
+            'trade_activation' => 0,
             'password' => Hash::make($data['password']),
         ]);
+
     }
+
 }

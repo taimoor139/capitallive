@@ -20,15 +20,16 @@
                     <div class="col-xl-3 col-sm-6 mb-20">
                         <div class="card border-left-warning">
                             <div class="card-body">
-                                <h5 class="card-title p-0 pt-4">$ 0</h5>
-                                <p class="card-text">Direct Bonus <i class="bi bi-person-lines-fill text-primary"></i></p>
+                                <h5 class="card-title p-0 pt-4">$ {{ $directBonuses }}</h5>
+                                <p class="card-text">Direct Bonus <i class="bi bi-person-lines-fill text-primary"></i>
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 mb-20">
                         <div class="card border-left-warning">
                             <div class="card-body">
-                                <h5 class="card-title p-0 pt-4">$ 0</h5>
+                                <h5 class="card-title p-0 pt-4">$ {{ $networkBonuses }}</h5>
                                 <p class="card-text">Network Bonus <i class="bi bi-diagram-2 text-primary"></i></p>
                             </div>
                         </div>
@@ -36,8 +37,8 @@
                     <div class="col-xl-3 col-sm-6 mb-20">
                         <div class="card border-left-warning">
                             <div class="card-body">
-                                <h5 class="card-title p-0 pt-4">$ 0</h5>
-                                <p class="card-text">Pending Bonus <i class="bi bi-unlock-fill text-danger"> Apr 06, 2022 </i></p>
+                                <h5 class="card-title p-0 pt-4">$ {{ $pendingBonuses }}</h5>
+                                <p class="card-text">Pending Bonus <i class="bi bi-unlock-fill text-danger"></i></p>
                             </div>
                         </div>
                     </div>
@@ -45,23 +46,42 @@
                 <div class="card border-top-warning  border-bottom-warning">
                     <div class="card-body">
                         <h5 class="card-title"><i class="bi bi-diagram-2 text-primary"></i> Bonus History</h5>
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="table">
                             <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">From</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Percentage</th>
-                                    <th scope="col">Points</th>
-                                    <th scope="col">Status</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Type</th>
+                                {{--<th scope="col">From</th>--}}
+                                <th scope="col">Amount</th>
+                                <th scope="col">Percentage</th>
+                                {{--<th scope="col">Points</th>--}}
+                                <th scope="col">Status</th>
+                            </tr>
                             </thead>
                             <tbody>
+                            @foreach($bonuses as $bonus)
                                 <tr>
-                                    <td class="text-center text-uppercase text-muted fw-bolder" colspan="8">No Data</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ date_format($bonus->created_at, 'd-m-Y') }}</td>
+                                    @if($bonus->type == 1)
+                                        <td>Network</td>
+                                    @elseif($bonus->type == 2)
+                                        <td>Direct</td>
+                                    @else
+                                        <td> Award</td>
+                                    @endif
+                                    <td>$ {{ $bonus->amount }}</td>
+                                    <td>{{ $bonus->percentage }}</td>
+                                    <td>
+                                        @if($bonus->status == 0)
+                                            Pending
+                                        @else
+                                            Completed
+                                        @endif
+                                    </td>
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

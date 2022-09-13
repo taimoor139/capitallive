@@ -14,9 +14,9 @@
                                 <h5 class="card-title">
                                     Suggestion
                                 </h5>
-                                <form method="post" action="https://tokyosecurities.com/suggestion"
+                                <form method="post" action="{{ route('suggestion-store') }}"
                                     enctype="multipart/form-data">
-                                    <input type="hidden" name="_token" value="EorKYtzOG2PIUhc96eqNlYdiKjYYuZcSTQgtNqAt">
+                                    @csrf
                                     <div class="col-12 mt-2">
                                         <label for="inputEmail4">Title</label>
                                         <input type="text" class="form-control" name="title" placeholder="Enter Title"
@@ -40,4 +40,41 @@
             </div>
         </div>
     </div>
+    <script>
+        @if(Session::has('success'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.success("{{ session('success') }}");
+        @endif
+
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.error("{{ session('error') }}");
+        @endif
+
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.info("{{ session('info') }}");
+        @endif
+
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
 @endsection

@@ -1,4 +1,4 @@
-<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
+<div class="main-menu  menu-dark menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto"><a class="navbar-brand"
@@ -105,10 +105,10 @@
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Rank
                                 Awards</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('executive-dashboard') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Preview">Executive Awards</span></a>
-                    </li>
+                    {{--<li><a class="d-flex align-items-center" href="{{ route('executive-dashboard') }}"><i--}}
+                                {{--data-feather="circle"></i><span class="menu-item text-truncate"--}}
+                                {{--data-i18n="Preview">Executive Awards</span></a>--}}
+                    {{--</li>--}}
                 </ul>
             </li>
 
@@ -158,11 +158,16 @@
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Create
                                 New Ticket</span></a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i
+                    <li><a class="d-flex align-items-center" href="{{ route('tickets') }}"><i
                                 data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">My
-                                Ticket</span></a>
+                                Tickets</span></a>
                     </li>
                 </ul>
+            </li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('user-earning-chart') }}"><i
+                            data-feather="bar-chart"></i><span class="menu-title text-truncate"
+                                                              data-i18n="Invoice">Earning Charts</span></a>
             </li>
 
             <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('download') }}"><i

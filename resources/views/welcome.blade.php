@@ -41,7 +41,7 @@
         }
 
         .live {
-            height: 430px;
+            height: 300px;
             width: 580px;
         }
 
@@ -60,7 +60,74 @@
             }
 
         }
+        .our-team{
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px 15px 30px;
+            background: #fff;
 
+        }
+        .our-team .pic{
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 25px;
+            display: inline-block;
+            width: 100%;
+            height: 50%;
+            transition: all 0.5s ease 0s;
+        }
+        .our-team:hover .pic{
+            background: #17bebb;
+            border-radius: 50%;
+        }
+        .pic img{
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        .our-team .title{
+            font-weight: 600;
+            color: #2e282a;
+            text-transform: uppercase;
+            display: block;
+            font-size: 20px;
+            margin: 0 0 7px 0;
+        }
+        .our-team .post{
+            color: #17bebb;
+            text-transform: capitalize;
+            display: block;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        .our-team .social{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .our-team .social li{
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .our-team .social li a{
+            border-radius: 50%;
+            font-size: 15px;
+            color: #472aff;
+            border: 1px solid #472aff;
+            display: block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            transition: all 0.5s ease 0s;
+        }
+        .our-team:hover .social li a{
+            background: #472aff;
+            color: #fff;
+        }
+        .our-team:hover .pic{
+            background: #472aff;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -424,6 +491,159 @@
                             </div>
                         </div> -->
 
+            <div class="uk-section uk-padding-large uk-background-contain uk-background-bottom-center in-padding-large-vertical@s in-offset-top-40 in-profit-14"
+                 data-src="" data-uk-img="" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
+                <div class="uk-container uk-margin-bottom">
+                    <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-grid uk-grid-stack"
+                         data-uk-grid="">
+                        <div class="uk-width-1-1 uk-first-column">
+                            <h2>Our trading brokers</h2>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=ZAF-PTA_Capital&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="20" width="20">
+                                </div>
+                                <h3 class="title">ZAF-PTA_Capital</h3>
+                                {{--<span class="post">Web Developer</span>--}}
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=GiaPhat_Capital&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">GiaPhat_Capital</h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=AdwiseCapital&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">AdwiseCapital</h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=Eurion-Capital&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">Eurion-Capital
+                                </h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=MGA-Capital&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">MGA-Capital</h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=StarCapitals-IN&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">StarCapitals-IN</h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="our-team">
+                                <div class="pic">
+                                    <img
+                                            class="round"
+                                            src="https://ui-avatars.com/api/?name=StarCapitals-IN&amp;color=7F9CF5&amp;background=EBF4FF"
+                                            alt="avatar" height="40" width="40">
+                                </div>
+                                <h3 class="title">StarCapitals-IN</h3>
+
+                                <ul class="social">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                </div>
+            </div>
+
             <div class="container">
                 <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
                     <div class="col-md-6">
@@ -591,21 +811,45 @@
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
-                        <div class="uk-visible@m">
-                            <h4 class="uk-heading-bullet">Support</h4>
-                            <ul class="uk-list uk-link-text">
-                                <li><a href="#">Documentation</a></li>
-                            </ul>
-                        </div>
+                        <!--<div class="uk-visible@m">-->
+                        <!--    <h4 class="uk-heading-bullet">Our Offices </h4>-->
+                        <!--    <ul class="uk-list uk-link-text">-->
+                        <!--       <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right">West End Towers, Waiyaki Way, 6th Floor<br>P.O. Box 1896-00606, Nairobi, Republic of Kenya</i><span></span></a>-->
+                        <!--        </li>-->
+                        <!--    </ul>-->
+                        <!--</div>-->
                         <div class="uk-flex-first uk-flex-last@m">
+                              <h4 class="uk-heading-bullet">Our Offices</h4>
                             <ul class="uk-list uk-link-text">
                                 <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
                                                     width="130"> -->
-                                <span>Capital First</span>
+                              
+                                </li>
+                                <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right"></i><span>West End Towers, Waiyaki Way, 6th Floor,
+P.O. Box 1896-00606, Nairobi, Republic of Kenya</span></a>
+                                </li>
+                               
+
+                                <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right"></i><span>5th Floor, 355 NEX Tower,
+Rue du Savoir, Cybercity, Ebene 72201, Mauritius</span></a>
+                                </li>
+                                <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right"></i><span> 1 St. Katharine's Way
+London
+E1W 1UN
+England</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="uk-flex-first uk-flex-last@m">
+                             <h4 class="uk-heading-bullet">Contact Us</h4>
+                            <ul class="uk-list uk-link-text">
+                                <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
+                                                    width="130"> -->
+                                <!--<span>Capital First</span>-->
                                 </li>
                                 <li><a href="#"><i class="fas fa-envelope uk-margin-small-right"></i><span
                                             class="__cf_email__"
-                                            data-cfemail="681b1d1818071a1c283c070311073b0d0b1d1a011c010d1b460b0705"></span></a>
+                                            data-cfemail="681b1d1818071a1c283c070311073b0d0b1d1a011c010d1b460b0705">info@capitalfirst.live</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -688,9 +932,9 @@
                             <p>© Capital First 2022. All rights reserved.</p>
                         </div>
                         <div class="uk-width-1-2@m uk-text-right@m in-footer-socials">
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCFm58ThO50NLTNuxXFILwWQ"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/Capitalfirstlive"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://instagram.com/capitalfirst_live?igshid=YmMyMTA2M2Y="><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>

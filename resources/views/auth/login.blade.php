@@ -103,14 +103,13 @@
                                 <a href="/" class="d-flex justify-content-center"><img src="/login.png" alt="Capital first"></a>
 
                                 <h4 class="card-title mb-1">Welcome to Capital First! 👋</h4>
-                                <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
-
+                                <p class="card-text mb-2">Please sign-in to your account and start Earning</p>
                                 <form class="auth-login-form mt-2" id="loginForm" method="POST"
                                 action="{{ route('login') }}">
                                 @csrf
                                     <div class="form-group">
                                         <label for="login-email" class="form-label">Email</label>
-                                        <input type="text" class="form-control" name="email" id="email"
+                                        <input type="text" class="form-control" name="email" id="email" tabindex="1" placeholder="Example@example.com"
                                             @error('email') is-invalid @enderror" value="{{ old('email') }}" required
                                             autocomplete="email" autofocus />
                                         @error('email')
@@ -160,24 +159,24 @@
                                     </a>
                                 </p>
 
-                                <div class="divider my-2">
-                                    <div class="divider-text">or</div>
-                                </div>
+                                <!--<div class="divider my-2">-->
+                                <!--    <div class="divider-text">or</div>-->
+                                <!--</div>-->
 
-                                <div class="auth-footer-btn d-flex justify-content-center">
-                                    <a href="javascript:void(0)" class="btn btn-facebook">
-                                        <i data-feather="facebook"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-twitter white">
-                                        <i data-feather="twitter"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-google">
-                                        <i data-feather="mail"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-github">
-                                        <i data-feather="github"></i>
-                                    </a>
-                                </div>
+                                <!--<div class="auth-footer-btn d-flex justify-content-center">-->
+                                <!--    <a href="javascript:void(0)" class="btn btn-facebook">-->
+                                <!--        <i data-feather="facebook"></i>-->
+                                <!--    </a>-->
+                                <!--    <a href="javascript:void(0)" class="btn btn-twitter white">-->
+                                <!--        <i data-feather="twitter"></i>-->
+                                <!--    </a>-->
+                                <!--    <a href="javascript:void(0)" class="btn btn-google">-->
+                                <!--        <i data-feather="mail"></i>-->
+                                <!--    </a>-->
+                                <!--    <a href="javascript:void(0)" class="btn btn-github">-->
+                                <!--        <i data-feather="github"></i>-->
+                                <!--    </a>-->
+                                <!--</div>-->
                             </div>
                         </div>
                         <!-- /Login v1 -->
@@ -206,6 +205,9 @@
     <!-- BEGIN: Page JS-->
     <script src="../../../app-assets/js/scripts/pages/page-auth-login.js"></script>
     <!-- END: Page JS-->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script>
         $(window).on('load', function() {
@@ -216,6 +218,43 @@
                 });
             }
         })
+    </script>
+    <script>
+        @if(Session::has('status'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.success("{{ session('status') }}");
+        @endif
+
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.error("{{ session('error') }}");
+        @endif
+
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.info("{{ session('info') }}");
+        @endif
+
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.warning("{{ session('warning') }}");
+        @endif
     </script>
 </body>
 <!-- END: Body-->
