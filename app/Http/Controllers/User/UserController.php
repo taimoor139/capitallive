@@ -32,16 +32,12 @@ class UserController extends Controller
             $balance = $userBalance->balance;
         }
         $userDeposits = Deposit::query()->where(['userId' => Auth::user()->id, 'status' => 100])->sum('amount');
-        if ($userDeposits) {
-            $deposits = $userDeposits;
-        }
+        if ($userDeposits) $deposits = $userDeposits;
 
         $transactions = Transaction::query()->where('user_id', Auth::user()->id)->get();
 
         $userEarning = Earning::query()->where('user_id', Auth::user()->id)->sum('earning');
-        if ($userEarning) {
-            $earning = $userEarning;
-        }
+        if ($userEarning) $earning = $userEarning;
 
         $totalBonuses = Bonus::query()->where(['status' => 100, 'user_id' => Auth::user()->id])->sum('amount');
 

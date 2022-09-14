@@ -104,7 +104,7 @@
                                             <i class="bi bi-wallet2 text-warning" style="font-size: 50px"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6 style="font-size: 24px;">$ {{ (($balance) > 0 ? round($balance, 2) : 0)}}</h6>
+                                            <h6 style="font-size: 24px;">$ {{ ($totalBonuses > 0 ? round($totalBonuses, 2) : 0 ) + round($earning, 2)}}</h6>
                                             <span class="text-muted small pt-2" style="font-size: 24px;">Balance</span>
                                         </div>
                                     </div>
