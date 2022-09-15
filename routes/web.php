@@ -85,6 +85,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth', 'verified', '
     //deposit
     Route::get('deposit', [DepositController::class, 'index'])->name('deposit-dashboard')->withoutMiddleware('system_access');
     Route::post('deposit/store', [DepositController::class, 'depositStore'])->name('deposit-store')->withoutMiddleware('system_access');
+    Route::post('deposit/types', [DepositController::class, 'accountType'])->name('account-type')->withoutMiddleware('system_access');
 
     //withdrawals
     Route::get('withdrawals', [WithdrawalController::class, 'index'])->name('withdrawal-dashboard');

@@ -22,27 +22,20 @@ class DepositController extends Controller
 {
     public function index()
     {
-        $fx1Limit = 0;
-        $fx2Limit = 0;
-        $fx3Limit = 0;
-
         $depositTypes = DepositLimit::all();
-
         $deposits = Deposit::query()->where('userId', Auth::user()->id)->get();
-        $fx1 = DepositLimit::query()->where('account_type', 'CF Standard Account')->first();
-        if ($fx1) {
-            $fx1Limit = $fx1->limit;
+
+        return view('user.deposit.deposit', compact('deposits', 'depositTypes'));
+    }
+
+    public function accountType(Request $request){
+        $fxLimit = 0;
+        $fx = DepositLimit::query()->where('id', $request->accountType)->first();
+        if ($fx) {
+            $fxLimit = $fx->limit;
         }
-        $fx2 = DepositLimit::query()->where('account_type', 'CF Pro Account')->first();
-        if ($fx2) {
-            $fx2Limit = $fx2->limit;
-        }
-        $fx3 = DepositLimit::query()->where('account_type', 'CF Brokerage Account')->first();
-        if ($fx3) {
-            $fx3Limit = $fx3->limit;
-        }
-        return view('user.deposit.deposit', compact('deposits', 'fx1Limit', 'fx2Limit', 'fx3Limit',
-            'depositTypes'));
+
+        return response()->json(['limit' => $fxLimit]);
     }
 
     public function depositStore(Request $request)

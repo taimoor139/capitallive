@@ -34,7 +34,11 @@
 
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
       data-menu="vertical-menu-modern" data-col="">
-
+<div class="loader">
+    <center>
+        <img class="loading-image" src="loading.jpg" alt="loading..">
+    </center>
+</div>
 
 <!-- BEGIN: Header-->
 <iframe class="top" scrolling="no" allowtransparency="true" frameborder="0"
