@@ -47,12 +47,14 @@ class ReturnOnInvestment extends Command
             Deposit::query()->where('status', 100)->chunk(50, function ($deposits) use ($day) {
                 $days = ["Tue", "Wed", "Thu", "Fri", "Mon"];
                 foreach ($deposits as $deposit) {
-                    if ($deposit->user->earning_status == 1 ) {
+                    $roi = 0;
+                    $balance = 0;
 
-                        $balance = 0;
-
+                    if($deposit->returnOnInvestment){
                         $roi = $deposit->returnOnInvestment->roi;
+                    }
 
+                    if ($deposit->user->earning_status == 1 && $roi ) {
                         $earning = round(($roi * $deposit->amount) / 100, 4);
                         $roi_earning = new Earning();
                         $roi_earning->user_id = $deposit->userId;
@@ -76,10 +78,9 @@ class ReturnOnInvestment extends Command
                         in_array(date_format($deposit->user->created_at, 'd'), $days)
                         &&
                         ((int)now()->format('d') - ((int)date_format($deposit->user->created_at, 'd')))
-                        < (4 - array_search(date_format($deposit->user->created_at, 'd'), $days))
+                        < (4 - array_search(date_format($deposit->user->created_at, 'd'), $days)) &&
+                        $roi
                     ) {
-
-                        $roi = $deposit->returnOnInvestment->roi;
 
                         $earning = round(($roi * $deposit->amount) / 100, 4);
                         $roi_earning = new Earning();
