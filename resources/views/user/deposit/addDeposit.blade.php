@@ -77,7 +77,7 @@
                     $('#amount-warning').html('The amount must be at least '+ limit +'.');
                     $('.processBtn').prop('disabled', true);
                 } else if(amount > limit){
-                    $('.processBtn').prop('disabled', true);
+                    $('.processBtn').prop('disabled', false);
                 }
                 else {
                     $('.processBtn').prop('disabled', false);
