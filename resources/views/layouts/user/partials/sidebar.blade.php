@@ -41,7 +41,7 @@
                             </g>
                         </svg></span> --}}
                         <a class="nav-link" href="{{ route('user.dashboard') }}"
-                        data-toggle="tooltip" data-placement="top" title="Email"> Capital First </a>
+                        data-toggle="tooltip" data-placement="top"> <h3 class="bold">CapitalFirst4x</h3> </a>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
                         class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
