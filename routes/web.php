@@ -197,6 +197,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified',
     Route::post('deposit/limit/delete/{id}', [DepositController::class, 'deleteLimit'])->name('delete-deposit-limit');
     Route::get('deposit/manual', [DepositController::class, 'manualDeposit'])->name('manual-deposit');
     Route::post('deposit/manual/add', [DepositController::class, 'addManualDeposit'])->name('add-manual-deposit');
+    Route::post('deposit/types', [DepositController::class, 'accountType'])->name('admin-account-type');
+
 
     //Support
     Route::get('all_tickets', [SupportController::class, 'allTickets'])->name('all-tickets');

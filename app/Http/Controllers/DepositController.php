@@ -85,10 +85,10 @@ class DepositController extends Controller
     public function deposits()
     {
         $pageTitle = 'All Deposits';
-        $deposits = Deposit::query()->with('user')->get();
-        $successfulDeposits = Deposit::query()->where('status', 100)->sum('amount');
-        $pendingDeposits = Deposit::query()->where('status', 0)->sum('amount');
-        $rejectedDeposits = Deposit::query()->where('status', -1)->sum('amount');
+        $deposits = Deposit::query()->with('user')->orderBy('id', 'DESC')->get();
+        $successfulDeposits = Deposit::query()->orderBy('id', 'DESC')->where('status', 100)->sum('amount');
+        $pendingDeposits = Deposit::query()->orderBy('id', 'DESC')->where('status', 0)->sum('amount');
+        $rejectedDeposits = Deposit::query()->orderBy('id', 'DESC')->where('status', -1)->sum('amount');
         return view('admin.deposits.index', compact('deposits', 'successfulDeposits', 'pendingDeposits', 'rejectedDeposits', 'pageTitle'));
     }
 
@@ -181,23 +181,10 @@ class DepositController extends Controller
 
     public function manualDeposit()
     {
-        $fx1Limit = 0;
-        $fx2Limit = 0;
-        $fx3Limit = 0;
         $users = User::query()->where('role_id', 2)->get();
-        $fx1 = DepositLimit::query()->where('account_type', 'CF Standard Account 50$')->first();
-        if ($fx1) {
-            $fx1Limit = $fx1->limit;
-        }
-        $fx2 = DepositLimit::query()->where('account_type', 'CF Pro Account 500$')->first();
-        if ($fx2) {
-            $fx2Limit = $fx2->limit;
-        }
-        $fx3 = DepositLimit::query()->where('account_type', 'CF Brokerage Account 1000$')->first();
-        if ($fx3) {
-            $fx3Limit = $fx3->limit;
-        }
-        return view('admin.deposits.manual', compact('users', 'fx1Limit', 'fx2Limit', 'fx3Limit'));
+        $depositTypes = DepositLimit::all();
+
+        return view('admin.deposits.manual', compact('users', 'depositTypes'));
     }
 
     public function addManualDeposit(Request $request)

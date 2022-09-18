@@ -25,4 +25,8 @@ class Deposit extends Model
     public function user(){
         return $this->hasOne(User::class, 'id', 'userId');
     }
+
+    public function depositType(){
+        return $this->hasOne(DepositLimit::class, 'id', 'accountType');
+    }
 }

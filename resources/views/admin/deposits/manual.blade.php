@@ -30,12 +30,10 @@
                                 <label for="currency">Account Type</label>
                                 <select class="form-control" name="accountType" id="account_type" required>
                                     <option hidden value="">Please Select</option>
-                                    <option value="1"> CF Standard Account
-                                    </option>
-                                    <option value="2"> CF Pro Account
-                                    </option>
-                                    <option value="3"> CF Brokerage Account
-                                    </option>
+                                    @foreach($depositTypes as $type)
+                                        <option value="{{ $type->id }}"> {{ $type->account_type }}
+                                        </option>
+                                    @endforeach
                                 </select>
                                 <span class="text-danger error error_account_type d-none d-none"></span>
                             </div>
@@ -77,40 +75,43 @@
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
+        var _token = $('#_token').val();
+        var limit = 0;
         $('#account_type').change(function () {
 
             var amount = $('#amount').val();
             var accountType = $(this).val();
 
-            if (accountType == 1 && amount < {{ $fx1Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx1Limit }}.');
-                $('.processBtn').prop('disabled', true);
-            } else if (accountType == 2 && amount < {{ $fx2Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx2Limit }}.');
-                $('.processBtn').prop('disabled', true);
-            } else if (accountType == 3 && amount < {{ $fx3Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx3Limit }}.');
-                $('.processBtn').prop('disabled', true);
-            } else {
-                $('.processBtn').prop('disabled', false);
-            }
+            $.ajax({
+                url:"{{ route('admin-account-type') }}",
+                type:'POST',
+                data:{accountType:accountType,_token:_token },
+                success:function(response){
+                    limit = response['limit']
+                    if (amount < limit) {
+                        $('#amount-warning').html('The amount must be at least '+ limit +'.');
+                        $('.processBtn').prop('disabled', true);
+                    } else if(amount > limit){
+                        $('.processBtn').prop('disabled', false);
+                    }
+                    else {
+                        $('.processBtn').prop('disabled', false);
+                    }
+                }
+            })
         });
+
+
         $('#amount').keyup(function () {
             var amount = $(this).val();
             var accountType = $('#account_type').val();
-
-            if (accountType == '') {
+            if (!accountType) {
                 $('.processBtn').prop('disabled', true);
-            } else if (accountType == 1 && amount < {{ $fx1Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx1Limit }}.')
-                $('.processBtn').prop('disabled', true);
-            } else if (accountType == 2 && amount < {{ $fx2Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx2Limit }}.')
-                $('.processBtn').prop('disabled', true);
-            } else if (accountType == 3 && amount < {{ $fx3Limit }}) {
-                $('#amount-warning').html('The amount must be at least {{ $fx3Limit }}.')
+            } else if (amount < limit) {
+                $('#amount-warning').html('The amount must be at least '+limit+'.')
                 $('.processBtn').prop('disabled', true);
             } else {
+                $('#amount-warning').html('');
                 $('.processBtn').prop('disabled', false);
             }
         });
@@ -125,27 +126,32 @@
             var accountType = $('#account_type').val();
             var _token = $('#_token').val();
 
-            $.ajax({
-                url: "{{ route('add-manual-deposit') }}",
-                type: "POST",
-                data: {
-                    _token: _token,
-                    user:user,
-                    amount: amount,
-                    currency: currency,
-                    accountType: accountType
-                },
-                success: function (response) {
-                    if (response == 1) {
-                        location.reload();
-                    } else {
-                        $('#deposit-warning').html('Something went Wrong!');
-                        setTimeout(function () {
+            if(accountType && currency && accountType){
+
+                $.ajax({
+                    url: "{{ route('add-manual-deposit') }}",
+                    type: "POST",
+                    data: {
+                        _token: _token,
+                        user:user,
+                        amount: amount,
+                        currency: currency,
+                        accountType: accountType
+                    },
+                    success: function (response) {
+                        if (response == 1) {
                             location.reload();
-                        }, 5000);
+                        } else {
+                            $('#deposit-warning').html('Something went Wrong!');
+                            setTimeout(function () {
+                                location.reload();
+                            }, 5000);
+                        }
                     }
-                }
-            })
+                })
+            }else {
+                $('#deposit-warning').html('Please fill all fields!')
+            }
         });
     </script>
     <script>

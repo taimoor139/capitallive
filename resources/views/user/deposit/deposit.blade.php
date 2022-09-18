@@ -36,14 +36,9 @@
                                             <td>
                                                 {{ $loop->iteration }}
                                             </td>
-
-                                            @if($deposit->accountType == 1)
-                                                <td>CF Standard Account </td>
-                                            @elseif($deposit->accountType == 2)
-                                                <td>CF Pro Account </td>
-                                            @else
-                                                <td>CF Brokerage Account </td>
-                                            @endif
+                                            <td>
+                                                {{ $deposit->depositType->account_type }}
+                                            </td>
 
                                             <td>
                                                 @if($deposit->currency == 'BTC')
