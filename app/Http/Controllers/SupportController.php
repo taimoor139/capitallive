@@ -50,6 +50,13 @@ class SupportController extends Controller
             $support->status = 0;
             $support->user_id = Auth::user()->id;
             if ($support->save()) {
+                $message = new Message();
+                $message->message = $request->message;
+                $message->ticket_id = $ticketId;
+                $message->file = $filename;
+                $message->user_id = Auth::user()->id;
+                $message->user_name = Auth::user()->name;
+                $message->save();
                 return redirect()->route('view-ticket', $ticketId)->with('success', 'Ticket submitted successfully, Contact you soon!');
             }
         } else {

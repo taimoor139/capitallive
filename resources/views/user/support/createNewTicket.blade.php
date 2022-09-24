@@ -50,11 +50,11 @@
                                     <div class="col-12 mt-2">
                                         <label for="inputEmail4">Subject</label>
                                         <input type="text" name="subject" class="form-control count-words" value="" max="50"
-                                            maxlength="50">
+                                            maxlength="50" required>
                                     </div>
                                     <div class="col-12 mt-2">
                                         <label for="inputEmail4">Message</label>
-                                        <textarea rows="5" class="form-control" name="message"></textarea>
+                                        <textarea rows="5" class="form-control" name="message" required></textarea>
                                     </div>
                                     <div class="col-12 mt-2">
                                         <label for="inputEmail4">File</label>
