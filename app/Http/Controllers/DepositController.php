@@ -22,7 +22,7 @@ class DepositController extends Controller
 {
     public function index()
     {
-        $depositTypes = DepositLimit::all();
+        $depositTypes = DepositLimit::query()->orderBy('limit', 'ASC')->get();
         $deposits = Deposit::query()->where('userId', Auth::user()->id)->get();
 
         return view('user.deposit.deposit', compact('deposits', 'depositTypes'));
@@ -181,10 +181,10 @@ class DepositController extends Controller
 
     public function manualDeposit()
     {
-        $users = User::query()->where('role_id', 2)->get();
-        $depositTypes = DepositLimit::all();
 
-        return view('admin.deposits.manual', compact('users', 'depositTypes'));
+        $manualDeposits = Deposit::query()->where('transactionId', 'manual')->orderBy('created_at', 'DESC')->get();
+
+        return view('admin.deposits.manual', compact( 'manualDeposits'));
     }
 
     public function addManualDeposit(Request $request)

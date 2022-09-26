@@ -23,6 +23,8 @@ use App\Http\Controllers\SupportController;
 use App\Http\Controllers\TradeactivationController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\Auth\VerificationController;
+use App\Models\DepositLimit;
+use App\Models\User;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -196,6 +198,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified',
     Route::post('deposit/limit/update', [DepositController::class, 'updateLimit'])->name('update-deposit-limit');
     Route::post('deposit/limit/delete/{id}', [DepositController::class, 'deleteLimit'])->name('delete-deposit-limit');
     Route::get('deposit/manual', [DepositController::class, 'manualDeposit'])->name('manual-deposit');
+    Route::get('deposit/manual/create', function (){
+        $users = User::query()->where('role_id', 2)->get();
+        $depositTypes = DepositLimit::query()->orderBy('limit', 'ASC')->get();
+        return view('admin.deposits.addManual', compact('users', 'depositTypes'));
+    })->name('create-manual-deposit');
     Route::post('deposit/manual/add', [DepositController::class, 'addManualDeposit'])->name('add-manual-deposit');
     Route::post('deposit/types', [DepositController::class, 'accountType'])->name('admin-account-type');
 
