@@ -51,7 +51,7 @@ class AccountsController extends Controller
         if($userCurrentEarning){
             $currentEarning = $userCurrentEarning;
         }
-        $earnings = Earning::query()->where('user_id', Auth::user()->id)->where('percentage', '!=', 0)->get();
+        $earnings = Earning::query()->where('user_id', Auth::user()->id)->where('percentage', '!=', 0)->where('earning', '>',0)->get();
 
         return view('user.accounts.earningAccounts', compact('monthlyEarning', 'totalEarning', 'earnings', 'currentEarning'));
     }
