@@ -32,7 +32,6 @@ class WithdrawalController extends Controller
         if ($userEarning) {
             $earningBalance = $userEarning;
         }
-
         $withdrawals = Withdrawal::query()->where('userId', Auth::user()->id)->get();
 
         $totalBalance = Balance::query()->where('user_id', Auth::user()->id)->first();
@@ -103,7 +102,7 @@ class WithdrawalController extends Controller
                             $earning->user_id = Auth::user()->id;
                             $earning->earning = -($request->amount);
                             $earning->percentage = 100;
-                            $earning->status = 0;
+                            $earning->status = 100;
                             $earning->save();
                         }
 

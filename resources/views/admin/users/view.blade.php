@@ -571,7 +571,7 @@
 
                     <div class="card mt-50">
                         <div class="card-body">
-                            <form action="{{ route('send-single-email') }}" method="POST">
+                            <form action="{{ route('send-single-email') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-row">
@@ -589,6 +589,11 @@
                                             <textarea name="message" rows="10" class="form-control nicEdit"
                                                       placeholder="Your message"
                                             ></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="font-weight-bold">Attachment</label>
+
+                                            <input type="file" name="attachment"  class="form-control nicEdit">
                                         </div>
                                     </div>
                                 </div>

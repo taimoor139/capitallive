@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -194,10 +195,19 @@ class AdminController extends Controller
 
         ]);
 
+
         if($validator){
+            $url = '';
+            if($request->file('attachment')){
+                $attachment = $request->file('attachment');
+                $filename = time() . '.' .$attachment->getClientOriginalExtension();
+                $attachment->move(base_path() . '/storage/app/public', $filename);
+                $url = base_path() . '/storage/app/public/'.$filename;
+            }
             $mail_data = [
                 'subject' => $request->subject,
-                'message' => $request->message
+                'message' => $request->message,
+                'attachment' => $url
             ];
 
             $job = (new \App\Jobs\SendEmail($mail_data))
@@ -217,12 +227,20 @@ class AdminController extends Controller
         ]);
 
         if($validator){
+            $url = '';
+            if($request->file('attachment')){
+                $attachment = $request->file('attachment');
+                $filename = time() . '.' .$attachment->getClientOriginalExtension();
+                $attachment->move(base_path() . '/storage/app/public', $filename);
+                $url =  base_path() . '/storage/app/public/'.$filename;
+            }
+
             $mail_data = [
                 'subject' => $request->subject,
                 'message' => $request->message,
-                'to' => $request->useremail
+                'to' => $request->useremail,
+                'attachment' => $url
             ];
-
             Mail::send([], [], function ($message) use ($mail_data) {
                 $message->to($mail_data['to'], $mail_data['to'])
                     ->subject($mail_data['subject'])
@@ -237,6 +255,7 @@ class AdminController extends Controller
                                 <p>'.$mail_data['message'].'</p>
                                 </body>
                                 </html>', 'text/html');
+                if($mail_data['attachment']) $message->attach(\Swift_Attachment::fromPath($mail_data['attachment']));
 
                 $message->from(env('MAIL_USERNAME'));
             });

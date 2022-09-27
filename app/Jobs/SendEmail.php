@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class SendEmail implements ShouldQueue
 {
@@ -37,6 +38,7 @@ class SendEmail implements ShouldQueue
         $users = User::query()->whereNotNull('email_verified_at')->get();
         $input['subject'] = $this->mail_data['subject'];
         $input['message'] = $this->mail_data['message'];
+        $input['attachment'] = $this->mail_data['attachment'];
 
         foreach ($users as $user) {
             $input['email'] = $user->email;
@@ -55,7 +57,9 @@ class SendEmail implements ShouldQueue
                                 <h1>'.$input['subject'].'</h1>
                                 <p>'.$input['message'].'</p>
                                 </body>
-                                </html>', 'text/html');
+                                </html>', 'text/html')
+                    ;
+                if($input['attachment']) $message->attach(\Swift_Attachment::fromPath($input['attachment']));
 
                 $message->from(env('MAIL_USERNAME'));
             });
