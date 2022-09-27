@@ -198,6 +198,53 @@ class WithdrawalController extends Controller
         }
     }
 
+    public function massUpdate(Request $request)
+    {
+        $validation = $request->validate([
+            'status' => 'required',
+        ]);
+        if ($validation) {
+            if($request->withdrawal_ids) $ids = explode(',',$request->withdrawal_ids);
+
+            $update = Withdrawal::query()->whereIn('id', $ids)->update([
+                'status' => $request->status
+            ]);
+            if ($update) {
+                $amounts = Withdrawal::query()->whereIn('id', $ids)->get();
+                foreach ($amounts as $amount) {
+                    Transaction::query()->where('transaction_id', $amount->transaction_id)->update([
+                        'status' => 100
+                    ]);
+                    if ($request->status == -1) {
+
+                        $balance = Balance::query()->where('user_id', $amount->userId);
+                        if ($balance) {
+                            $balanceAmount = $balance->first()->balance;
+                            $updateBalance = $balance->update([
+                                'balance' => $balanceAmount + $amount->amount
+                            ]);
+
+                            $bonus = new  Bonus();
+                            $bonus->type = 1;
+                            $bonus->amount = $amount->amount;
+                            $bonus->percentage = "4";
+                            $bonus->user_id = $amount->userId;
+                            $bonus->status = 100;
+                            $bonus->save();
+                        }
+                    }
+                }
+
+
+                return redirect()->back()->with('success', 'Withdrawal Updated Successfully');
+            } else {
+                return redirect()->back()->with('error', 'Something went wrong');
+
+
+            }
+        }
+    }
+
     public function destroy($id)
     {
         $withdraw = Withdrawal::query()->where('id', $id);

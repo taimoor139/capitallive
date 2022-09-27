@@ -250,6 +250,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified',
     Route::get('withdrawals/approved', [WithdrawalController::class, 'approvedWithdrawal'])->name('approved-withdrawals');
     Route::get('withdrawals/rejected', [WithdrawalController::class, 'rejectedWithdrawal'])->name('rejected-withdrawals');
     Route::post('withdrawals/update', [WithdrawalController::class, 'update'])->name('update-withdrawal');
+    Route::post('withdrawals/mass/update', [WithdrawalController::class, 'massUpdate'])->name('update-mass-withdrawal');
     Route::post('withdrawals/delete/{id}', [WithdrawalController::class, 'destroy'])->name('delete-withdrawal');
     Route::get('withdrawal/limit', [WithdrawalController::class, 'withdrawalLimit'])->name('withdrawal-limit');
     Route::post('withdrawal/limit/add', [WithdrawalController::class, 'addLimit'])->name('add-withdrawal-limit');

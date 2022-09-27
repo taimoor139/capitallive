@@ -8,6 +8,8 @@
                 <div class="col-lg-6 col-sm-6">
                     <h6 class="page-title">{{ $pageTitle }}</h6>
                 </div>
+                <button type="button" class="btn btn-info btn-edit btn-lg float-left" data-toggle="modal"
+                        data-target="#mass_withdrawal" style="display: none" id="mass_status_change">Change Status</button>
             </div>
 
             <div class="row justify-content-center">
@@ -15,15 +17,16 @@
                     <div class="card b-radius--10">
                         <div class="card-body p-0">
                             <div class="table-responsive--sm table-responsive">
-                                <table class="table table--light style--two">
+                                <table id="table" class="table table--light style--two">
                                     <thead>
                                     <tr>
+                                        <th scope="col">Select</th>
                                         <th scope="col">Id</th>
                                         <th scope="col">Account Type</th>
                                         <th scope="col">Wallet Address</th>
-                                        <th scope="col">Charge</th>
+{{--                                        <th scope="col">Charge</th>--}}
                                         <th scope="col">Amount</th>
-                                        <th scope="col">Time</th>
+{{--                                        <th scope="col">Time</th>--}}
                                         <th scope="col">Status</th>
                                         <th scope="col">Withdraw Status</th>
                                         <th scope="col">Action</th>
@@ -32,12 +35,13 @@
                                     <tbody>
                                     @foreach($withdrawals as $withdrawal)
                                         <tr>
+                                            <td><input type="checkbox" name="mass_user_id" value="{{ $withdrawal->id }}" id="mass_withdraw" class="mass_withdraw"></td>
                                             <td class="withdraw_id">{{ $withdrawal->id }}</td>
                                             <td>{{ $withdrawal->account_type }}</td>
                                             <td>{{ $withdrawal->withdraw_address }}</td>
-                                            <td > N/A</td>
-                                            <td>{{ $withdrawal->amount }}</td>
-                                            <td>N/A</td>
+{{--                                            <td > N/A</td>--}}
+                                            <td>{{ $withdrawal->amount }} $</td>
+{{--                                            <td>N/A</td>--}}
                                             <td data-label="Status">
                                                 @if($withdrawal->status == 1)
                                                     <span class="badge badge--info">Approved</span>
@@ -113,6 +117,38 @@
 
                             </div>
                         </div>
+                        <div class="modal fade" id="mass_withdrawal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title float-left">Edit Withdrawal</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    </div>
+                                    <form method="post" action="{{ route('update-mass-withdrawal') }}">
+                                        @csrf
+                                        <input type="hidden" name="withdrawal_ids" id="withdrawal_ids">
+                                        <div class="modal-body">
+                                            <label for="message">Status</label>
+                                            <select class="form-control" name="status">
+                                                <option>Select Status</option>
+                                                <option value="0">Pending</option>
+                                                <option value="1">Approved</option>
+                                                <option value="100">Successful</option>
+                                                <option value="-1">Rejected</option>
+                                            </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
                     </div><!-- card end -->
                 </div>
             </div>
@@ -131,6 +167,28 @@
             } else {
                 return false;
             }
+        });
+
+        $('.mass_withdraw').click(function(){
+            if($(this).is(":checked")){
+                $('#mass_status_change').css('display', 'block');
+            } else {
+               let val = [];
+                $(':checkbox:checked').each(function(i){
+                   val[i] = i + 1;
+                });
+                if(val.length <= 0){
+                    $('#mass_status_change').css('display', 'none');
+                }
+            }
+
+        });
+        $('#mass_status_change').click(function(){
+            var ids = []
+            $(':checkbox:checked').each(function(i){
+                ids[i] = $(this).val();
+            });
+            $('#withdrawal_ids').val(ids);
         });
     </script>
     <script>
