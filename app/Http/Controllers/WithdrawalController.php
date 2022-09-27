@@ -35,9 +35,9 @@ class WithdrawalController extends Controller
         $withdrawals = Withdrawal::query()->where('userId', Auth::user()->id)->get();
 
         $totalBalance = Balance::query()->where('user_id', Auth::user()->id)->first();
-        if($totalBalance){
+        if ($totalBalance) {
             $totalBalance = $totalBalance->balance;
-        } else{
+        } else {
             $totalBalance = 0;
         }
         $totalBalance = $earningBalance + $bonusBalance;
@@ -64,7 +64,7 @@ class WithdrawalController extends Controller
             'amount' => 'required'
         ]);
         if ($validate) {
-            if(date('D', strtotime(now())) == "Mon"){
+            if (date('D', strtotime(now())) == "Mon") {
                 $user = User::query()->where('id', Auth::user()->id)->first();
 
                 if (Hash::check($request->password, $user->password)) {
@@ -172,28 +172,33 @@ class WithdrawalController extends Controller
                     'status' => 100
                 ]);
                 if ($request->status == -1) {
-
                     $balance = Balance::query()->where('user_id', $amount->userId);
                     if ($balance) {
                         $balanceAmount = $balance->first()->balance;
                         $updateBalance = $balance->update([
                             'balance' => $balanceAmount + $amount->amount
                         ]);
-
-                        $bonus = new  Bonus();
-                        $bonus->type = 1;
-                        $bonus->amount = $amount->amount;
-                        $bonus->percentage = "4";
-                        $bonus->user_id = $amount->userId;
-                        $bonus->status = 100;
-                        $bonus->save();
+                        if ($amount->business_account == 'bonus') {
+                            $bonus = new  Bonus();
+                            $bonus->type = 3;
+                            $bonus->amount = $amount->amount;
+                            $bonus->percentage = "4";
+                            $bonus->user_id = $amount->userId;
+                            $bonus->status = 100;
+                            $bonus->save();
+                        } else if ($amount->business_account == 'earning') {
+                            $earning = new Earning();
+                            $earning->user_id = $amount->userId;
+                            $earning->earning = $amount->amount;
+                            $earning->percentage = 100;
+                            $earning->status = 100;
+                            $earning->save();
+                        }
                     }
                 }
                 return redirect()->back()->with('success', 'Withdrawal Updated Successfully');
             } else {
                 return redirect()->back()->with('error', 'Something went wrong');
-
-
             }
         }
     }
@@ -204,7 +209,7 @@ class WithdrawalController extends Controller
             'status' => 'required',
         ]);
         if ($validation) {
-            if($request->withdrawal_ids) $ids = explode(',',$request->withdrawal_ids);
+            if ($request->withdrawal_ids) $ids = explode(',', $request->withdrawal_ids);
 
             $update = Withdrawal::query()->whereIn('id', $ids)->update([
                 'status' => $request->status

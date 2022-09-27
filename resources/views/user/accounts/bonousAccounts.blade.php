@@ -68,8 +68,8 @@
                                         <td>Network</td>
                                     @elseif($bonus->type == 2)
                                         <td>Direct</td>
-                                    @else
-                                        <td> Award</td>
+                                    @elseif($bonus->type == 3)
+                                        <td>Rejected Withdraw Amount</td>
                                     @endif
                                     <td>$ {{ $bonus->amount }}</td>
                                     <td>{{ $bonus->percentage }}</td>
