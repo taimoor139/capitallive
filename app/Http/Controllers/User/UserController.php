@@ -41,7 +41,7 @@ class UserController extends Controller
 
         $totalBonuses = Bonus::query()->where(['status' => 100, 'user_id' => Auth::user()->id])->sum('amount');
 
-        $notification = Notification::query()->latest('id')->take(1)->first();
+        $notification = Notification::query()->where('type', 1)->latest('id')->take(1)->first();
 
 
 

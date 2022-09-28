@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class NotificationController extends Controller
 {
     public function index(){
-        $notifications = Notification::query()->orderBy('id', 'desc')->get();
+        $notifications = Notification::query()->where('type', 1)->orderBy('id', 'desc')->get();
         return view('admin.notification.index', compact('notifications'));
     }
 
@@ -26,6 +26,7 @@ class NotificationController extends Controller
             $notification->description = $request->description;
             $notification->link = $request->link;
             $notification->status = 1;
+            $notification->type = 1;
             $notification->user_id = Auth::user()->id;
             if($notification->save()){
                 return redirect()->back()->with('success', 'Notification created successfully');
@@ -66,5 +67,10 @@ class NotificationController extends Controller
                 return redirect()->back()->with('error', 'Something went wrong');
             }
         }
+    }
+
+    public function adminNotifications(){
+        $notifications = Notification::query()->where('type', 2)->orderBy('id', 'desc')->get();
+        return view('admin.notification.admin_notifications', compact('notifications'));
     }
 }

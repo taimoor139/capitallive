@@ -17,6 +17,12 @@
 
     <div class="navbar__right">
         <ul class="navbar__action-list">
+            <li>
+
+                    <a href="{{ route('admin-notifications') }}">
+                        <i class="fa fa-bell"></i>
+                    </a>
+            </li>
             <li class="dropdown">
                 <button type="button" class="" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
 

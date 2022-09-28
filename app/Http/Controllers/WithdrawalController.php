@@ -229,13 +229,22 @@ class WithdrawalController extends Controller
                                 'balance' => $balanceAmount + $amount->amount
                             ]);
 
-                            $bonus = new  Bonus();
-                            $bonus->type = 1;
-                            $bonus->amount = $amount->amount;
-                            $bonus->percentage = "4";
-                            $bonus->user_id = $amount->userId;
-                            $bonus->status = 100;
-                            $bonus->save();
+                            if ($amount->business_account == 'bonus') {
+                                $bonus = new  Bonus();
+                                $bonus->type = 3;
+                                $bonus->amount = $amount->amount;
+                                $bonus->percentage = "4";
+                                $bonus->user_id = $amount->userId;
+                                $bonus->status = 100;
+                                $bonus->save();
+                            } else if ($amount->business_account == 'earning') {
+                                $earning = new Earning();
+                                $earning->user_id = $amount->userId;
+                                $earning->earning = $amount->amount;
+                                $earning->percentage = 100;
+                                $earning->status = 100;
+                                $earning->save();
+                            }
                         }
                     }
                 }

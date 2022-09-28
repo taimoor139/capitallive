@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TicketCreation;
 use App\Models\Message;
 use App\Models\Support;
 use Illuminate\Http\Request;
@@ -57,6 +58,7 @@ class SupportController extends Controller
                 $message->user_id = Auth::user()->id;
                 $message->user_name = Auth::user()->name;
                 $message->save();
+                event(new TicketCreation($support));
                 return redirect()->route('view-ticket', $ticketId)->with('success', 'Ticket submitted successfully, Contact you soon!');
             }
         } else {
