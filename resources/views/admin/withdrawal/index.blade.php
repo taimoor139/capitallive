@@ -20,7 +20,10 @@
                                 <table id="table" class="table table--light style--two">
                                     <thead>
                                     <tr>
-                                        <th scope="col">Select</th>
+                                        <th scope="col">
+                                            <input type="checkbox" id="checkAll">
+                                                Select All
+                                        </th>
                                         <th scope="col">Id</th>
                                         <th scope="col">Account Type</th>
                                         <th scope="col">Wallet Address</th>
@@ -155,6 +158,14 @@
         </div><!-- bodywrapper__inner end -->
     </div>
     <script>
+        $("#checkAll").click(function () {
+            if($('input:checkbox').not(this).prop('checked', this.checked)){
+                $('#mass_status_change').css('display', 'block');
+            }
+            if($(this).prop('checked') == false){
+                $('#mass_status_change').css('display', 'none');
+            }
+        });
         $(".btn-edit").click(function () {
             var withdrawal_id = $(this).closest("tr").find('td.withdraw_id').first().text();
 
