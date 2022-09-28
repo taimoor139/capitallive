@@ -48,6 +48,12 @@
                                     Sponsor <span class="font-weight-bold"> {{ $user->sponsor ?? 'N/A' }}</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Left Points <span class="font-weight-bold"> {{ $user->points->left_bp ?? 'N/A' }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Right Points <span class="font-weight-bold"> {{ $user->points->right_rp ?? 'N/A' }}</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
                                     Balance <span class="font-weight-bold"> {{ $user->balance->balance ?? 0 }}
                                         USD </span>
                                 </li>
