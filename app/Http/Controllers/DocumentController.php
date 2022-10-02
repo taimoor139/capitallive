@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\DocumentUpload;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +52,7 @@ class DocumentController extends Controller
             if ($document->save()) {
                 $file->move($destinationPath, $file->getClientOriginalName());
             }
+            event(new DocumentUpload($document));
             return redirect()->back()->with('success', 'Document submitted successfully!');
         }
 

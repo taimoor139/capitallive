@@ -20,9 +20,15 @@
                         @foreach($notifications as $notification)
                             <tr>
                                 <td>
+                                    @if($notification->type == 2)
                                        <a href="{{ ($notification->ticket_id ? route('views-ticket',[$notification->ticket_id]) : route('all-tickets')) }}">
                                            <span class="text-info">{{ $notification->description }}</span>
                                        </a>
+                                        @elseif($notification->type == 3)
+                                        <a href="{{ route('documents') }}">
+                                            <span class="text-info">{{ $notification->description }}</span>
+                                        </a>
+                                    @endif
                                 </td>
                                 <td>{{ date_format($notification->created_at ,'d-m-Y')  }}</td>
 

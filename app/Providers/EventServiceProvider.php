@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Events\DocumentUpload;
 use App\Events\TicketCreation;
+use App\Listeners\SendDocumentUploadNotification;
 use App\Listeners\SendNewNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         TicketCreation::class => [
             SendNewNotification::class
+        ],
+        DocumentUpload::class => [
+            SendDocumentUploadNotification::class
         ]
     ];
 
