@@ -11,7 +11,10 @@
                 <button type="button" class="btn btn-info btn-edit btn-lg float-left" data-toggle="modal"
                         data-target="#mass_withdrawal" style="display: none" id="mass_status_change">Change Status</button>
             </div>
-
+            <div class="select-all-withdraw">
+                <input type="checkbox" id="checkAll">
+                                                Select All
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card b-radius--10">

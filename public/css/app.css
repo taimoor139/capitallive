@@ -1342,6 +1342,11 @@ pre code {
   .offset-md-11 {
     margin-left: 91.6666666667%;
   }
+
+  .select-all-withdraw{
+    display: none;
+  }
+
 }
 
 @media (min-width: 992px) {
@@ -2075,6 +2080,10 @@ pre code {
 
   .table-responsive-md > .table-bordered {
     border: 0;
+  }
+
+  .select-all-withdraw{
+    display: block;
   }
 }
 
