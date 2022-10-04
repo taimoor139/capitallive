@@ -28,9 +28,8 @@
                                                 Select All
                                         </th>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Account Type</th>
+                                        <th scope="col">Name</th>
                                         <th scope="col">Wallet Address</th>
-{{--                                        <th scope="col">Charge</th>--}}
                                         <th scope="col">Amount</th>
 {{--                                        <th scope="col">Time</th>--}}
                                         <th scope="col">Status</th>
@@ -43,7 +42,7 @@
                                         <tr>
                                             <td><input type="checkbox" name="mass_user_id" value="{{ $withdrawal->id }}" id="mass_withdraw" class="mass_withdraw"></td>
                                             <td class="withdraw_id">{{ $withdrawal->id }}</td>
-                                            <td>{{ $withdrawal->account_type }}</td>
+                                            <td><a href="{{ route('view-user', $withdrawal->userId) }}">{{ $withdrawal->user->name }}</a></td>
                                             <td>{{ $withdrawal->withdraw_address }}</td>
 {{--                                            <td > N/A</td>--}}
                                             <td>{{ $withdrawal->amount }} $</td>

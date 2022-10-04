@@ -132,7 +132,7 @@ class WithdrawalController extends Controller
     public function allWithdrawal()
     {
         $pageTitle = 'All Withdrawal';
-        $withdrawals = Withdrawal::all();
+        $withdrawals = Withdrawal::query()->with('user')->get();
         return view('admin.withdrawal.index', compact('withdrawals', 'pageTitle'));
     }
 

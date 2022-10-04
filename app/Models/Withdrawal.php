@@ -13,4 +13,8 @@ class Withdrawal extends Model
     public function paymentStatus(){
         return $this->hasOne(PaymentStatus::class, 'status_id', 'status');
     }
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'userId');
+    }
 }
