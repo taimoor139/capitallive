@@ -229,7 +229,7 @@
                         @if(Auth::user()->role_id == 1 || (Auth::user()->role_id == 3 && in_array(4, $roles)))
                             <li class="sidebar-menu-item sidebar-dropdown">
                                 <a href="javascript:void(0)" class="">
-                                    <i class="menu-icon fa fa-ticket-alt"></i>
+                                    <i class="menu-icon fa fa-ticket"></i>
                                     <span class="menu-title">Support Ticket </span>
                                     </span>
                                 </a>
