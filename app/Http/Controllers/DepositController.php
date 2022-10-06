@@ -214,7 +214,7 @@ class DepositController extends Controller
                 $transaction->status = 100;
                 $transaction->save();
 
-                $directBonus = (4 * $request->amount) / 100;
+                $directBonus = (6 * $request->amount) / 100;
 
 
                 if ($user->referral && $user->referral->position == 0 && $user->referral->pairStatus == 0) {
@@ -249,14 +249,14 @@ class DepositController extends Controller
                                         $pairAmount = $parent->points->right_rp;
                                     }
 
-                                    $networkBonus = (3 * $pairAmount) / 100;
+                                    $networkBonus = (5 * $pairAmount) / 100;
 
                                     if ($pairAmount > 0) {
 
                                         $bonus = new  Bonus();
                                         $bonus->type = 1;
                                         $bonus->amount = $networkBonus;
-                                        $bonus->percentage = "3";
+                                        $bonus->percentage = "5";
                                         $bonus->user_id = $parent->id;
                                         $bonus->status = 100;
 
@@ -270,7 +270,7 @@ class DepositController extends Controller
                                     $bonus = new  Bonus();
                                     $bonus->type = 2;
                                     $bonus->amount = $directBonus;
-                                    $bonus->percentage = "4";
+                                    $bonus->percentage = "6";
                                     $bonus->user_id = $parent->id;
                                     $bonus->status = 100;
                                     $bonus->save();
@@ -310,7 +310,7 @@ class DepositController extends Controller
                                 $bonus = new  Bonus();
                                 $bonus->type = 2;
                                 $bonus->amount = $directBonus;
-                                $bonus->percentage = "4";
+                                $bonus->percentage = "6";
                                 $bonus->user_id = $parent->id;
                                 $bonus->status = 100;
                                 $bonus->save();
@@ -375,13 +375,13 @@ class DepositController extends Controller
                                     } else {
                                         $pairAmount = $parent->points->left_rp;
                                     }
-                                    $networkBonus = (3 * $pairAmount) / 100;
+                                    $networkBonus = (5 * $pairAmount) / 100;
                                         if($pairAmount){
 
                                             $bonus = new  Bonus();
                                             $bonus->type = 1;
                                             $bonus->amount = $networkBonus;
-                                            $bonus->percentage = "3";
+                                            $bonus->percentage = "5";
                                             $bonus->user_id = $parent->id;
                                             $bonus->status = 100;
                                             if ($bonus->save()) {
@@ -395,7 +395,7 @@ class DepositController extends Controller
                                         $bonus = new  Bonus();
                                         $bonus->type = 2;
                                         $bonus->amount = $directBonus;
-                                        $bonus->percentage = "4";
+                                        $bonus->percentage = "6";
                                         $bonus->user_id = $parent->id;
                                         $bonus->status = 100;
                                         $bonus->save();
@@ -435,7 +435,7 @@ class DepositController extends Controller
                                 $bonus = new  Bonus();
                                 $bonus->type = 2;
                                 $bonus->amount = $directBonus;
-                                $bonus->percentage = "4";
+                                $bonus->percentage = "6";
                                 $bonus->user_id = $parent->id;
                                 $bonus->status = 100;
                                 $bonus->save();
@@ -501,11 +501,11 @@ class DepositController extends Controller
                             } else {
                                 $pairAmount = $parentData->points->right_rp;
                             }
-                            $networkBonus = (3 * $pairAmount) / 100;
+                            $networkBonus = (5 * $pairAmount) / 100;
                             $bonus = new  Bonus();
                             $bonus->type = 1;
                             $bonus->amount = $networkBonus;
-                            $bonus->percentage = "3";
+                            $bonus->percentage = "5";
                             $bonus->user_id = $parentData->id;
                             $bonus->status = 100;
                             if ($bonus->save()) {
@@ -545,12 +545,12 @@ class DepositController extends Controller
                                 $pairAmount = $parentData->points->left_rp;
                             }
 
-                            $networkBonus = (3 * $pairAmount) / 100;
+                            $networkBonus = (5 * $pairAmount) / 100;
 
                             $bonus = new  Bonus();
                             $bonus->type = 1;
                             $bonus->amount = $networkBonus;
-                            $bonus->percentage = "3";
+                            $bonus->percentage = "5";
                             $bonus->user_id = $parentData->id;
                             $bonus->status = 100;
                             if ($bonus->save()) {

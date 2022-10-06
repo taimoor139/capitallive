@@ -65,7 +65,7 @@ class PaymentStatusCheck extends Command
                     if ($deposit) {
                         $user = User::query()->where('id', $deposit->userId)->first();
                         if ($user) {
-                                $directBonus = (4 * $deposit->amount) / 100;
+                                $directBonus = (6 * $deposit->amount) / 100;
 
                                 if ($user->referral && $user->referral->position == 0 && $user->referral->pairStatus == 0) {
                                     $rightUnpaired = Referral::query()->where(['position' => 1, 'pairStatus' => 0, 'referrer_name' => $user->referral->referrer_name])->whereHas('deposit', function ($referralDeposit) use ($user) {
@@ -100,13 +100,13 @@ class PaymentStatusCheck extends Command
                                                         $pairAmount = $parent->points->right_rp;
                                                     }
 
-                                                    $networkBonus = (3 * $pairAmount) / 100;
+                                                    $networkBonus = (5 * $pairAmount) / 100;
                                                     if ($pairAmount > 0) {
 
                                                         $bonus = new  Bonus();
                                                         $bonus->type = 1;
                                                         $bonus->amount = $networkBonus;
-                                                        $bonus->percentage = "3";
+                                                        $bonus->percentage = "5";
                                                         $bonus->user_id = $parent->id;
                                                         $bonus->status = 100;
 
@@ -120,7 +120,7 @@ class PaymentStatusCheck extends Command
                                                     $bonus = new  Bonus();
                                                     $bonus->type = 2;
                                                     $bonus->amount = $directBonus;
-                                                    $bonus->percentage = "4";
+                                                    $bonus->percentage = "6";
                                                     $bonus->user_id = $parent->id;
                                                     $bonus->status = 100;
                                                     $bonus->save();
@@ -159,7 +159,7 @@ class PaymentStatusCheck extends Command
                                                 $bonus = new  Bonus();
                                                 $bonus->type = 2;
                                                 $bonus->amount = $directBonus;
-                                                $bonus->percentage = "4";
+                                                $bonus->percentage = "6";
                                                 $bonus->user_id = $parent->id;
                                                 $bonus->status = 100;
                                                 $bonus->save();
@@ -223,13 +223,13 @@ class PaymentStatusCheck extends Command
                                                     } else {
                                                         $pairAmount = $parent->points->left_rp;
                                                     }
-                                                    $networkBonus = (3 * $pairAmount) / 100;
+                                                    $networkBonus = (5 * $pairAmount) / 100;
                                                     if($pairAmount){
 
                                                         $bonus = new  Bonus();
                                                         $bonus->type = 1;
                                                         $bonus->amount = $networkBonus;
-                                                        $bonus->percentage = "3";
+                                                        $bonus->percentage = "5";
                                                         $bonus->user_id = $parent->id;
                                                         $bonus->status = 100;
                                                         if ($bonus->save()) {
@@ -243,7 +243,7 @@ class PaymentStatusCheck extends Command
                                                     $bonus = new  Bonus();
                                                     $bonus->type = 2;
                                                     $bonus->amount = $directBonus;
-                                                    $bonus->percentage = "4";
+                                                    $bonus->percentage = "6";
                                                     $bonus->user_id = $parent->id;
                                                     $bonus->status = 100;
                                                     $bonus->save();
@@ -282,7 +282,7 @@ class PaymentStatusCheck extends Command
                                                 $bonus = new  Bonus();
                                                 $bonus->type = 2;
                                                 $bonus->amount = $directBonus;
-                                                $bonus->percentage = "4";
+                                                $bonus->percentage = "6";
                                                 $bonus->user_id = $parent->id;
                                                 $bonus->status = 100;
                                                 $bonus->save();
@@ -349,11 +349,11 @@ class PaymentStatusCheck extends Command
                             } else {
                                 $pairAmount = $parentData->points->right_rp;
                             }
-                            $networkBonus = (3 * $pairAmount) / 100;
+                            $networkBonus = (5 * $pairAmount) / 100;
                             $bonus = new  Bonus();
                             $bonus->type = 1;
                             $bonus->amount = $networkBonus;
-                            $bonus->percentage = "3";
+                            $bonus->percentage = "5";
                             $bonus->user_id = $parentData->id;
                             $bonus->status = 100;
                             if ($bonus->save()) {
@@ -394,12 +394,12 @@ class PaymentStatusCheck extends Command
                                 $pairAmount = $parentData->points->left_rp;
                             }
 
-                            $networkBonus = (3 * $pairAmount) / 100;
+                            $networkBonus = (5 * $pairAmount) / 100;
 
                             $bonus = new  Bonus();
                             $bonus->type = 1;
                             $bonus->amount = $networkBonus;
-                            $bonus->percentage = "3";
+                            $bonus->percentage = "5";
                             $bonus->user_id = $parentData->id;
                             $bonus->status = 100;
                             if ($bonus->save()) {
