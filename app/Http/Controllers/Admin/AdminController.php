@@ -73,10 +73,10 @@ class AdminController extends Controller
     public function users()
     {
         if(Auth::user()->role_id == 1){
-            $users = User::query()->where('role_id', '!=', 1)->get();
+            $users = User::query()->where('role_id', '!=', 1)->orderBy('id', 'DESC')->get();
         }
         else{
-            $users = User::query()->whereNotIn('role_id',  [1, 3])->get();
+            $users = User::query()->whereNotIn('role_id',  [1, 3])->orderBy('id', 'DESC')->get();
         }
 
         return view('admin.users.index', compact('users'));

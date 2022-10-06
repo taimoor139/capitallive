@@ -26,5 +26,11 @@
             "bInfo": false,
             "bAutoWidth": false
         });
+
+        $('#adminTable').DataTable({
+            order:[[ 6, "desc" ]],
+            "columnDefs" : [{"targets":6, "type":"date"}],
+            "bLengthChange": false,
+        })
     });
 </script>
