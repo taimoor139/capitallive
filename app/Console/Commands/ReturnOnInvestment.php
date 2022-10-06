@@ -49,9 +49,11 @@ class ReturnOnInvestment extends Command
                 foreach ($deposits as $deposit) {
                     $roi = 0;
                     $balance = 0;
+                    $earningType = 0;
 
                     if($deposit->returnOnInvestment){
                         $roi = $deposit->returnOnInvestment->roi;
+                        $earningType = $deposit->returnOnInvestment->id;
                     }
 
                     if ($deposit->user->earning_status == 1 && $roi ) {
@@ -60,6 +62,7 @@ class ReturnOnInvestment extends Command
                         $roi_earning->user_id = $deposit->userId;
                         $roi_earning->earning = $earning;
                         $roi_earning->percentage = $roi;
+                        $roi_earning->earning_type = $earningType;
                         $roi_earning->status = 100;
                         if ($roi_earning->save()) {
                             $previousBalance = Balance::query()->where('user_id', $deposit->userId)->first();
@@ -87,6 +90,7 @@ class ReturnOnInvestment extends Command
                         $roi_earning->user_id = $deposit->userId;
                         $roi_earning->earning = $earning;
                         $roi_earning->percentage = $roi;
+                        $roi_earning->earning_type = $earningType;
                         $roi_earning->status = 100;
                         if ($roi_earning->save()) {
                             $previousBalance = Balance::query()->where('user_id', $deposit->userId)->first();

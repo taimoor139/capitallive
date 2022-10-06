@@ -14443,7 +14443,7 @@ input.form-control-sm {
 .timepicker_wrap .action-prev::before {
     position: absolute;
     content: "\f107";
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     color: #000000;
     left: 23px;
 }
@@ -15045,7 +15045,7 @@ table.table--light.style--two tbody td {
     position: absolute;
     top: 7px;
     right: 11px;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f104";
     font-size: 16px;
@@ -15055,7 +15055,7 @@ table.table--light.style--two tbody td {
     position: absolute;
     top: 7px;
     right: 11px;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f105";
     font-size: 16px;
@@ -15486,7 +15486,7 @@ th.w-85 {
 }
 
 .sidebar.active .sidebar__menu-header::before {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     content: "\f141";
     font-size: 1rem;
     color: #5b6e88;
@@ -15799,7 +15799,7 @@ th.w-85 {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f107";
     font-size: 13px;

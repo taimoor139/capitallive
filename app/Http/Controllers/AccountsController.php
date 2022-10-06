@@ -101,123 +101,97 @@ class AccountsController extends Controller
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
 
         $userDepositAmount = Deposit::query()->where(['userId' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
+        $userEarnings = Earning::query()->where(['user_id' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
         $fx1Deposits = [];
         $fx2Deposits = [];
         $fx3Deposits = [];
 
-        foreach ($userDepositAmount as $deposit){
-            if($deposit->accountType == 1){
+        $type1 = '';
+        $type2 = '';
+        $type3 = '';
 
-                $day = date_format($deposit->created_at, 'd');
+        foreach ($userEarnings as $earning){
+            if($earning->earning_type == 1){
+
+                $day = date_format($earning->created_at, 'd');
                 if(array_key_exists($day, $fx1Deposits)){
-                    $fx1Deposits[$day] = $fx1Deposits[$day] + round(($fx1Roi * $deposit->amount) / 100, 2);
+                    $fx1Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
                 } else {
-                    $fx1Deposits[$day] = round(($fx1Roi * $deposit->amount) / 100, 2);
+                    $fx1Deposits[$day] = $earning->earning;
                 }
 
-            } else if($deposit->accountType == 2){
-                $day = date_format($deposit->created_at, 'd');
+            } else if($earning->earning_type == 2){
+                $day = date_format($earning->created_at, 'd');
                 if(array_key_exists($day, $fx1Deposits)){
-                    $fx2Deposits[$day] = $fx1Deposits[$day] + round(($fx2Roi * $deposit->amount) / 100, 2);
+                    $fx2Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
                 } else {
-                    $fx2Deposits[$day] = round(($fx2Roi * $deposit->amount) / 100, 2);
+                    $fx2Deposits[$day] = $earning->earning;
                 }
 
-            }else if($deposit->accountType == 3){
+            }else if($earning->earning_type == 3){
 
-                $day = date_format($deposit->created_at, 'd');
+                $day = date_format($earning->created_at, 'd');
                 if(array_key_exists($day, $fx1Deposits)){
-                    $fx3Deposits[$day] = $fx1Deposits[$day] + round(($fx3Roi * $deposit->amount) / 100, 2);
+                    $fx3Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
                 } else {
-                    $fx3Deposits[$day] = round(($fx3Roi * $deposit->amount) / 100, 2);
+                    $fx3Deposits[$day] = $earning->earning;
                 }
 
             }
 
         }
-
-        $type1 = '<div class="calendar">';
-
-        $type1 .= '<div class="month-year">';
-        $type1 .= '<span class="month">' . $date->format('M') . '</span>';
-        $type1 .= '<span class="year">' . $date->format('Y') . '</span>';
-        $type1 .= '</div>';
-
-        $type1 .= '<div class="days">';
-
-        $dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        foreach ($dayLabels as $dayLabel) {
-            $type1 .= '<span class="day-label">' . $dayLabel . '</span>';
-        }
         while ($startOfCalendar <= $endOfCalendar) {
+        
+            $type1 .= '<li class="day other-month">
+                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
+                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx1Deposits) ? '<div class="event">
+                                                    <div class="event-desc">$ '
+                                                        .$fx1Deposits[$startOfCalendar->format('d')].
+                                                    '</div>
+                                                </div>' : "").' 
+                            
+                       </li>';
 
-            $extraClass = $startOfCalendar->format('m') != $date->format('m') ? 'dull' : '';
-            $extraClass .= $startOfCalendar->isToday() ? ' today' : '';
-            $type1 .= '<span class="day ' . $extraClass . '"><span class="content">' . $startOfCalendar->format('j') . '</span><span class="roi" style="display:'.($startOfCalendar->format('m') == $date->format('m') ? 'block' : 'none').'">' . (array_key_exists($startOfCalendar->format('j'), $fx1Deposits) ? $fx1Deposits[$startOfCalendar->format('j')] : "") . '</span></span>';
             $startOfCalendar->addDay();
         }
-        $type1 .= '</div></div>';
-
-
+        
 //        Calender 2
-
-        $date = empty($date) ? Carbon::now() : Carbon::createFromDate($date);
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
-
-        $type2 = '<div class="calendar">';
-
-        $type2 .= '<div class="month-year">';
-        $type2 .= '<span class="month">' . $date->format('M') . '</span>';
-        $type2 .= '<span class="year">' . $date->format('Y') . '</span>';
-        $type2 .= '</div>';
-
-        $type2 .= '<div class="days">';
-
-        $dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        foreach ($dayLabels as $dayLabel) {
-            $type2 .= '<span class="day-label">' . $dayLabel . '</span>';
-        }
-
         while ($startOfCalendar <= $endOfCalendar) {
 
-            $extraClass = $startOfCalendar->format('m') != $date->format('m') ? 'dull' : '';
-            $extraClass .= $startOfCalendar->isToday() ? ' today' : '';
-            $type2 .= '<span class="day ' . $extraClass . '"><span class="content">' . $startOfCalendar->format('j') . '</span><span class="roi" style="display:'.($startOfCalendar->format('m') == $date->format('m') ? 'block' : 'none').'">' . (array_key_exists($startOfCalendar->format('j'), $fx2Deposits) ? $fx2Deposits[$startOfCalendar->format('j')] : "") . '</span></span>';
+            $type2 .= '<li class="day other-month">
+                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
+                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx2Deposits) ? '<div class="event">
+                                                    <div class="event-desc">$ '
+                                                        .$fx2Deposits[$startOfCalendar->format('d')].
+                                                    '</div>
+                                                </div>' : "").' 
+                            
+                    </li>';
             $startOfCalendar->addDay();
         }
-        $type2 .= '</div></div>';
 
 
 //        Calender 3
-        $date = empty($date) ? Carbon::now() : Carbon::createFromDate($date);
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
-
-        $type3 = '<div class="calendar">';
-
-        $type3 .= '<div class="month-year">';
-        $type3 .= '<span class="month">' . $date->format('M') . '</span>';
-        $type3 .= '<span class="year">' . $date->format('Y') . '</span>';
-        $type3 .= '</div>';
-
-        $type3 .= '<div class="days">';
-
-        $dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        foreach ($dayLabels as $dayLabel) {
-            $type3 .= '<span class="day-label">' . $dayLabel . '</span>';
-        }
-
         while ($startOfCalendar <= $endOfCalendar) {
-
             $extraClass = $startOfCalendar->format('m') != $date->format('m') ? 'dull' : '';
             $extraClass .= $startOfCalendar->isToday() ? ' today' : '';
-            $type3 .= '<span class="day ' . $extraClass . '"><span class="content">' . $startOfCalendar->format('j') . '</span><span class="roi" style="display:'.($startOfCalendar->format('m') == $date->format('m') ? 'block' : 'none').'">' . (array_key_exists($startOfCalendar->format('j'), $fx3Deposits) ? $fx3Deposits[$startOfCalendar->format('j')] : "") . '</span></span>';
+            $type3 .= '<li class="day other-month">
+                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
+                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx3Deposits) ? '<div class="event">
+                                                    <div class="event-desc">$ '
+                                                        .$fx3Deposits[$startOfCalendar->format('d')].
+                                                    '</div>
+                                                </div>' : "").' 
+                            
+                    </li>';
 
             $startOfCalendar->addDay();
         }
-        $type3 .= '</div></div><br>';
 
-        return view('user.accounts.earningCharts', compact( 'type1', 'type2', 'type3', 'fx1RoiTitle', 'fx2RoiTitle', 'fx3RoiTitle'));
+        return view('user.accounts.earningCharts', compact( 'type1', 'type2', 'type3', 'fx1RoiTitle', 'fx2RoiTitle', 'fx3RoiTitle', 'date'));
     }
 }

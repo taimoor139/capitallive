@@ -19,6 +19,7 @@ class CreateEarningsTable extends Migration
             $table->string('earning')->nullable();
             $table->string('percentage')->nullable();
             $table->integer('status')->default(0);
+            $table->integer('earning_type')->nullable();
             $table->timestamps();
         });
     }
