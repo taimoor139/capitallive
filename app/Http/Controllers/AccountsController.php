@@ -27,8 +27,9 @@ class AccountsController extends Controller
         $totalBonuses = Bonus::query()->where(['status' => 100, 'user_id' => Auth::user()->id])->sum('amount');
         $pendingBonuses = Bonus::query()->where(['status' => 0, 'user_id' => Auth::user()->id])->sum('amount');
 
-        return view('user.accounts.bonousAccounts', compact('bonuses', 'networkBonuses', 'rankBonuses','directBonuses', 'totalBonuses', 'pendingBonuses'));
+        return view('user.accounts.bonousAccounts', compact('bonuses', 'networkBonuses', 'rankBonuses', 'directBonuses', 'totalBonuses', 'pendingBonuses'));
     }
+
     public function earningAccounts()
     {
         $monthlyEarning = 0;
@@ -37,40 +38,41 @@ class AccountsController extends Controller
 
 
         $userMonthEarning = Earning::query()->where('user_id', Auth::user()->id)->whereMonth('created_at', date('m'))
-        ->whereYear('created_at', date('Y'))->sum('earning');
-        if($userMonthEarning){
+            ->whereYear('created_at', date('Y'))->sum('earning');
+        if ($userMonthEarning) {
             $monthlyEarning = $userMonthEarning;
         }
 
         $userEarning = Earning::query()->where('user_id', Auth::user()->id)->sum('earning');
-        if($userEarning){
+        if ($userEarning) {
             $totalEarning = $userEarning;
         }
 
         $userCurrentEarning = Earning::query()->where(['user_id' => Auth::user()->id, 'status' => 0])->sum('earning');
-        if($userCurrentEarning){
+        if ($userCurrentEarning) {
             $currentEarning = $userCurrentEarning;
         }
-        $earnings = Earning::query()->where('user_id', Auth::user()->id)->where('percentage', '!=', 0)->where('earning', '>',0)->get();
+        $earnings = Earning::query()->where('user_id', Auth::user()->id)->where('percentage', '!=', 0)->where('earning', '>', 0)->get();
 
         return view('user.accounts.earningAccounts', compact('monthlyEarning', 'totalEarning', 'earnings', 'currentEarning'));
     }
 
-    public function move(){
+    public function move()
+    {
         $currentEarning = 0;
         $currentBalance = Balance::query()->where('user_id', Auth::user()->id)->first();
         $userCurrentEarning = Earning::query()->where(['user_id' => Auth::user()->id, 'status' => 0])->sum('earning');
-        if($userCurrentEarning){
+        if ($userCurrentEarning) {
             $currentEarning = $userCurrentEarning;
         }
-        if($currentBalance && $currentEarning){
+        if ($currentBalance && $currentEarning) {
             $updateBalance = Balance::query()->where('user_id', Auth::user()->id)->update([
                 'balance' => $currentEarning + $currentBalance->balance
             ]);
             $updateEarning = Earning::query()->where('user_id', Auth::user()->id)->update([
                 'status' => 1
             ]);
-            if($updateBalance){
+            if ($updateBalance) {
                 return redirect()->back()->with('success', 'Earning amount successfully added to current balance!');
             }
         } else {
@@ -78,21 +80,16 @@ class AccountsController extends Controller
         }
     }
 
-    public function earningChart(){
+    public function earningChart()
+    {
 
         $fx1 = ReturnOnInvestment::query()->where('id', 1)->first();
-
-        $fx1Roi = $fx1->roi;
         $fx1RoiTitle = $fx1->deposit_type;
 
         $fx2 = ReturnOnInvestment::query()->where('id', 2)->first();
-
-        $fx2Roi = $fx2->roi;
         $fx2RoiTitle = $fx2->deposit_type;
 
         $fx3 = ReturnOnInvestment::query()->where('id', 3)->first();
-
-        $fx3Roi = $fx3->roi;
         $fx3RoiTitle = $fx3->deposit_type;
 
 
@@ -100,7 +97,6 @@ class AccountsController extends Controller
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
 
-        $userDepositAmount = Deposit::query()->where(['userId' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
         $userEarnings = Earning::query()->where(['user_id' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
         $fx1Deposits = [];
         $fx2Deposits = [];
@@ -110,29 +106,29 @@ class AccountsController extends Controller
         $type2 = '';
         $type3 = '';
 
-        foreach ($userEarnings as $earning){
-            if($earning->earning_type == 1){
+        foreach ($userEarnings as $earning) {
+            if ($earning->earning_type == 1) {
 
                 $day = date_format($earning->created_at, 'd');
-                if(array_key_exists($day, $fx1Deposits)){
+                if (array_key_exists($day, $fx1Deposits)) {
                     $fx1Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
                 } else {
                     $fx1Deposits[$day] = $earning->earning;
                 }
 
-            } else if($earning->earning_type == 2){
+            } else if ($earning->earning_type == 2) {
                 $day = date_format($earning->created_at, 'd');
-                if(array_key_exists($day, $fx1Deposits)){
-                    $fx2Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
+                if (array_key_exists($day, $fx2Deposits)) {
+                    $fx2Deposits[$day] = $fx2Deposits[$day] + $earning->earning;
                 } else {
                     $fx2Deposits[$day] = $earning->earning;
                 }
 
-            }else if($earning->earning_type == 3){
+            } else if ($earning->earning_type == 3) {
 
                 $day = date_format($earning->created_at, 'd');
-                if(array_key_exists($day, $fx1Deposits)){
-                    $fx3Deposits[$day] = $fx1Deposits[$day] + $earning->earning;
+                if (array_key_exists($day, $fx3Deposits)) {
+                    $fx3Deposits[$day] = $fx3Deposits[$day] + $earning->earning;
                 } else {
                     $fx3Deposits[$day] = $earning->earning;
                 }
@@ -141,33 +137,33 @@ class AccountsController extends Controller
 
         }
         while ($startOfCalendar <= $endOfCalendar) {
-        
+
             $type1 .= '<li class="day other-month">
-                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
-                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx1Deposits) ? '<div class="event">
+                            <div class="date">' . $startOfCalendar->format('d') . '</div>
+                                ' . ($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d'), $fx1Deposits) ? '<div class="event">
                                                     <div class="event-desc">$ '
-                                                        .$fx1Deposits[$startOfCalendar->format('d')].
-                                                    '</div>
-                                                </div>' : "").' 
-                            
+                    . $fx1Deposits[$startOfCalendar->format('d')] .
+                    '</div>
+                                                </div>' : "") . '
+
                        </li>';
 
             $startOfCalendar->addDay();
         }
-        
+
 //        Calender 2
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
         while ($startOfCalendar <= $endOfCalendar) {
 
             $type2 .= '<li class="day other-month">
-                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
-                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx2Deposits) ? '<div class="event">
+                            <div class="date">' . $startOfCalendar->format('d') . '</div>
+                                ' . ($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d'), $fx2Deposits) ? '<div class="event">
                                                     <div class="event-desc">$ '
-                                                        .$fx2Deposits[$startOfCalendar->format('d')].
-                                                    '</div>
-                                                </div>' : "").' 
-                            
+                    . $fx2Deposits[$startOfCalendar->format('d')] .
+                    '</div>
+                                                </div>' : "") . '
+
                     </li>';
             $startOfCalendar->addDay();
         }
@@ -177,21 +173,20 @@ class AccountsController extends Controller
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
         while ($startOfCalendar <= $endOfCalendar) {
-            $extraClass = $startOfCalendar->format('m') != $date->format('m') ? 'dull' : '';
-            $extraClass .= $startOfCalendar->isToday() ? ' today' : '';
+
             $type3 .= '<li class="day other-month">
-                            <div class="date">'. $startOfCalendar->format('d') .'</div> 
-                                '.($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d') ,$fx3Deposits) ? '<div class="event">
+                            <div class="date">' . $startOfCalendar->format('d') . '</div>
+                                ' . ($startOfCalendar->format('m') == $date->format('m') && array_key_exists($startOfCalendar->format('d'), $fx3Deposits) ? '<div class="event">
                                                     <div class="event-desc">$ '
-                                                        .$fx3Deposits[$startOfCalendar->format('d')].
-                                                    '</div>
-                                                </div>' : "").' 
-                            
+                    . $fx3Deposits[$startOfCalendar->format('d')] .
+                    '</div>
+                                                </div>' : "") . '
+
                     </li>';
 
             $startOfCalendar->addDay();
         }
 
-        return view('user.accounts.earningCharts', compact( 'type1', 'type2', 'type3', 'fx1RoiTitle', 'fx2RoiTitle', 'fx3RoiTitle', 'date'));
+        return view('user.accounts.earningCharts', compact('type1', 'type2', 'type3', 'fx1RoiTitle', 'fx2RoiTitle', 'fx3RoiTitle', 'date'));
     }
 }
