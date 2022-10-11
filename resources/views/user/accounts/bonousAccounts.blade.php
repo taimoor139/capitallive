@@ -71,7 +71,7 @@
                                     @elseif($bonus->type == 3)
                                         <td>Withdraw Amount</td>
                                     @endif
-                                    <td>$ {{ $bonus->amount }}</td>
+                                    <td>$ {{ abs($bonus->amount) }}</td>
                                     <td>{{ $bonus->percentage }}</td>
                                     <td>
                                         @if($bonus->status == 0)
