@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Models\Balance;
+use App\Models\Bonus;
+use App\Models\Earning;
 use App\Models\Transaction;
 use CoinpaymentsAPI;
 use Illuminate\Console\Command;
@@ -58,6 +60,29 @@ class Withdrawal extends Command
                         Transaction::query()->where('transaction_id', $withdrawal->transaction_id)->update([
                             'status' => -1
                         ]);
+                        if ($withdrawal->business_account == 'bonus') {
+                            $bonus = new  Bonus();
+                            $bonus->type = 3;
+                            $bonus->amount = $withdrawal->amount;
+                            $bonus->percentage = "4";
+                            $bonus->user_id = $withdrawal->userId;
+                            $bonus->status = 100;
+                            $bonus->save();
+                        } else if ($withdrawal->business_account == 'earning') {
+                            $earning = new Earning();
+                            $earning->user_id = $withdrawal->userId;
+                            $earning->earning = $withdrawal->amount;
+                            $earning->percentage = 100;
+                            $earning->status = 100;
+                            $earning->save();
+                        }
+
+                        $previousBalance = Balance::query()->where('user_id', $withdrawal->userId)->first();
+                        if($previousBalance) {
+                            $updateBalance = Balance::query()->where('user_id', $withdrawal->userId)->update([
+                                'balance' => $previousBalance + $withdrawal->amount
+                            ]);
+                        }
                     } else if(array_key_exists('success', $withdrawalCreate)){
                         $updateWithdraw = \App\Models\Withdrawal::query()->where('id', $withdrawal->id)->update([
                             'withdraw_status' => $withdrawalCreate['success'],
