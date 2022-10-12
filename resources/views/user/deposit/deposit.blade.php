@@ -20,7 +20,7 @@
                                        data-target="#addDeposit">New Deposit</i></a>
                                     @include('user.deposit.addDeposit')
                                 </h5>
-                                <table id="table" class="table table-hover">
+                                <table id="depositTable" class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -86,4 +86,18 @@
             </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function () {
+        $('#depositTable').DataTable({
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "dom": '<"pull-left"f><"pull-right"l>tip',
+            order: [[4, 'desc']],
+            scrollX: true
+        });
+    });
+</script>
 @endsection

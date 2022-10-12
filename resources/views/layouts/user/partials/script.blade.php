@@ -167,7 +167,7 @@
     $(document).ready(function () {
         $('#table').DataTable({
             "bPaginate": true,
-            "bLengthChange": false,
+            "bLengthChange": true,
             "bFilter": true,
             "bInfo": false,
             "bAutoWidth": true,

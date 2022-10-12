@@ -1,8 +1,8 @@
 @extends('layouts.user.master')
 @section('content')
 
-<div class="app-content content ">
-    <div class="content-overlay"></div>
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
@@ -17,14 +17,16 @@
                                 <div class="card border-left-warning">
                                     <div class="card-body">
                                         <h5 class="card-title p-0 pt-4">Withdrawal</h5>
-                                        <p class="card-text">Statistics <i class="bi bi-clipboard-data text-danger"></i></p>
+                                        <p class="card-text">Statistics <i class="bi bi-clipboard-data text-danger"></i>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 mb-20">
                                 <div class="card border-left-warning">
                                     <div class="card-body">
-                                        <h5 class="card-title p-0 pt-4">$ {{ ($bonusBalance > 0 ? number_format($bonusBalance) : 0) }}</h5>
+                                        <h5 class="card-title p-0 pt-4">
+                                            $ {{ ($bonusBalance > 0 ? number_format($bonusBalance) : 0) }}</h5>
                                         <p class="card-text">Bonus Balance</p>
                                     </div>
                                 </div>
@@ -53,21 +55,22 @@
                                     {{-- <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#new_withdrawal" style="float: right">New Withdrawal
                                     </button> --}}
-                                    @if(date('D', strtotime(now())) == "Mon")
-                                    <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#addWithdrawal">New Withdrawal</i></a>
+                                    @if(date('D', strtotime(now())) == "Mon" && $withdrawalCheck)
+                                        <a href="#" class="btn btn-primary float-right" data-toggle="modal"
+                                           data-target="#addWithdrawal">New Withdrawal</a>
                                     @endif
-                    @include('user.withdrawals.addWithdrawals')
+                                    @include('user.withdrawals.addWithdrawals')
                                 </h5>
-                                <table id="table" class="table table-hover">
+                                <table id="withdrawTable" class="table table-hover">
                                     <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Account</th>
-                                            <th>Currency</th>
-                                            <th>Withdraw Address</th>
-                                            <th>Status</th>
-                                            <th>Date</th>
-                                        </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Account</th>
+                                        <th>Currency</th>
+                                        <th>Withdraw Address</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($withdrawals as $withdrawal)
@@ -97,8 +100,9 @@
                                                 {{--                                                @endif--}}
 
 
-                                                <small class="text-md font-weight-bolder">{{ $withdrawal->amount }} <span
-                                                            class="text-muted">USD</span></small>
+                                                <small class="text-md font-weight-bolder">{{ $withdrawal->amount }}
+                                                    <span
+                                                        class="text-muted">USD</span></small>
                                             </td>
                                             <td>{{ $withdrawal->withdraw_address }}</td>
 
@@ -120,46 +124,58 @@
                 </div>
 
 
-
             </div>
         </div>
-</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#withdrawTable').DataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": true,
+                "dom": '<"pull-left"f><"pull-right"l>tip',
+                order: [[5, 'desc']],
+                scrollX: true
+            });
+        });
+    </script>
+    <script>
+        @if(Session::has('success'))
+            toastr.options =
+            {
+                "closeButton": true,
+                "progressBar": true
+            }
+        toastr.success("{{ session('success') }}");
+        @endif
 
-<script>
-    @if(Session::has('success'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-    toastr.success("{{ session('success') }}");
-    @endif
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "closeButton": true,
+                "progressBar": true
+            }
+        toastr.error("{{ session('error') }}");
+        @endif
 
-        @if(Session::has('error'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-    toastr.error("{{ session('error') }}");
-    @endif
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "closeButton": true,
+                "progressBar": true
+            }
+        toastr.info("{{ session('info') }}");
+        @endif
 
-        @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-    toastr.info("{{ session('info') }}");
-    @endif
-
-        @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-    toastr.warning("{{ session('warning') }}");
-    @endif
-</script>
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton": true,
+                "progressBar": true
+            }
+        toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
 @endsection

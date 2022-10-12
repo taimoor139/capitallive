@@ -217,7 +217,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Recent Transactions</h5>
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table id="transactionTable" class="table table-hover">
                                             <thead>
                                             <tr>
                                                 <th scope="col">Type</th>
@@ -229,7 +229,7 @@
                                             <tbody>
                                             @foreach($transactions as $transaction)
                                                 <tr>
-                                                    <td>{{ $transaction->type }}</td>
+                                                    <td>{{ ucfirst($transaction->type) }}</td>
                                                     <td>$ {{ $transaction->amount }}</td>
                                                     <td>{{ $transaction->paymentStatus->name }}</td>
                                                     <td>{{ date_format($transaction->created_at ,'M d, Y') }}</td>
@@ -252,4 +252,18 @@
             </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function () {
+        $('#transactionTable').DataTable({
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "dom": '<"pull-left"f><"pull-right"l>tip',
+            order: [[3, 'desc']],
+            scrollX: true
+        });
+    });
+</script>
 @endsection
