@@ -61,7 +61,7 @@
                     <!-- Login v1 -->
                     <div class="card mb-0">
                         <div class="card-body">
-                            <a href="/" class="d-flex justify-content-center"><img src="/login.png" alt="Capital first"></a>
+                            <a href="/" class="d-flex justify-content-center"><img class="logo" src="/login.png" alt="Capital first"></a>
                             <h3 class="card-text mb-2 uk-text-bold">A fresh verification link has been sent to your email address <b>{{ Auth::user()->email }}</b>.</h3>
                             {{ __('Before proceeding, please check your email for a verification link.') }}
                             {{ __('If you did not receive the email') }},

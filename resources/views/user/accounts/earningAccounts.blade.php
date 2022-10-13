@@ -53,10 +53,9 @@
                 <div class="card border-top-warning  border-bottom-warning">
                     <div class="card-body">
                         <h5 class="card-title"><i class="bi bi-currency-dollar text-danger"></i> Earning Account</h5>
-                        <table class="table table-hover" id="table">
+                        <table class="table table-hover" id="earningTable">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Percentage</th>
@@ -66,7 +65,6 @@
                             <tbody>
                             @foreach($earnings as $earning)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ date_format($earning->created_at, 'Y-m-d') }}</td>
                                     <td>{{ round($earning->earning, 4) }}</td>
                                     <td>{{ $earning->percentage }}</td>
@@ -81,6 +79,20 @@
             </div>
         </div>
     </div>
+     <script>
+        $(document).ready(function () {
+            $('#earningTable').DataTable({
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bFilter": true,
+                "bInfo": false,
+                "bAutoWidth": true,
+                "dom": '<"pull-left"f><"pull-right"l>tip',
+                order: [[0, 'desc']],
+                scrollX: true
+            });
+        });
+    </script>
     <script>
         @if(Session::has('success'))
             toastr.options =

@@ -71,7 +71,7 @@
                         <div class="uk-navbar-item">
 
                             <a class="uk-logo" href="{{ url('/') }}">
-                                <img src="/frontend1.png" alt="Capital First">
+                                <img src="/frontend1.png"  class="logo" alt="Capital First">
                             </a>
 
                         </div>

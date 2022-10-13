@@ -84,12 +84,18 @@ class AccountsController extends Controller
     {
 
         $fx1 = ReturnOnInvestment::query()->where('id', 1)->first();
+
+        $fx1Roi = $fx1->roi;
         $fx1RoiTitle = $fx1->deposit_type;
 
         $fx2 = ReturnOnInvestment::query()->where('id', 2)->first();
+
+        $fx2Roi = $fx2->roi;
         $fx2RoiTitle = $fx2->deposit_type;
 
         $fx3 = ReturnOnInvestment::query()->where('id', 3)->first();
+
+        $fx3Roi = $fx3->roi;
         $fx3RoiTitle = $fx3->deposit_type;
 
 
@@ -97,6 +103,7 @@ class AccountsController extends Controller
         $startOfCalendar = $date->copy()->firstOfMonth()->startOfWeek(Carbon::SUNDAY);
         $endOfCalendar = $date->copy()->lastOfMonth()->endOfWeek(Carbon::SATURDAY);
 
+        $userDepositAmount = Deposit::query()->where(['userId' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
         $userEarnings = Earning::query()->where(['user_id' => Auth::user()->id, 'status' => 100])->whereMonth('created_at', $date->format('m'))->get();
         $fx1Deposits = [];
         $fx2Deposits = [];
@@ -105,6 +112,7 @@ class AccountsController extends Controller
         $type1 = '';
         $type2 = '';
         $type3 = '';
+    
 
         foreach ($userEarnings as $earning) {
             if ($earning->earning_type == 1) {

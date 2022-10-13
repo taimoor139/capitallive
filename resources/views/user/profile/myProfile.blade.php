@@ -2,7 +2,7 @@
 @section('content')
     <div class="app-content content ">
         <div class="content-wrapper">
-            <h5 class="card-title"><i class="bi bi-currency-exchange text-danger"></i> Profile
+            <h5 class="card-title etitle"><i class="bi bi-currency-exchange text-danger "></i> Profile
                 {{-- <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                     data-bs-target="#new_withdrawal" style="float: right">New Withdrawal
                 </button> --}}
@@ -51,7 +51,7 @@
                                         <div class="col-6">
                                             <div class="card">
                                                 <div
-                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning">
+                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning eblack">
                                                     <b>Left RP</b>
                                                     {{ $points->left_rp ?? 0 }}
                                                 </div>
@@ -60,7 +60,7 @@
                                         <div class="col-6">
                                             <div class="card">
                                                 <div
-                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning">
+                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning eblack">
                                                     <b>Right RP</b>
                                                     {{ $points->right_rp ?? 0 }}
                                                 </div>
@@ -75,7 +75,7 @@
                                         <div class="col-6">
                                             <div class="card">
                                                 <div
-                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning">
+                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning eblack">
                                                     <b>Left BP</b>
                                                     {{ $points->left_bp ?? 0 }}
                                                 </div>
@@ -84,7 +84,7 @@
                                         <div class="col-6">
                                             <div class="card">
                                                 <div
-                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning">
+                                                    class="card-body profile-card pt-3 d-flex flex-column border-top-warning border-bottom-warning eblack">
                                                     <b>Right BP</b>
                                                     {{ $points->right_bp ?? 0 }}
                                                 </div>
@@ -97,7 +97,7 @@
                         <div class="col-xl-8">
                             <div class="card">
                                 <div class="card-body pt-3 border-top-warning border-bottom-warning">
-                                    <h5 class="card-title">Profile Details</h5>
+                                    <h5 class="card-title eblack">Profile Details</h5>
                                     <div class="row">
                                         <div class="col-4 col-lg-3 col-md-4 label  p-2">Full Name</div>
                                         <div class="col-8 col-lg-9 col-md-8  p-2">{{ Auth::user()->name }}</div>

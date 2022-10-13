@@ -96,7 +96,7 @@
                             </svg> --}}
                             {{-- <h2 class="brand-text text-center text-primary ml-1"><a href="/">Capital First</a></h2>
                         </a> --}}
-                            <a href="/" class="d-flex justify-content-center"><img src="/login.png" alt="Capital first"></a>
+                            <a href="/" class="d-flex justify-content-center"><img class="logo" src="/login.png" alt="Capital first"></a>
 
                             <h4 class="card-title mb-1">Adventure starts here 🚀</h4>
                             <p class="card-text mb-2">Invest,Relax,Earn</p>

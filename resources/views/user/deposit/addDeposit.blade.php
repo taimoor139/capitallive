@@ -1,11 +1,15 @@
 <div class="modal fade" id="addDeposit" tabindex="-1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content  border-top-warning border-bottom-warning">
+            
             <div class="modal-header">
                 <h5 class="modal-title"><i class="bi bi-currency-exchange text-primary"></i> Make New Deposit</h5>
+                
                 {{--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
                 <span id="deposit-warning" class="alert-danger"></span>
             </div>
+           
+            
             <form id="depositForm">
                 <input type="hidden" value="{{ csrf_token() }}" id="_token" name="_token">
                 <div class="modal-body">
@@ -21,6 +25,7 @@
                                     @endforeach
                                 </select>
                                 <span class="text-danger error error_account_type d-none d-none"></span>
+                                
                             </div>
                         </div>
                         <div class="col-12">

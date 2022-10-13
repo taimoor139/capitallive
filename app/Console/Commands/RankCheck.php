@@ -85,7 +85,7 @@ class RankCheck extends Command
                             }
                         }
                     }
-
+                    
                 }
             }
         }

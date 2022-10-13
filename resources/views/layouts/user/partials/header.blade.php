@@ -141,7 +141,7 @@
                             <div class="media d-flex align-items-start">
                                 <div class="media-left">
                                     <div class="avatar"><img
-                                            src="../../../app-assets/images/portrait/small/avatar-s-15.jpg" alt="avatar"
+                                            src="../../../app-assets/images/portrait/small/avatar-s-15.jpg"  class"dp" alt="avatar"
                                             width="32" height="32"></div>
                                 </div>
                                 <div class="media-body">

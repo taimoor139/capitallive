@@ -42,12 +42,12 @@
                                         <i class="bi bi-alarm"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6 id="clockdiv">
-                                            <span class="days"></span>
-                                            <span class="hours"></span>
-                                            <span class="minutes"></span>
-                                        </h6>
-                                        <span class="text-muted small pt-2">Week 52 Closing in</span>
+                                        <!--<h6 id="clockdiv">-->
+                                        <!--    <span class="days"></span>-->
+                                        <!--    <span class="hours"></span>-->
+                                        <!--    <span class="minutes"></span>-->
+                                        <!--</h6>-->
+                                        <!--<span class="text-muted small pt-2">Week 52 Closing in</span>-->
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +232,7 @@
                                                     <td>{{ ucfirst($transaction->type) }}</td>
                                                     <td>$ {{ $transaction->amount }}</td>
                                                     <td>{{ $transaction->paymentStatus->name }}</td>
-                                                    <td>{{ date_format($transaction->created_at ,'M d, Y') }}</td>
+                                                    <td  data-sort="{{ $transaction->created_at }}">{{ date_format($transaction->created_at ,'M d, Y') }}</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>

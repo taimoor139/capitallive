@@ -1379,6 +1379,9 @@ footer.footer-border {
 .avatar img {
   border-radius : 50%;
 }
+.dp{
+    width:40px!important;
+}
 
 .avatar.avatar-xl {
   font-size : 1.5rem;

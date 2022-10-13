@@ -128,6 +128,28 @@
             background: #472aff;
             border-radius: 50%;
         }
+        .pkg{
+            line-height:60px !important;
+        }
+        .broke{
+            font-size:20px !important;
+        }
+        .Dwhatsapp{
+            font-family:sans-serif !important;
+                width: 220px;
+    background-color: #02dd78;
+    font-size: 12px;
+}
+.Dwhatsapp:hover{
+    font-family:sans-serif !important;
+    width: 220px;
+    background-color: #02dd78;
+    font-size: 12px;
+}
+.swhatsapp{
+    margin-left:-27px;
+    width:29px!important;
+}
     </style>
 </head>
 
@@ -168,7 +190,7 @@
 
                             <a class="uk-logo" href="#">
 
-                                <img src="/frontend1.png" alt="Capital First">
+                                <img src="/frontend1.png" class="logo" alt="Capital First">
                             </a>
 
                         </div>
@@ -226,14 +248,23 @@
                                 <div class="uk-grid" data-uk-grid>
                                     <div class="uk-width-1-2@m">
                                         <div class="uk-overlay">
-                                            <h1>Get more <span class="in-highlight">freedom</span> in the markets.</h1>
+                                            <h1>Get more <span>freedom</span> in the markets.</h1>
                                             <p class="uk-text-lead uk-visible@m">Trade Cryptocurrencies, Stock Indices,
                                                 Commodities and Forex from a single account</p>
                                             <div class="in-slideshow-button">
                                                 <a class="uk-button uk-button-primary uk-border-rounded"
-                                                    href="{{ route('register') }}">Open
-                                                    account</a>
+                                                    href="{{ route('register') }}">Open account</a>
+                                                
                                             </div>
+                                            
+                                            
+                                             <div class="in-slideshow-button">
+                                             <a class="uk-button uk-button-primary uk-border-rounded Dwhatsapp" href="https://api.whatsapp.com/send?phone=+1%C2%A0(505)%C2%A0375%E2%80%910231&text=I%20want%20to%20know%20about%20Capital%20First%20more."><img  class="swhatsapp" src="/img/swhatsapp.png" alt= "whatsapp" style="width42px; height=42px;">Available on Whatsapp 24/7 </a>
+                                                
+                                            </div>
+                                            
+                                            
+                                            
                                         </div>
                                     </div>
                                     <div class="uk-position-center">
@@ -249,13 +280,16 @@
                                 <div class="uk-grid" data-uk-grid>
                                     <div class="uk-width-1-2@m">
                                         <div class="uk-overlay">
-                                            <h1>Let top <span class="in-highlight">traders</span> do the job for you!</h1>
+                                            <h1>Let top <span>traders</span> do the job for you!</h1>
                                             <p class="uk-text-lead uk-visible@m">Covesting allows you to automatically copy
                                                 top
                                                 performing traders and achieve the returns</p>
                                             <div class="in-slideshow-button">
-                                                <a class="uk-button uk-button-primary uk-border-rounded" href="#">Open
+                                                <a class="uk-button uk-button-primary uk-border-rounded" href="{{ route('register') }}">Open
                                                     account</a>
+                                            </div>
+                                             <div class="in-slideshow-button">
+                                             <a class="uk-button uk-button-primary uk-border-rounded Dwhatsapp" href="https://api.whatsapp.com/send?phone=+1%C2%A0(505)%C2%A0375%E2%80%910231&text=I%20want%20to%20know%20about%20Capital%20First%20more."><img  class="swhatsapp" src="/img/swhatsapp.png" alt= "whatsapp" style="width42px; height=42px;">Available on Whatsapp 24/7 </a>
                                             </div>
                                         </div>
                                     </div>
@@ -498,17 +532,15 @@
                          data-uk-grid="">
                         <div class="uk-width-1-1 uk-first-column">
                             <h2>Our trading brokers</h2>
-                        </div>
+                            </div>
+                        
                         <div class="uk-grid-margin uk-first-column">
                             <div class="our-team">
                                 <div class="pic">
-                                    <img
-                                            class="round"
-                                            src="https://ui-avatars.com/api/?name=ZAF-PTA_Capital&amp;color=7F9CF5&amp;background=EBF4FF"
-                                            alt="avatar" height="20" width="20">
+                                    <img class="round" src="https://ui-avatars.com/api/?name=ZAF-PTA_Capital&amp;color=7F9CF5&amp;background=EBF4FF" alt="avatar" height="20" width="20">
                                 </div>
                                 <h3 class="title">ZAF-PTA_Capital</h3>
-                                {{--<span class="post">Web Developer</span>--}}
+                                
 
                                 <ul class="social">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -546,7 +578,7 @@
                                             src="https://ui-avatars.com/api/?name=AdwiseCapital&amp;color=7F9CF5&amp;background=EBF4FF"
                                             alt="avatar" height="40" width="40">
                                 </div>
-                                <h3 class="title">AdwiseCapital</h3>
+                                <h3 class="title">Adwise-Capital</h3>
 
                                 <ul class="social">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -591,7 +623,7 @@
                                             src="https://ui-avatars.com/api/?name=MGA-Capital&amp;color=7F9CF5&amp;background=EBF4FF"
                                             alt="avatar" height="40" width="40">
                                 </div>
-                                <h3 class="title">MGA-Capital</h3>
+                                <h3 class="title">Hercules-Capital</h3>
 
                                 <ul class="social">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -629,7 +661,7 @@
                                             src="https://ui-avatars.com/api/?name=StarCapitals-IN&amp;color=7F9CF5&amp;background=EBF4FF"
                                             alt="avatar" height="40" width="40">
                                 </div>
-                                <h3 class="title">StarCapitals-IN</h3>
+                                <h3 class="title">Farith-Capital</h3>
 
                                 <ul class="social">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -645,20 +677,22 @@
             </div>
 
             <div class="container">
-                <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
-                    <div class="col-md-6">
-                        <iframe scrolling="no" allowtransparency="true" frameborder="0" class="live"
-                            src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"></iframe>
-                    </div>
-                    <div class="col-md-6" style="padding-left: 55px">
-                        <h2>Live Fx &amp; Spot Metal Quotes</h2>
-                        <ul class=" uk-list uk-list-bullet in-list-check uk-margin-bottom">
-                            <li>Ultra-competitive pricing</li>
-                            <li>Trading flexibility</li>
-                            <li>Best Copy-Trading platform</li>
-                        </ul>
-                    </div>
-                </div>
+                <!--<div class="row" style="margin-top: 50px; margin-bottom: 50px;">-->
+                <!--    <div class="col-md-6">-->
+                        <!--<iframe scrolling="no" allowtransparency="true" frameborder="0" class="live"-->
+                        <!--    src="https://s.tradingview.com/embed-widget/market-overview/?locale=en#%7B%22colorTheme%22%3A%22light%22%2C%22dateRange%22%3A%2212M%22%2C%22showChart%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22isTransparent%22%3Afalse%2C%22showSymbolLogo%22%3Atrue%2C%22showFloatingTooltip%22%3Afalse%2C%22width%22%3A%22600%22%2C%22height%22%3A%22410%22%2C%22tabs%22%3A%5B%7B%22title%22%3A%22Indices%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FOREXCOM%3ASPXUSD%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ANSXUSD%22%2C%22d%22%3A%22US%20100%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3ADJI%22%2C%22d%22%3A%22Dow%2030%22%7D%2C%7B%22s%22%3A%22INDEX%3ANKY%22%2C%22d%22%3A%22Nikkei%20225%22%7D%2C%7B%22s%22%3A%22INDEX%3ADEU40%22%2C%22d%22%3A%22DAX%20Index%22%7D%2C%7B%22s%22%3A%22FOREXCOM%3AUKXGBP%22%2C%22d%22%3A%22UK%20100%22%7D%5D%2C%22originalTitle%22%3A%22Indices%22%7D%2C%7B%22title%22%3A%22Futures%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME_MINI%3AES1!%22%2C%22d%22%3A%22S%26P%20500%22%7D%2C%7B%22s%22%3A%22CME%3A6E1!%22%2C%22d%22%3A%22Euro%22%7D%2C%7B%22s%22%3A%22COMEX%3AGC1!%22%2C%22d%22%3A%22Gold%22%7D%2C%7B%22s%22%3A%22NYMEX%3ACL1!%22%2C%22d%22%3A%22Crude%20Oil%22%7D%2C%7B%22s%22%3A%22NYMEX%3ANG1!%22%2C%22d%22%3A%22Natural%20Gas%22%7D%2C%7B%22s%22%3A%22CBOT%3AZC1!%22%2C%22d%22%3A%22Corn%22%7D%5D%2C%22originalTitle%22%3A%22Futures%22%7D%2C%7B%22title%22%3A%22Bonds%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22CME%3AGE1!%22%2C%22d%22%3A%22Eurodollar%22%7D%2C%7B%22s%22%3A%22CBOT%3AZB1!%22%2C%22d%22%3A%22T-Bond%22%7D%2C%7B%22s%22%3A%22CBOT%3AUB1!%22%2C%22d%22%3A%22Ultra%20T-Bond%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBL1!%22%2C%22d%22%3A%22Euro%20Bund%22%7D%2C%7B%22s%22%3A%22EUREX%3AFBTP1!%22%2C%22d%22%3A%22Euro%20BTP%22%7D%2C%7B%22s%22%3A%22EUREX%3AFGBM1!%22%2C%22d%22%3A%22Euro%20BOBL%22%7D%5D%2C%22originalTitle%22%3A%22Bonds%22%7D%2C%7B%22title%22%3A%22Forex%22%2C%22symbols%22%3A%5B%7B%22s%22%3A%22FX%3AEURUSD%22%7D%2C%7B%22s%22%3A%22FX%3AGBPUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDJPY%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCHF%22%7D%2C%7B%22s%22%3A%22FX%3AAUDUSD%22%7D%2C%7B%22s%22%3A%22FX%3AUSDCAD%22%7D%5D%2C%22originalTitle%22%3A%22Forex%22%7D%5D%2C%22utm_source%22%3A%22tokyosecurities.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22market-overview%22%7D"></iframe>-->
+                <!--    </div>-->
+                <!--    <div class="col-md-6" style="padding-left: 55px">-->
+                <!--        <h2>Live Fx &amp; Spot Metal Quotes</h2>-->
+                <!--        <ul class=" uk-list uk-list-bullet in-list-check uk-margin-bottom">-->
+                <!--            <li>Ultra-competitive pricing</li>-->
+                <!--            <li>Trading flexibility</li>-->
+                <!--            <li>Best Copy-Trading platform</li>-->
+                <!--        </ul>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <p></p>
+            
             </div>
 
             <!-- Trade with world-leading copy trading platform -->
@@ -737,7 +771,129 @@
                     </div>
                 </div>
             </div>
+<!------ Plans------->
+<P></P>
+<p></p>
+<P></P>
+<p></p>
+<div class="uk-section uk-padding-large in-padding-large-vertical@s in-profit-10">
+<div class="uk-container uk-margin-bottom">
+                    <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-grid uk-grid-stack"
+                        data-uk-grid="">
+                        <div class="uk-width-1-1 uk-first-column">
+                            <h2>Capital first Best Plans for you.</h2>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-6.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">CF 5$</h4>
+                            <P></P>
+                            <ul class="pkg">
+                                <li>
+                                Minnimum Deposit <b>5$.</b>
+                                </li>
+                                                                <li>
+                                 <b>Principal Amount is not Withdrawable.</b>
+                                </li>
+                            
+                            </ul>
+                            <P></P>
+                             <a class="uk-button uk-button-primary uk-border-rounded"
+                                                    href="{{ route('register') }}">Open account</a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-7.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">CF Standard</h4>
+                            <P></P>
+                             <ul class="pkg">
+                                                                 <li>
+                                    Minnimum Deposit <b>50$</b>
+                                </li>
+                                <li>
+                                   <b>600-650</b> Days Earning. 
+                                </li>
+                                <li>
+                                   <b> 200 % </b> of your Amount.
+                                </li>
+                                <li>
+                                  <b>0.20 To 0.30</b> Daily Retrun
+                                </li>
+                                <li>
+                                    Monthly Retrun  <b>5 To 7 %</b>
+                                </li>
+                                <li>
+                                 <b>Principal Amount is  Withdrawable at any time</b>
+                                </li>
+                            </ul>
+                                                        <P></P>
+                             <a class="uk-button uk-button-primary uk-border-rounded"
+                                                    href="{{ route('register') }}">Open account</a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-8.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h4 class="uk-heading-bullet uk-margin-top">CF Pro Account</h4>
+                            <P></P>
+                             <ul class="pkg">
+                                <li>
+                                    Minnimum Deposit <b>500$.</b>
+                                </li>
+                                <li>
+                                    <b>600-650 Days</b> Earning. 
+                                </li>
+                                <li>
+                                    <b>200 % </b>of your Amount.
+                                </li>
+                                <li>
+                                    <b>0.20 To 0.35</b> Daily Retrun
+                                </li>
+                                <li>
+                                    Monthly Retrun  <b>5 To 8 %</b>
+                                </li>
+                                <li>
+                                 <b>Principal Amount is Withdrawable at any time</b>
+                                </li>
+                            </ul>
+                                                        <P></P>
+                             <a class="uk-button uk-button-primary uk-border-rounded"
+                                                    href="{{ route('register') }}">Open account</a>
+                        </div>
+                        <div class="uk-grid-margin uk-first-column">
+                            <img alt="profit-icon" data-src="{{ asset('assets') }}/frontend/images/icon-9.png"
+                                data-uk-img="" height="86" src="" width="86">
+                            <h5 class="uk-heading-bullet uk-margin-top broke" >CF  Brokerage Account </h5>
+                            <P></P>
+                             <ul class="pkg">
+                                <li>
+                                    Minnimum Deposit <b>1000$</b>.
+                                </li>
+                                <li>
+                                    <b>600-650</b> Days Earning. 
+                                </li>
+                                <li>
+                                    <b>200 %</b> of your Amount.
+                                </li>
+                                <li>
+                                    <b>0.35 To 0.45</b> Daily Retrun
+                                </li>
+                                <li>
+                                    Monthly Retrun <b> 8 To 10 %</b>
+                                </li>
+                                <li>
+                                 <b>Principal Amount is Withdrawable at any time</b>
+                                </li>
+                            </ul>
+                                                        <P></P>
+                             <a class="uk-button uk-button-primary uk-border-rounded"
+                                                    href="{{ route('register') }}">Open account</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <P></P>
 
+                <!-----plans------>
             <!-- Contact -->
             <div class="uk-container" id="contact">
                 <div class="uk-grid uk-flex uk-flex-center in-contact-6">
@@ -857,29 +1013,42 @@ England</span></a>
                     <div class="uk-grid uk-flex uk-flex-center uk-margin-large-top" data-uk-grid>
                         <div class="uk-width-5-6@m uk-margin-bottom">
                             <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">The Capital First
+                                        </span></h5>
+                                <p class="uk-text-small">
+                                    4X Capitals LLC , Suite 305, Griffith Corporate Centre, Kingstown,Saint Vincent and the Grenadines, is incorporated under registered
+number 1405 LLC 2021 by the Registrar of International Business Companies, registered by the Financial Services Authority of Saint Vincent and the Grenadines.
+                                </p>
+                                </div>
+                            <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Our
                                         Trading Platform</span></h5>
                                 <p class="uk-text-small">
                                     Our trading platform is MT4, Payment Processing / e-wallets, Forex Services and Crypto
                                     Currency Services.
                                 </p>
-                                {{-- <p class="uk-text-small">
-                                    Our trading platform is MT4, Our strategy manager trading is on
-                                    MT4
-                                    platform. We use the platform of MTFXG for all our trades on MT4.
-                                    "MTFXG is incorporated in the Republic of Kazakhstan with Business Identification Number
-                                    26342 BC2021 and has been registered as Financial Services Provider on the 25/12/2020
-                                    with
-                                    the Ministry of Economy. The company is entitled to provide the following services to
-                                    customers within and outside the Republic of Kazakhstan according to the accreditation
-                                    issued by the Agency for Regulation and Development of the Financial Market of the
-                                    Republic
-                                    of Kazakhstan, dated 24/02/2021 and file number 36-0-12/5/ЮЛ-C-265: Payment Processing /
-                                    e-wallets, Forex Services and Crypto Currency Services."
-                                    <br><small>In case of any dispute, MTFXG only deal with Capital First strategy
-                                        manager.</small>
-                                </p> --}}
-                            </div>
+                                 
+                               </div>
+                            <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Risk Warning
+                                        </span></h5>
+                                <p class="uk-text-small">
+                                    rading Forex and Financial Instruments involve a high level of risk and may not be suitable for all investors. The high degree of leverage can be either for or against you. Before deciding to invest, carefully consider your investment objectives and risk appetite. You should be aware of the risks associated with financial markets.
+                                </p>
+                                </div>
+                                <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Intellectual Property Rights </span></h5>
+                                <p class="uk-text-small">
+                                    Any unauthorized duplication, publication or quotation from CAPITALFIRST website, in part or whole, without the prior written consent of CAPITALFIRST constitutes a violation of Intellectual Property Rights and will be subject to litigation. This includes downloading or accessing the brand name, logos, banner images, agreement, etc.), hence may not be used, copied or otherwise presented without consent in any way.
+                                </p>
+                                </div>
+                                 <div class="in-footer-warning in-margin-top-20@s">
+                                <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Other Information</span></h5>
+                                <p class="uk-text-small">
+                                    All the information provided on CAPITALFIRST website is for educational purposes only. Any trader/Investor placing trades/investment relying upon the website information is taken at his own risk. Past performances are no guarantee of future profits. CAPITALFIRST shall not be held legally responsible for any potential loss or damage resulting from relying on the information presented in this website, including brokers’ reviews and ratings, financial news, authors’ opinions, and/or analysis.
+                                </p>
+                                </div>
+                                 
                             {{-- <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span
                                         style="background-color: #233A7D">Disclosure</span></h5>

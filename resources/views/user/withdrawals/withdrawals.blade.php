@@ -64,7 +64,6 @@
                                 <table id="withdrawTable" class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Account</th>
                                         <th>Currency</th>
                                         <th>Withdraw Address</th>
@@ -75,9 +74,6 @@
                                     <tbody>
                                     @foreach($withdrawals as $withdrawal)
                                         <tr>
-                                            <td>
-                                                {{ $loop->iteration }}
-                                            </td>
                                             <td>{{ $withdrawal->account_type }}</td>
                                             <td>
                                                 @if($withdrawal->currency == 'BTC')
@@ -110,7 +106,7 @@
                                                 {{ $withdrawal->paymentStatus->name ?? '' }}
                                             </td>
 
-                                            <td>{{ date_format($withdrawal->created_at, 'M d, Y - h:i') }}</td>
+                                            <td data-sort="{{ $withdrawal->created_at }}">{{ date_format($withdrawal->created_at, 'M d, Y - h:i') }}</td>
 
                                         </tr>
                                     @endforeach
@@ -136,7 +132,7 @@
                 "bInfo": false,
                 "bAutoWidth": true,
                 "dom": '<"pull-left"f><"pull-right"l>tip',
-                order: [[5, 'desc']],
+                order: [[4, 'desc']],
                 scrollX: true
             });
         });

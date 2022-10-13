@@ -163,8 +163,15 @@ figure {
   margin: 0 0 1rem; }
 
 img {
-  vertical-align: middle;
-  border-style: none; }
+      vertical-align: middle;
+  border-style: none; 
+    
+}
+  
+  .newlogo{
+      width:181px !important;
+      margin-top:20px;
+  }
 
 svg {
   overflow: hidden;
@@ -5271,6 +5278,9 @@ button.bg-dark:focus {
   display: block;
   clear: both;
   content: ""; }
+.btc{
+      width:20px!important;
+  }
 
 .d-none {
   display: none !important; }
