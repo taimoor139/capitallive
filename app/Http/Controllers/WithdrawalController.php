@@ -60,7 +60,7 @@ class WithdrawalController extends Controller
             }
         }
 
-        return view('user.withdrawals.withdrawals', compact('bonusBalance', 'earningBalance', 'totalBalance', 'withdrawals', 'btcLimit', 'usdtLimit'));
+        return view('user.withdrawals.withdrawals', compact('bonusBalance', 'earningBalance', 'totalBalance', 'withdrawals', 'btcLimit', 'usdtLimit', 'withdrawalCheck'));
     }
 
     public function withdrawalStore(Request $request)
@@ -73,7 +73,10 @@ class WithdrawalController extends Controller
         if ($validate) {
             if (date('D', strtotime(now())) == "Mon") {
                 $user = User::query()->where('id', Auth::user()->id)->first();
-
+                $withdrawCheck = Withdrawal::query()->where('userId', auth()->user()->id)->whereDate('created_at', Carbon::today())->first();
+                if($withdrawCheck){
+                    return Redirect()->route('withdrawal-dashboard')->with('error', 'Only one withdrawal is allowed!');
+                }
                 if (Hash::check($request->password, $user->password)) {
                     Withdrawal::insert([
                         'business_account' => $request->balance_account,
