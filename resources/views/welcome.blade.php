@@ -254,17 +254,17 @@
                                             <div class="in-slideshow-button">
                                                 <a class="uk-button uk-button-primary uk-border-rounded"
                                                     href="{{ route('register') }}">Open account</a>
-                                                
+
                                             </div>
-                                            
-                                            
+
+
                                              <div class="in-slideshow-button">
                                              <a class="uk-button uk-button-primary uk-border-rounded Dwhatsapp" href="https://api.whatsapp.com/send?phone=+1%C2%A0(505)%C2%A0375%E2%80%910231&text=I%20want%20to%20know%20about%20Capital%20First%20more."><img  class="swhatsapp" src="/img/swhatsapp.png" alt= "whatsapp" style="width42px; height=42px;">Available on Whatsapp 24/7 </a>
-                                                
+
                                             </div>
-                                            
-                                            
-                                            
+
+
+
                                         </div>
                                     </div>
                                     <div class="uk-position-center">
@@ -529,18 +529,18 @@
                  data-src="" data-uk-img="" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
                 <div class="uk-container uk-margin-bottom">
                     <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center uk-grid uk-grid-stack"
-                         data-uk-grid="">
+                         data-uk-grid="" style="justify-content: center">
                         <div class="uk-width-1-1 uk-first-column">
                             <h2>Our trading brokers</h2>
                             </div>
-                        
+
                         <div class="uk-grid-margin uk-first-column">
                             <div class="our-team">
                                 <div class="pic">
                                     <img class="round" src="https://ui-avatars.com/api/?name=ZAF-PTA_Capital&amp;color=7F9CF5&amp;background=EBF4FF" alt="avatar" height="20" width="20">
                                 </div>
                                 <h3 class="title">ZAF-PTA_Capital</h3>
-                                
+
 
                                 <ul class="social">
                                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -609,13 +609,7 @@
 
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-3">
+                        <div class="uk-grid-margin uk-first-column">
                             <div class="our-team">
                                 <div class="pic">
                                     <img
@@ -634,7 +628,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="uk-grid-margin uk-first-column">
                             <div class="our-team">
                                 <div class="pic">
                                     <img
@@ -653,7 +647,7 @@
 
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="uk-grid-margin uk-first-column">
                             <div class="our-team">
                                 <div class="pic">
                                     <img
@@ -672,7 +666,12 @@
 
                             </div>
                         </div>
-                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="background-image: url({{ asset('assets') }}/frontend/images/3.jpg);">
+                    <div class="row">
+
                 </div>
             </div>
 
@@ -692,7 +691,7 @@
                 <!--    </div>-->
                 <!--</div>-->
                 <p></p>
-            
+
             </div>
 
             <!-- Trade with world-leading copy trading platform -->
@@ -790,12 +789,12 @@
                             <P></P>
                             <ul class="pkg">
                                 <li>
-                                Minnimum Deposit <b>5$.</b>
+                                Minimum Deposit <b>5$.</b>
                                 </li>
                                                                 <li>
                                  <b>Principal Amount is not Withdrawable.</b>
                                 </li>
-                            
+
                             </ul>
                             <P></P>
                              <a class="uk-button uk-button-primary uk-border-rounded"
@@ -811,7 +810,7 @@
                                     Minnimum Deposit <b>50$</b>
                                 </li>
                                 <li>
-                                   <b>600-650</b> Days Earning. 
+                                   <b>600-650</b> Days Earning.
                                 </li>
                                 <li>
                                    <b> 200 % </b> of your Amount.
@@ -840,7 +839,7 @@
                                     Minnimum Deposit <b>500$.</b>
                                 </li>
                                 <li>
-                                    <b>600-650 Days</b> Earning. 
+                                    <b>600-650 Days</b> Earning.
                                 </li>
                                 <li>
                                     <b>200 % </b>of your Amount.
@@ -869,7 +868,7 @@
                                     Minnimum Deposit <b>1000$</b>.
                                 </li>
                                 <li>
-                                    <b>600-650</b> Days Earning. 
+                                    <b>600-650</b> Days Earning.
                                 </li>
                                 <li>
                                     <b>200 %</b> of your Amount.
@@ -979,12 +978,12 @@
                             <ul class="uk-list uk-link-text">
                                 <!-- <li><img alt=" logo" class="uk-margin-small-bottom" height="36" src="../Images/logo-2.png"
                                                     width="130"> -->
-                              
+
                                 </li>
                                 <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right"></i><span>West End Towers, Waiyaki Way, 6th Floor,
 P.O. Box 1896-00606, Nairobi, Republic of Kenya</span></a>
                                 </li>
-                               
+
 
                                 <li><a href="#"><i class="fas fa-map-marker uk-margin-small-right"></i><span>5th Floor, 355 NEX Tower,
 Rue du Savoir, Cybercity, Ebene 72201, Mauritius</span></a>
@@ -1027,7 +1026,7 @@ number 1405 LLC 2021 by the Registrar of International Business Companies, regis
                                     Our trading platform is MT4, Payment Processing / e-wallets, Forex Services and Crypto
                                     Currency Services.
                                 </p>
-                                 
+
                                </div>
                             <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span style="background-color: #233A7D">Risk Warning
@@ -1048,7 +1047,7 @@ number 1405 LLC 2021 by the Registrar of International Business Companies, regis
                                     All the information provided on CAPITALFIRST website is for educational purposes only. Any trader/Investor placing trades/investment relying upon the website information is taken at his own risk. Past performances are no guarantee of future profits. CAPITALFIRST shall not be held legally responsible for any potential loss or damage resulting from relying on the information presented in this website, including brokers’ reviews and ratings, financial news, authors’ opinions, and/or analysis.
                                 </p>
                                 </div>
-                                 
+
                             {{-- <div class="in-footer-warning in-margin-top-20@s">
                                 <h5 class="uk-text-small uk-text-uppercase"><span
                                         style="background-color: #233A7D">Disclosure</span></h5>

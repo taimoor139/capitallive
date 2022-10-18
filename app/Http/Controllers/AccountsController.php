@@ -112,7 +112,7 @@ class AccountsController extends Controller
         $type1 = '';
         $type2 = '';
         $type3 = '';
-    
+
 
         foreach ($userEarnings as $earning) {
             if ($earning->earning_type == 1) {

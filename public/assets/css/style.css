@@ -1104,24 +1104,24 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   #calendar-wrap header {
     text-align: center;
   }
-  
+
   #calendar {
-    width: 100%;	
+    width: 100%;
     display: inline-block;
   }
-  
+
   #calendar a {
     color: #8e352e;
     text-decoration: none;
   }
-  
+
   #calendar ul {
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
   }
-  
+
   #calendar li {
     display: block;
     float: left;
@@ -1132,12 +1132,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     margin-right: -1px;
     margin-bottom: -1px;
   }
-  
+
   #calendar ul.weekdays {
     height: 40px;
     background: #8e352e;
   }
-  
+
   #calendar ul.weekdays li {
     text-align: center;
     text-transform: uppercase;
@@ -1148,15 +1148,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     font-size: 13px;
     background-color: #7367f0;
   }
-  
+
   #calendar .days li {
     height: 100px;
   }
-  
+
   #calendar .days li:hover {
     background: #d3d3d3;
   }
-  
+
   #calendar .date {
     text-align: center;
     margin-bottom: 5px;
@@ -1167,7 +1167,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     border-radius: 50%;
     float: right;
   }
-  
+
   #calendar .event {
     clear: both;
     display: block;
@@ -1182,31 +1182,31 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     color: #009aaf;
     text-decoration: none;
   }
-  
+
   #calendar .event-desc {
     color: #666;
     margin: 3px 0 7px 0;
-    text-decoration: none;	
+    text-decoration: none;
     text-align: center;
     font-weight: bold;
   }
-  
+
   #calendar .other-month {
     background: #f5f5f5;
     color: #666;
   }
-  
+
   /* ============================
           Mobile Responsiveness
      ============================*/
-  
-  
+
+
   @media(max-width: 768px) {
-  
+
     #calendar .weekdays {
       display: none;
     }
-  
+
     #calendar li {
       height: auto !important;
       border: 1px solid #ededed;
@@ -1214,7 +1214,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
       padding: 10px;
       margin-bottom: -1px;
     }
-  
+
     #calendar .date {
       float: none;
     }
