@@ -224,10 +224,10 @@
                         <div class="uk-width-1-2@m">
                             <div class="uk-margin-large" data-uk-grid>
                                 <div class="uk-width-1-3@m">
-                                    <h1 class="uk-text-primary uk-text-right@m">
+                                    <h2 class="uk-text-primary uk-text-right@m">
                                                 <span style="color: #4629ff;" class="count"
-                                                      data-counter-end="{{ $userCount }}0">0</span>
-                                    </h1>
+                                                      data-counter-end="100230">0</span>
+                                    </h2>
                                     <hr class="uk-divider-small uk-text-right@m">
                                 </div>
                                 <div class="uk-width-expand@m">
@@ -237,10 +237,10 @@
                             </div>
                             <div class="uk-margin-large" data-uk-grid>
                                 <div class="uk-width-1-3@m">
-                                    <h1 class="uk-text-primary uk-text-right@m">
+                                    <h2 class="uk-text-primary uk-text-right@m">
                                                  <span style="color: #4629ff;" class=" count"
-                                                       data-counter-end="{{ $investment }}0">0</span>
-                                    </h1>
+                                                       data-counter-end="7000000">0</span><span style="color: #4629ff;">+</span>
+                                    </h2>
                                     <hr class="uk-divider-small uk-text-right@m">
                                 </div>
                                 <div class="uk-width-expand@m">
@@ -250,10 +250,10 @@
                             </div>
                             <div class="uk-margin-large" data-uk-grid>
                                 <div class="uk-width-1-3@m">
-                                    <h1 class="uk-text-primary uk-text-right@m">
+                                    <h2 class="uk-text-primary uk-text-right@m">
                                                 <span style="color: #4629ff;" class=" count"
-                                                      data-counter-end="{{ $bonuses }}0">0</span>
-                                    </h1>
+                                                      data-counter-end="300000">0</span><span style="color: #4629ff;">+</span>
+                                    </h2>
                                     <hr class="uk-divider-small uk-text-right@m">
                                 </div>
                                 <div class="uk-width-expand@m">

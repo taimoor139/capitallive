@@ -12,13 +12,13 @@
                     <div class="col-12">
                         <div class="card border-top-warning border-bottom-warning">
                             <div class="card-body">
-                                 <h5 class="card-title"> 
-                                            <a href="https://api.whatsapp.com/send?phone=+1%C2%A0(505)%C2%A0375%E2%80%910231&text=I%20want%20to%20know%20about%20Capital%20First%" type="button" class="btn-success btn-sm  fa fa-whatsapp "><span></span> For Deposit Conatact us  
+                                 <h5 class="card-title">
+                                            <a href="https://api.whatsapp.com/send?phone=+1%C2%A0(505)%C2%A0375%E2%80%910231&text=I%20want%20to%20know%20about%20Capital%20First%" type="button" class="btn-success btn-sm  fa fa-whatsapp "><span></span> For Deposit Contact us
                                 </a>
                                 <h5 class="card-title"><i class="bi bi-currency-exchange text-primary"></i> My Deposits
-                                 
-                                            
-                                         
+
+
+
                                     {{-- <a href="#" type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                         data-bs-target="#addDeposit" style="float: right">New Deposit
                                 </a> --}}

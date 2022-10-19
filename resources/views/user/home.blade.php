@@ -104,7 +104,7 @@
                                             <i class="bi bi-wallet2 text-warning" style="font-size: 50px"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6 style="font-size: 24px;">$ {{ ($totalBonuses > 0 ? round($totalBonuses, 2) : 0 ) + round($earning, 2)}}</h6>
+                                            <h6 style="font-size: 24px;">$ {{ $totalBonuses + $earning}}</h6>
                                             <span class="text-muted small pt-2" style="font-size: 24px;">Balance</span>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                             <i class="bi bi-currency-exchange"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6 style="font-size: 24px;">$ {{ number_format($deposits) }}</h6>
+                                            <h6 style="font-size: 24px;">$ {{ $deposits }}</h6>
                                             <span class="text-muted small pt-2"
                                                   style="font-size: 24px;">My Investment</span>
                                         </div>
@@ -144,7 +144,7 @@
                                             <i class="bi bi-wallet2 text-warning" style="font-size: 50px"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6 style="font-size: 24px;">$ {{ ($totalBonuses > 0 ? round($totalBonuses, 2) : 0 )}}</h6>
+                                            <h6 style="font-size: 24px;">$ {{ $totalBonuses }}</h6>
                                             <span class="text-muted small pt-2" style="font-size: 24px;">Bonuses</span>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@
                                             <i class="bi bi-currency-exchange"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6 style="font-size: 24px;">$ {{ round($earning, 2) }}</h6>
+                                            <h6 style="font-size: 24px;">$ {{ $earning }}</h6>
                                             <span class="text-muted small pt-2" style="font-size: 24px;">Earnings</span>
                                         </div>
                                     </div>

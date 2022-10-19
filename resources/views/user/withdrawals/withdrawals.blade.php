@@ -26,7 +26,7 @@
                                 <div class="card border-left-warning">
                                     <div class="card-body">
                                         <h5 class="card-title p-0 pt-4">
-                                            $ {{ ($bonusBalance > 0 ? number_format($bonusBalance) : 0) }}</h5>
+                                            $ {{ $bonusBalance}}</h5>
                                         <p class="card-text">Bonus Balance</p>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                             <div class="col-xl-3 col-sm-6 mb-20">
                                 <div class="card border-left-warning">
                                     <div class="card-body">
-                                        <h5 class="card-title p-0 pt-4">$ {{ number_format($earningBalance) }}</h5>
+                                        <h5 class="card-title p-0 pt-4">$ {{ $earningBalance }}</h5>
                                         <p class="card-text">Earning Balance</p>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="card border-left-warning">
                                     <div class="card-body">
                                         <h5 class="card-title p-0 pt-4">
-                                            $ {{ ($totalBalance > 0 ? number_format($totalBalance) : 0) }}</h5>
+                                            $ {{ $totalBalance }}</h5>
                                         <p class="card-text">Available Balance</p>
                                     </div>
                                 </div>
