@@ -40,13 +40,15 @@
                                             {{ date_format($ticket->created_at, 'M d, Y') }}
                                         </span>
                                     </div>
-                                    <div class="col-md-6 d-flex justify-content-end align-items-end">
-                                        <form method="post"
-                                              action="{{ route('close-ticket', $ticket->ticket_id) }}">
-                                            @csrf
-                                            <button class="btn btn-danger btn-sm">Close Ticket</button>
-                                        </form>
-                                    </div>
+                                    @if($ticket->status == 0)
+                                        <div class="col-md-6 d-flex justify-content-end align-items-end">
+                                            <form method="post"
+                                                  action="{{ route('close-ticket', $ticket->ticket_id) }}">
+                                                @csrf
+                                                <button class="btn btn-danger btn-sm">Close Ticket</button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="main-box">
                                     <div class="main-box-content d-flex mt-1">
@@ -118,26 +120,26 @@
                                                     <h6 class="m-0">{{ $message->user_name }}</h6>
                                                     <span>{{ date_format($message->created_at, 'M d, Y') }} ,
                                                 <?php
-                                                        $datetime1 = new DateTime($message->created_at);
-                                                        $datetime2 = new DateTime(date('Y-m-d H:i:s'));
-                                                        $interval = $datetime1->diff($datetime2);
+                                                            $datetime1 = new DateTime($message->created_at);
+                                                            $datetime2 = new DateTime(date('Y-m-d H:i:s'));
+                                                            $interval = $datetime1->diff($datetime2);
 
-                                                        if ($interval->format('%Y') > 0) {
-                                                            echo $interval->format('%Y years');
-                                                        } else if ($interval->format('%Y') == 0 && $interval->format('%m') > 0) {
-                                                            echo $interval->format('%m months');
-                                                        } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') > 0) {
-                                                            echo $interval->format('%d days');
-                                                        } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') > 0) {
-                                                            echo $interval->format('%H hours');
-                                                        } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') == 0 && $interval->format('%i') > 0) {
-                                                            echo $interval->format('%i minutes');
-                                                        } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') == 0 && $interval->format('%i') == 0 && $interval->format('%s') > 0) {
-                                                            echo $interval->format('%s seconds');
-                                                        } else {
-                                                            echo '0 seconds';
-                                                        }
-                                                        ?> ago</span>
+                                                            if ($interval->format('%Y') > 0) {
+                                                                echo $interval->format('%Y years');
+                                                            } else if ($interval->format('%Y') == 0 && $interval->format('%m') > 0) {
+                                                                echo $interval->format('%m months');
+                                                            } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') > 0) {
+                                                                echo $interval->format('%d days');
+                                                            } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') > 0) {
+                                                                echo $interval->format('%H hours');
+                                                            } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') == 0 && $interval->format('%i') > 0) {
+                                                                echo $interval->format('%i minutes');
+                                                            } else if ($interval->format('%Y') == 0 && $interval->format('%m') == 0 && $interval->format('%d') == 0 && $interval->format('%H') == 0 && $interval->format('%i') == 0 && $interval->format('%s') > 0) {
+                                                                echo $interval->format('%s seconds');
+                                                            } else {
+                                                                echo '0 seconds';
+                                                            }
+                                                            ?> ago</span>
                                                     <div
                                                         class="{{ ($message->user_id == Auth::user()->id ? "my-msg-box-msg" : "my-msg-box-msg2") }} mt-1">
                                                         {{ $message->message }}

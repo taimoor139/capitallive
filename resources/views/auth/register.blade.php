@@ -108,7 +108,7 @@
                                 <div class="form-group">
                                     <label for="register-username" class="form-label">Enter Your Full Name</label>
 
-                                    <input type="text" class="form-control" id="name" Placeholder="Jhon Smith"
+                                    <input type="text" class="form-control" id="name" Placeholder="John Smith"
                                            @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
                                     required autocomplete="name" autofocus>
                                     @error('name')
