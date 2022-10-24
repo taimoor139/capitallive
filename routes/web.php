@@ -231,7 +231,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth', 'verified',
     Route::post('update_notification', [NotificationController::class, 'update'])->name('update-notification');
     Route::post('delete_notification/{id}', [NotificationController::class, 'destroy'])->name('delete-notification');
     Route::get('admin_notifications', [NotificationController::class, 'adminNotifications'])->name('admin-notifications');
-
+    Route::post('update_notification_status', [NotificationController::class, 'updateNotificationStatus'])->name('updateNotificationStatus');
     //Education
     Route::get('education', [EducationController::class, 'articles'])->name('articles');
     Route::get('education/create', [EducationController::class, 'create'])->name('create-education');

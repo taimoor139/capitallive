@@ -1,3 +1,8 @@
+<?php
+
+    $notifications = \App\Models\Notification::query()->where('type', '!=', 1)->where('status', 1)->count();
+
+?>
 <nav class="navbar-wrapper  navbar navbar-expand-lg">
     <form class="navbar-search" onsubmit="return false;">
         <button type="submit" class="navbar-search__btn">
@@ -21,6 +26,18 @@
 
                     <a href="{{ route('admin-notifications') }}">
                         <i class="fa fa-bell"></i>
+                        @if($notifications)
+
+                            <span style="
+                                    position: relative;
+                                    top: -7px;
+                                    right: 4px;
+                                    padding: 0px 4px;
+                                    border-radius: 100%;
+                                    background: red;
+                                    color: white;
+                                "> {{ $notifications }}</span>
+                        @endif
                     </a>
             </li>
             <li class="dropdown">

@@ -73,4 +73,10 @@ class NotificationController extends Controller
         $notifications = Notification::query()->where('type', '!=', 1)->orderBy('id', 'desc')->get();
         return view('admin.notification.admin_notifications', compact('notifications'));
     }
+
+    public function updateNotificationStatus(){
+         Notification::query()->where('type', '!=', 1)->update([
+             'status' => 0
+         ]);
+    }
 }

@@ -1,6 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('content')
+    <input type="hidden" value="{{ csrf_token() }}" id="_token" name="_token">
     <div class="body-wrapper">
         <div class="bodywrapper__inner">
 
@@ -21,10 +22,10 @@
                             <tr>
                                 <td>
                                     @if($notification->type == 2)
-                                       <a href="{{ ($notification->ticket_id ? route('views-ticket',[$notification->ticket_id]) : route('all-tickets')) }}">
-                                           <span class="text-info">{{ $notification->description }}</span>
-                                       </a>
-                                        @elseif($notification->type == 3)
+                                        <a href="{{ ($notification->ticket_id ? route('views-ticket',[$notification->ticket_id]) : route('all-tickets')) }}">
+                                            <span class="text-info">{{ $notification->description }}</span>
+                                        </a>
+                                    @elseif($notification->type == 3)
                                         <a href="{{ route('documents') }}">
                                             <span class="text-info">{{ $notification->description }}</span>
                                         </a>
@@ -77,5 +78,17 @@
             }
         toastr.warning("{{ session('warning') }}");
         @endif
+    </script>
+    <script>
+        $(document).ready(function () {
+            var _token = $('#_token').val()
+            $.ajax({
+                url: '{{ route("updateNotificationStatus") }}',
+                type: "POST",
+                data: {_token: _token},
+                success: function () {
+                }
+            });
+        })
     </script>
 @endsection

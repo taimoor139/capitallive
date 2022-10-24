@@ -201,7 +201,7 @@
                     <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
                         <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
                             <div class="icon">
-                                <i class="fa fa-hand-holding-usd"></i>
+                                <i class="fa fa-money-bill"></i>
                             </div>
                             <div class="details">
                                 <div class="numbers">
@@ -339,7 +339,7 @@
                             <div class="col-lg-6 col-sm-6 mb-30">
                                 <div class="widget-three box--shadow2 b-radius--5 bg--white">
                                     <div class="widget-three__icon b-radius--rounded bg--teal box--shadow2">
-                                        <i class="fa fa-money-check"></i>
+                                        <i class="fa fa-money-bill"></i>
                                     </div>
                                     <div class="widget-three__content">
                                         <h2 class="numbers">0 USD</h2>
@@ -382,7 +382,7 @@
                     <div class="col-xl-4 col-lg-6 col-sm-6 mb-30">
                         <div class="dashboard-w1 bg--success b-radius--10 box-shadow">
                             <div class="icon">
-                                <i class="fa fa-money-bill-wave"></i>
+                                <i class="fa fa-money-bill"></i>
                             </div>
                             <div class="details">
                                 <div class="numbers">
