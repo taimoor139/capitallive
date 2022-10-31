@@ -54,11 +54,12 @@ class WithdrawalController extends Controller
         }
         $withdrawalCheck = 1;
         if (date('D', strtotime(now())) == "Mon") {
-            $withdrawal = Withdrawal::query()->whereDate('created_at', Carbon::today())->first();
+            $withdrawal = Withdrawal::query()->where('id', Auth::user()->id)->whereDate('created_at', Carbon::today())->first();
             if($withdrawal){
                 $withdrawalCheck = 0;
             }
         }
+
 
         return view('user.withdrawals.withdrawals', compact('bonusBalance', 'earningBalance', 'totalBalance', 'withdrawals', 'btcLimit', 'usdtLimit', 'withdrawalCheck'));
     }

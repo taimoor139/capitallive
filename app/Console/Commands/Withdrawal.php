@@ -80,7 +80,7 @@ class Withdrawal extends Command
                         $previousBalance = Balance::query()->where('user_id', $withdrawal->userId)->first();
                         if($previousBalance) {
                             $updateBalance = Balance::query()->where('user_id', $withdrawal->userId)->update([
-                                'balance' => $previousBalance + $withdrawal->amount
+                                'balance' => $previousBalance->balance + $withdrawal->amount
                             ]);
                         }
                     } else if(array_key_exists('success', $withdrawalCreate)){
@@ -95,7 +95,7 @@ class Withdrawal extends Command
                             $previousBalance = Balance::query()->where('user_id', $withdrawal->userId)->first();
                             if($previousBalance){
                                 $updateBalance = Balance::query()->where('user_id', $withdrawal->userId)->update([
-                                    'balance' => $previousBalance - $withdrawal->amount
+                                    'balance' => $previousBalance->balance - $withdrawal->amount
                             ]);
                             }
                         }
