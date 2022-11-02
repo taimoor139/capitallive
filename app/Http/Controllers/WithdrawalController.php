@@ -47,7 +47,7 @@ class WithdrawalController extends Controller
             $btcLimit['fee'] = $btc->fee;
         }
 
-        $usdt = WithdrawalLimit::query()->where('coin', 'USDT')->first();
+        $usdt = WithdrawalLimit::query()->where('coin', 'USDT.TRC20')->first();
         if ($usdt) {
             $usdtLimit['limit'] = $usdt->limit;
             $usdtLimit['fee'] = $usdt->fee;

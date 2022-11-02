@@ -50,7 +50,7 @@
                                     </option>
                                     <option
                                         data-coin="{&quot;id&quot;:6,&quot;name&quot;:&quot;USDT&quot;,&quot;current_price&quot;:1,&quot;api_link&quot;:null,&quot;coin_code&quot;:&quot;USDT.TRC20&quot;,&quot;icon_path&quot;:&quot;usdt.svg&quot;,&quot;allow_deposit&quot;:1,&quot;allow_withdraw&quot;:1,&quot;withdraw_limit&quot;:1,&quot;withdraw_fee&quot;:2.5,&quot;created_at&quot;:&quot;2021-12-15T19:46:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2022-02-02T19:24:32.000000Z&quot;}"
-                                        value="USDT">
+                                        value="USDT.TRC20">
                                         USDT - USDT.TRC20
                                     </option>
                                 </select>
