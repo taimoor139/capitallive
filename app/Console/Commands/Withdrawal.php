@@ -52,7 +52,12 @@ class Withdrawal extends Command
                     'currency' => $withdrawal->currency
                 ]);
                 if($withdrawalCreate){
-                    if(array_key_exists('error', $withdrawalCreate)){
+                    $status = -1;
+                        if($withdrawalCreate['error'] == 'ok') {
+                            $status = 100;
+                        }
+                    if(array_key_exists('error', $withdrawalCreate) && $withdrawalCreate['error'] != 'ok'){
+
                         $updateWithdraw = \App\Models\Withdrawal::query()->where('id', $withdrawal->id)->update([
                            'withdraw_status' => $withdrawalCreate['error'],
                             'status' => -1
@@ -83,7 +88,7 @@ class Withdrawal extends Command
                                 'balance' => $previousBalance->balance + $withdrawal->amount
                             ]);
                         }
-                    } else if(array_key_exists('success', $withdrawalCreate)){
+                    } else if(array_key_exists('success', $withdrawalCreate) || $withdrawalCreate['error'] == 'ok'){
                         $updateWithdraw = \App\Models\Withdrawal::query()->where('id', $withdrawal->id)->update([
                             'withdraw_status' => $withdrawalCreate['success'],
                             'status' => 100
