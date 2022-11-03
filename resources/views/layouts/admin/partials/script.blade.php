@@ -31,6 +31,13 @@
             order:[[ 6, "desc" ]],
             "columnDefs" : [{"targets":6, "type":"date"}],
             "bLengthChange": false,
-        })
+        });
+
+        $('#accountTable').DataTable({
+            order:[[ 1, "desc" ]],
+            "columnDefs" : [{"targets":1, "type":"date"}],
+            "bLengthChange": false,
+        });
+
     });
 </script>

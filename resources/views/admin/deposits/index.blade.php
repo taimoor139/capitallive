@@ -41,7 +41,7 @@
                     <div class="card b-radius--10">
                         <div class="card-body p-0">
                             <div class="table-responsive--sm table-responsive">
-                                <table class="table table--light style--two"  id="table">
+                                <table class="table table--light style--two"  id="accountTable">
                                     <thead>
                                     <tr>
                                         <th scope="col">Date</th>

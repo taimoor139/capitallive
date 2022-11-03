@@ -20,7 +20,7 @@
                     <div class="card b-radius--10">
                         <div class="card-body p-0">
                             <div class="table-responsive--sm table-responsive">
-                                <table id="table" class="table table--light style--two">
+                                <table id="accountTable" class="table table--light style--two">
                                     <thead>
                                     <tr>
                                         <th scope="col">
